@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definition Id="">
+  <Units>
+    <Unit Version="1.0" Id="" Category="OuterAudio" Group="1b852365-3f21-4b9d-83be-a33f965b35ff" StartTime="00:00:02.5810000" Duration="00:00:07.9930000" FilePath="" />
+  </Units>
+  <Groups>
+    <Group Version="1.0" Id="1b852365-3f21-4b9d-83be-a33f965b35ff" Category="OuterAudio" Name="オーディオ" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="true" CastId="Mixed" Language="Japanese" />
+  </Groups>
+  <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+</Definition>

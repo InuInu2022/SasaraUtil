@@ -16,6 +16,8 @@ using SasaraUtil.Models;
 using System;
 using Avalonia.Controls.ApplicationLifetimes;
 using Epoxy.Synchronized;
+using LibSasara.Model;
+using System.Collections.Generic;
 
 namespace SasaraUtil.ViewModels;
 
@@ -47,13 +49,41 @@ public sealed class AudioConvertViewModel
 			.CreateSync(ResetFile());
 	}
 
-	private static Func<ValueTask> SendToCeVIO()
+	private Func<ValueTask> SendToCeVIO()
 	=> async () =>
 	{
-		await Task.Run(() =>
+		//TODO: support multiple files
+		var path = DroppedFiles.First().Path;
+		var newPath = Path.ChangeExtension(path, "16bit48khz.wav");
+
+		await SoundConverter
+			.ConvertAsync(path, newPath);
+
+		var track = await TrackTemplateLoader
+			.LoadAudioTrackAsync();
+
+		var tc = track.GetTrackSets()[0];
+
+		var guid = Guid.NewGuid();
+		tc.SetGroupId(guid);
+
+		var units = track.GetUnits(Category.OuterAudio);
+		var u = units.Cast<AudioUnit>().First();
+		u.FilePath = newPath;
+		u.StartTime = new TimeSpan(0);
+		//TODO: check wav length
+		u.Duration = new TimeSpan(0, 1, 0);
+
+		var tmp = Path.ChangeExtension(Path.GetTempFileName(),"ccst");
+
+		await track.SaveAsync(tmp);
+
+		var info = new ProcessStartInfo()
 		{
-			//TODO
-		});
+			FileName = tmp,
+			UseShellExecute = true
+		};
+		Process.Start(info);
 	};
 
 	private Func<ValueTask> SaveFiles()
@@ -89,18 +119,8 @@ public sealed class AudioConvertViewModel
 
 		IsProcessing = true;
 		IsConvertable = false;
-		await Task.WhenAll(DroppedFiles
-			.Select(async v =>
-			{
-				var p = Path.GetFullPath(v.Path);
-				var f = Path.GetFileName(p);
-				var n = Path.Combine(
-					saveDir,
-					Path.ChangeExtension(f, "16bit48khz.wav")
-				);
-				await SoundConverter
-					.ConvertAsync(p, n);
-			})
+		await Task.WhenAll((IEnumerable<Task>)DroppedFiles
+			.Select(async v => await ConvertAsync(v.Path, saveDir))
 		);
 		Process.Start(
 			"explorer.exe",
@@ -109,6 +129,18 @@ public sealed class AudioConvertViewModel
 		IsProcessing = false;
 		IsConvertable = true;
 	};
+
+	private static async ValueTask ConvertAsync(string path, string? saveDir)
+	{
+		var p = Path.GetFullPath(path);
+		var f = Path.GetFileName(p);
+		var n = Path.Combine(
+			saveDir,
+			Path.ChangeExtension(f, "16bit48khz.wav")
+		);
+		await SoundConverter
+			.ConvertAsync(p, n);
+	}
 
 	public async ValueTask DropFileEventAsync(DragEventArgs e)
 	{
