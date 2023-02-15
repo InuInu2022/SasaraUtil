@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+			xmlns:ui="using:FluentAvalonia.UI.Controls"
+			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+			xmlns:sty="using:FluentAvalonia.Styling"
+			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+			x:Class="SasaraUtil.UI.Views.General.Help"
+			x:DataType="viewmodels:HelpViewModel"
+			 >
+	<UserControl.DataContext>
+        <viewmodels:HelpViewModel />
+    </UserControl.DataContext>
+
+	<ScrollViewer>
+		<DockPanel
+			Margin="5"
+			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+			<StackPanel>
+				<TextBlock
+					Text="SasaraUtil Help"
+					FontWeight="Bold"
+					FontSize="20"
+					HorizontalAlignment="Stretch"
+					/>
+				<Image Source="avares://SasaraUtil.UI/Assets/icon.ico"
+					Height="100"
+					Width="100"
+					Margin="10"
+					DockPanel.Dock="Top"
+					VerticalAlignment="Center"
+				/>
+				<ui:InfoBar
+					Title="SasaraUtilは開発中のアプリです"
+					IsOpen="True"
+					IsIconVisible="True"
+					IsClosable="False"
+					Message="SasaraUtilは開発中のアプリです。無料で使用できますが、不具合がある可能性が高いです。このアプリを使用したことによる損害は責任を持てません。自己責任で使用してください。バックアップはチョー大事。"
+					/>
+				<ui:HyperlinkButton
+						Content="SasaraUtil 公式README" NavigateUri="https://github.com/InuInu2022/SasaraUtil/blob/main/README.md" />
+				<Button Content="Licenses"
+					Command="{CompiledBinding OpenLicense}" />
+				<Expander Header="Links">
+					<WrapPanel
+					DockPanel.Dock="Bottom"
+					VerticalAlignment="Bottom"
+					>
+						<ui:HyperlinkButton
+						Content="SasaraUtil 公式サイト" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
+						<ui:HyperlinkButton Content="CeVIO 公式サイト" NavigateUri="https://cevio.jp/" />
+						<ui:HyperlinkButton Content="CeVIO AI ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
+						<ui:HyperlinkButton Content="CeVIO CS ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
+						<ui:HyperlinkButton Content="VoiSona 公式サイト" NavigateUri="https://voisona.com/" />
+						<ui:HyperlinkButton Content="CeVIO ユーザー互助会wiki" NavigateUri="https://w.atwiki.jp/ceviouser/" />
+					</WrapPanel>
+				</Expander>
+			</StackPanel>
+		</DockPanel>
+	</ScrollViewer>
+</UserControl>

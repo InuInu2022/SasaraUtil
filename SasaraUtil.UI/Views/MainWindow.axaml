@@ -70,7 +70,7 @@
 
 			<ui:NavigationView.FooterMenuItems>
 				<ui:NavigationViewItemSeparator />
-				<ui:NavigationViewItem Content="Help" Tag="SamplePage6" Icon="Help" IsEnabled="False" />
+				<ui:NavigationViewItem Content="Help" Tag="General.Help" Icon="Help" IsEnabled="True" />
 			</ui:NavigationView.FooterMenuItems>
 		</ui:NavigationView>
 
