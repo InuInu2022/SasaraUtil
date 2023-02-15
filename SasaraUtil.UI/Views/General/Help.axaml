@@ -26,6 +26,7 @@
 					Text="SasaraUtil Help"
 					FontWeight="Bold"
 					FontSize="20"
+					Margin="5"
 					HorizontalAlignment="Stretch"
 					/>
 				<Image Source="avares://SasaraUtil.UI/Assets/icon.ico"
@@ -44,8 +45,13 @@
 					/>
 				<ui:HyperlinkButton
 						Content="SasaraUtil 公式README" NavigateUri="https://github.com/InuInu2022/SasaraUtil/blob/main/README.md" />
-				<Button Content="Licenses"
-					Command="{CompiledBinding OpenLicense}" />
+				<Expander Header="Copyright / Licenses">
+					<WrapPanel>
+						<Button Content="Licenses"
+						Command="{CompiledBinding OpenLicense}" />
+						<TextBlock Text="Copyright (c) InuInu" Margin="5" />
+					</WrapPanel>
+				</Expander>
 				<Expander Header="Links">
 					<WrapPanel
 					DockPanel.Dock="Bottom"

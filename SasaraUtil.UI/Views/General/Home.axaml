@@ -19,6 +19,7 @@
 				Text="SasaraUtil"
 				FontWeight="Bold"
 				FontSize="20"
+				Margin="5"
 				HorizontalAlignment="Stretch"
 				DockPanel.Dock="Top"
 				/>
