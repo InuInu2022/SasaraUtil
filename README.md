@@ -1,8 +1,21 @@
 # SasaraUtil
 
-*[SasaraUtil]()*（ささらユーティル）はCeVIOエディタのあれこれを使いやすくする補助ツールです。
+<p align="center" style="background-color:lightblue;">
+	<img src="./SasaraUtil.UI/Assets/icon.ico" alt="logo" width="256" />
+</p>
+
+**[SasaraUtil](https://github.com/InuInu2022/SasaraUtil)**（ささらユーティル）はCeVIOエディタのあれこれを使いやすくする補助ツールです。
+
+---
+
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET 7.0](https://img.shields.io/badge/%20.NET%207.0-blue.svg?logo=dotnet&style=flat)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/inuinu2022/sasarautil?include_prereleases&label=%F0%9F%9A%80release) ![GitHub all releases](https://img.shields.io/github/downloads/InuInu2022/SasaraUtil/total?color=green&label=%E2%AC%87%20downloads) ![GitHub Repo stars](https://img.shields.io/github/stars/InuInu2022/SasaraUtil?label=%E2%98%85&logo=github)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
 ## 機能 / Functions
+
+> ![screenshots](./documents/screenshots/sasarautil.png)
+> ver.0.1
 
 - 共通向け
   - [オーディオトラック変換](/###オーディオトラック変換)
@@ -17,29 +30,62 @@ CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります�
 
 #### ファイル形式変換
 
-SasaraUtilの「**オーディオトラック変換**」にファイルをドラッグ＆ドロップすると、対応している音声ファイルを自動で16bit/48kHzのwav形式に変換します。
+SasaraUtilの「**オーディオトラック変換**」にファイルをドラッグ＆ドロップすると、対応している音声ファイルを自動で**16bit/48kHzのwav形式**に変換します。
 
 動画ファイルも音声ファイルに変換できます。
 
-- 対応形式
+- [対応形式](https://learn.microsoft.com/ja-jp/windows/win32/medfound/supported-media-formats-in-media-foundation?redirectedfrom=MSDN)
   - 音声ファイル (wav, mp3, aiff, etc...)
   - 動画ファイル（mp4, etc...）
 
-変換されたファイルは、元のファイルと同じ場所に `【元のファイル名】.16bit48kHz.wav` という名前で保存されます。
+複数ファイルの同時変換に対応しています。
+
+「Save」ボタンを押すと、保存先を選ぶダイアログが開き、
+変換されたファイルは、
+`【元のファイル名】.16bit48khz.wav`
+という名前で保存されます。
 
 #### CeVIO取込機能
 
-「送る」ボタンを押すことでCeVIOエディタにオーディオトラックとして取込ます。
+「Send」ボタンを押すことでCeVIOエディタにオーディオトラックとして自動で取り込ます。
 
 （ccstファイルがCeVIOのエディタに関連付けられている必要があります）
 
+## 動作環境 / Requirements
+
+- Windows (10,11)
+  - ※Windows以外で利用したい場合ソースコードからビルドすることで使える可能性があります！
+- CeVIO連携機能を利用するには、CeVIO （CS/AI）がインストールされている必要があります
+
 ## Libraries
 
-* [Avalonia](https://avaloniaui.net/)
-* [Epoxy](https://github.com/kekyo/Epoxy)
+- [Avalonia UI](https://avaloniaui.net/)
+- [Epoxy](https://github.com/kekyo/Epoxy)
 
 ## Projects
 
 * `SasaraUtil.Core`: Independent common component project includes MVVM `Model` code.
 * `SasaraUtil.UI`: UI (independent platform) project includes MVVM `View` and `ViewModel` code.
 * `SasaraUtil`: The application project code.
+
+## Licenses
+
+### SasasraUtil
+
+>MIT License
+>
+>Copyright (c) 2023 InuInu
+
+- [LICENSE](LICENSE)
+
+### Libraries licenses
+
+- [licenses](./licenses/)
+
+## 🐶Developed by InuInu
+
+- InuInu（いぬいぬ）
+  - YouTube [YouTube](https://bit.ly/InuInuMusic)
+  - Twitter [@InuInuGames](https://twitter.com/InuInuGames)
+  - Blog [note.com](https://note.com/inuinu_)
+  - niconico [niconico](https://nico.ms/user/98013232)
