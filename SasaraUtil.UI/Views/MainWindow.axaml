@@ -44,7 +44,7 @@
 		<ui:NavigationView
 			x:Name="SasaraUtilNav"
 			IsBackEnabled="True"
-			IsSettingsVisible="True"
+			IsSettingsVisible="False"
 			OpenPaneLength="250"
 			ExpandedModeThresholdWidth="500"
 			PaneDisplayMode="Auto">
