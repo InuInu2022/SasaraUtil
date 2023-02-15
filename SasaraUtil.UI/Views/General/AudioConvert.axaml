@@ -1,0 +1,128 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+			x:DataType="viewmodels:AudioConvertViewModel"
+			xmlns:ui="using:FluentAvalonia.UI.Controls"
+			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+			xmlns:sty="using:FluentAvalonia.Styling"
+			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+			 x:CompileBindings="False"
+			 x:Class="SasaraUtil.UI.Views.General.AudioConvert">
+	<UserControl.DataContext>
+        <viewmodels:AudioConvertViewModel />
+    </UserControl.DataContext>
+
+	<epoxy:EventBinder.Events>
+		<epoxy:Event EventName="Initialized" Command="{CompiledBinding Ready}" />
+	</epoxy:EventBinder.Events>
+
+	<ScrollViewer>
+		<DockPanel
+			Margin="5"
+			DragDrop.AllowDrop="True"
+			epoxy:Anchor.Pile="{Binding DockPanelPile}"
+			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+
+			<!-- runtime error! ...why? -->
+			<!--
+			<epoxy:EventBinder.Events>
+				<epoxy:Event EventName="DragDrop.DropEvent" Command="{Binding DropFile}" />
+			</epoxy:EventBinder.Events>
+			-->
+
+			<WrapPanel
+				DockPanel.Dock="Bottom"
+				HorizontalAlignment="Right"
+
+				>
+				<Button
+					Margin="5"
+					ToolTip.Tip="CeVIOエディタに変換して送る"
+					ToolTip.VerticalOffset="-30"
+					Classes="accent"
+					IsEnabled="{Binding IsConvertable}"
+					Command="{Binding ConvertAndSend}"
+					>
+					<WrapPanel>
+						<ui:SymbolIcon Symbol="SendFilled" Margin="5" />
+						<TextBlock Text="Send" Margin="5" />
+					</WrapPanel>
+				</Button>
+
+				<Button
+					Margin="5"
+					ToolTip.Tip="ccstファイル保存"
+					ToolTip.VerticalOffset="-30"
+					Classes="accent"
+					IsEnabled="{Binding IsConvertable}"
+					Command="{Binding ConvertAndSave}"
+					>
+					<WrapPanel>
+						<ui:SymbolIcon Symbol="SaveFilled" Margin="5" />
+						<TextBlock Text="Save" Margin="5" />
+					</WrapPanel>
+				</Button>
+			</WrapPanel>
+
+			<WrapPanel
+				DockPanel.Dock="Top"
+				Margin="10 5"
+				HorizontalAlignment="Stretch"
+				>
+				<TextBlock Text="ここに音声・動画ファイルをドラッグ＆ドロップしてください。" />
+				<ui:SymbolIcon Symbol="HelpFilled">
+					<ToolTip.Tip>
+						<StackPanel
+							Width="300">
+							<TextBlock Text="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動で対応形式に変換します。" TextWrapping="WrapWithOverflow" />
+							<TextBlock Text="音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換します。" TextWrapping="WrapWithOverflow" />
+						</StackPanel>
+					</ToolTip.Tip>
+				</ui:SymbolIcon>
+
+				<!-- TODO:replace to Notification.Avalonia  -->
+				<ProgressBar
+					IsVisible="{Binding IsProcessing}"
+					IsIndeterminate="true"
+					HorizontalAlignment="Stretch"
+					/>
+			</WrapPanel>
+			<Panel>
+				<ui:SymbolIcon
+					Symbol="Restore"
+					Margin="5"
+					FontSize="100"
+					Foreground="Gray"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					/>
+				<ListBox
+					Items="{Binding DroppedFiles}"
+					SelectionMode="Multiple"
+					>
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								FontWeight="Bold"
+								Text="{Binding FileName}" />
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<Button
+					Command="{Binding ResetFiles}"
+					IsVisible="{Binding IsConvertable}"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					Margin="5"
+					>
+					<ui:SymbolIcon Symbol="Cancel" />
+				</Button>
+			</Panel>
+		</DockPanel>
+	</ScrollViewer>
+</UserControl>

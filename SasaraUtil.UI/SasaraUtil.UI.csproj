@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+      <Deterministic>true</Deterministic>
+      <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+      <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+      <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+      <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="../README.md" />
+    <AvaloniaResource Include="Assets/**" />
+
+    <PackageReference Include="Avalonia" Version="0.10.18" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18" />
+    <PackageReference Include="FluentAvaloniaUI" Version="1.4.5" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
+    <PackageReference Include="System.ComponentModel.EventBasedAsync" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="Epoxy.Avalonia" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SasaraUtil.Core\SasaraUtil.Core.csproj" NoWarn="NU1701" />
+    <ProjectReference Include="..\SasaraUtil.Core.Windows\SasaraUtil.Core.Windows.csproj">
+      <NoWarn>NU1701</NoWarn>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>

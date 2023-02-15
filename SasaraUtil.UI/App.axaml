@@ -1,0 +1,12 @@
+<Application
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+    xmlns:sty="using:FluentAvalonia.Styling"
+    xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+    x:Class="SasaraUtil.App">
+    <Application.Styles>
+        <sty:FluentAvaloniaTheme />
+    </Application.Styles>
+</Application>

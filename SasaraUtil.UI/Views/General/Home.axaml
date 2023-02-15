@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+			xmlns:ui="using:FluentAvalonia.UI.Controls"
+			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+			xmlns:sty="using:FluentAvalonia.Styling"
+			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+			 x:Class="SasaraUtil.UI.Views.General.Home">
+	<ScrollViewer>
+		<DockPanel
+			Margin="5"
+			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+			<TextBlock
+				Text="SasaraUtil"
+				FontWeight="Bold"
+				FontSize="20"
+				HorizontalAlignment="Stretch"
+				DockPanel.Dock="Top"
+				/>
+			<TextBlock
+				Text="←使いたい機能を選んでください。"
+				HorizontalAlignment="Stretch"
+				DockPanel.Dock="Top"
+				/>
+			<Image Source="avares://SasaraUtil.UI/Assets/icon.ico"
+				Height="150"
+				Width="150"
+				Margin="50"
+				DockPanel.Dock="Top"
+				VerticalAlignment="Center"
+				/>
+			<WrapPanel
+				DockPanel.Dock="Bottom"
+				VerticalAlignment="Bottom"
+				>
+				<ui:HyperlinkButton
+				Content="SasaraUtil 公式サイト" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
+				<ui:HyperlinkButton Content="CeVIO 公式サイト" NavigateUri="https://cevio.jp/" />
+				<ui:HyperlinkButton Content="CeVIO AI ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
+				<ui:HyperlinkButton Content="CeVIO CS ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
+				<ui:HyperlinkButton Content="VoiSona 公式サイト" NavigateUri="https://voisona.com/" />
+				<ui:HyperlinkButton Content="CeVIO ユーザー互助会wiki" NavigateUri="https://w.atwiki.jp/ceviouser/" />
+			</WrapPanel>
+		</DockPanel>
+	</ScrollViewer>
+</UserControl>

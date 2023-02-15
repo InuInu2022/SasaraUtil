@@ -1,0 +1,78 @@
+<Window
+	x:Class="SasaraUtil.Views.MainWindow"
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+	xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+	xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+	x:DataType="viewmodels:MainWindowViewModel"
+	xmlns:ui="using:FluentAvalonia.UI.Controls"
+	xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+	xmlns:sty="using:FluentAvalonia.Styling"
+	xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+	mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+
+	TransparencyLevelHint="AcrylicBlur"
+	Background="Transparent"
+	ExtendClientAreaChromeHints="PreferSystemChrome"
+	Title="{Binding WindowTitle}"
+	Icon="avares://SasaraUtil.UI/Assets/icon.ico"
+	Height="400" Width="600">
+
+	<Window.DataContext>
+		<viewmodels:MainWindowViewModel />
+	</Window.DataContext>
+
+	<epoxy:EventBinder.Events>
+		<epoxy:Event EventName="Opened" Command="{CompiledBinding Ready}" />
+	</epoxy:EventBinder.Events>
+
+	<DockPanel
+		Background="Black" Opacity="0.7">
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+					BackgroundSource="Digger"
+					TintColor="Black"
+					TintOpacity="1"
+					MaterialOpacity="0.25" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+
+		<ui:NavigationView
+			x:Name="SasaraUtilNav"
+			IsBackEnabled="True"
+			IsSettingsVisible="True"
+			OpenPaneLength="250"
+			ExpandedModeThresholdWidth="500"
+			PaneDisplayMode="Auto">
+			<ui:NavigationView.MenuItems>
+				<ui:NavigationViewItem Content="Home" Tag="General.Home" Icon="Home" />
+				<ui:NavigationViewItem Content="共通" Tag="SamplePage2" Icon="Globe" SelectsOnInvoked="False">
+					<ui:NavigationViewItem.MenuItems>
+						<ui:NavigationViewItem Content="オーディオトラック変換" Icon="Repair" Tag="General.AudioConvert" IsEnabled="True" />
+					</ui:NavigationViewItem.MenuItems>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem Content="トーク" Tag="SamplePage3" Icon="Comment" SelectsOnInvoked="False">
+					<ui:NavigationViewItem.MenuItems>
+						<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3" IsEnabled="False" />
+					</ui:NavigationViewItem.MenuItems>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem Content="ソング" Tag="SamplePage2" Icon="Audio" SelectsOnInvoked="False">
+					<ui:NavigationViewItem.MenuItems>
+						<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3"
+						IsEnabled="False" />
+					</ui:NavigationViewItem.MenuItems>
+				</ui:NavigationViewItem>
+			</ui:NavigationView.MenuItems>
+
+			<ui:NavigationView.FooterMenuItems>
+				<ui:NavigationViewItemSeparator />
+				<ui:NavigationViewItem Content="Help" Tag="SamplePage6" Icon="Help" IsEnabled="False" />
+			</ui:NavigationView.FooterMenuItems>
+		</ui:NavigationView>
+
+	</DockPanel>
+</Window>
