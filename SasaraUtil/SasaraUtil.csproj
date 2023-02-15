@@ -39,6 +39,7 @@
 
   <Target Name="MakeZipPackage" AfterTargets="Publish">
       <MakeDir Directories="$(OutputPath)/../../../../../publish/" />
+      <Delete Files="$(OutputPath)/LibSasara.xml" />
       <Delete Files="$(OutputPath)/$(AssemblyName).pdb" />
       <Delete Files="$(OutputPath)/publish/$(AssemblyName).pdb" />
       <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/../../../../../publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
@@ -47,7 +48,13 @@
 
   <ItemGroup>
     <Content Include="../README.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Include="../licenses/**" LinkBase="licenses">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
 
