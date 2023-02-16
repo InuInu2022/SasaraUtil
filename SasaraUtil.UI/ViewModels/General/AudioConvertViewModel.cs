@@ -60,7 +60,14 @@ public sealed class AudioConvertViewModel
 		IsConvertable = false;
 
 		//TODO: support multiple files
-		var path = DroppedFiles.First().Path;
+		var path = DroppedFiles?.First().Path;
+
+		if(path is null){
+			IsProcessing = true;
+			IsConvertable = false;
+			return;
+		}
+
 		var newPath = Path.ChangeExtension(path, "16bit48khz.wav");
 
 		try
@@ -125,12 +132,18 @@ public sealed class AudioConvertViewModel
 			return;
 		}
 
+		var path = DroppedFiles.FirstOrDefault()?.Path;
+
+		if(path is null){
+			return;
+		}
+
 		var d = new OpenFolderDialog()
 		{
 			Title = "変換したファイルの保存先を選んでください",
 			Directory =
 				Directory
-					.GetParent(Path.GetDirectoryName(DroppedFiles[0].Path))
+					.GetParent(Path.GetDirectoryName(path)!)?
 					.FullName,
 		};
 
@@ -166,7 +179,7 @@ public sealed class AudioConvertViewModel
 		var p = Path.GetFullPath(path);
 		var f = Path.GetFileName(p);
 		var n = Path.Combine(
-			saveDir,
+			saveDir ?? Path.GetDirectoryName(p)!,
 			Path.ChangeExtension(f, "16bit48khz.wav")
 		);
 		await SoundConverter
