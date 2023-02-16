@@ -35,13 +35,24 @@
 			</epoxy:EventBinder.Events>
 			-->
 
-			<WrapPanel
+			<DockPanel
 				DockPanel.Dock="Bottom"
-				HorizontalAlignment="Right"
+
 
 				>
+				<ui:NumberBox
+					Header="start time (sec.):"
+					DockPanel.Dock="Left"
+					HorizontalAlignment="Left"
+					Margin="5"
+					Minimum="0.0"
+					Value="{Binding StartTime}"
+					PlaceholderText="sec."
+					SimpleNumberFormat="F2"
+					AcceptsExpression="True" />
 				<Button
 					Margin="5"
+					HorizontalAlignment="Left"
 					ToolTip.Tip="CeVIOエディタに変換して送る"
 					ToolTip.VerticalOffset="-30"
 					Classes="accent"
@@ -56,6 +67,8 @@
 
 				<Button
 					Margin="5"
+					DockPanel.Dock="Right"
+					HorizontalAlignment="Right"
 					ToolTip.Tip="ccstファイル保存"
 					ToolTip.VerticalOffset="-30"
 					Classes="accent"
@@ -67,7 +80,7 @@
 						<TextBlock Text="Save" Margin="5" />
 					</WrapPanel>
 				</Button>
-			</WrapPanel>
+			</DockPanel>
 
 			<WrapPanel
 				DockPanel.Dock="Top"

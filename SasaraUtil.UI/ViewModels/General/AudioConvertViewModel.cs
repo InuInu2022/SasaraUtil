@@ -29,6 +29,8 @@ public sealed class AudioConvertViewModel
 	public Command? ConvertAndSend { get; set; }
 	public Command? ConvertAndSave { get; set; }
 	public Command? ResetFiles { get; set; }
+
+	public double StartTime { get; set; }
 	public Pile<DockPanel>? DockPanelPile {get;set;}
 	public ObservableCollection<AudioConvertFileListViewModel>? DroppedFiles { get; set; }
 	public bool IsDropAreaVisibile { get; set; } = true;
@@ -38,6 +40,8 @@ public sealed class AudioConvertViewModel
 	public AudioConvertViewModel()
 	{
 		DroppedFiles = new();
+
+		StartTime = 0.0f;
 
 		ConvertAndSend = CommandFactory
 			.Create(SendToCeVIO());
@@ -70,7 +74,7 @@ public sealed class AudioConvertViewModel
 		var units = track.GetUnits(Category.OuterAudio);
 		var u = units.Cast<AudioUnit>().First();
 		u.FilePath = newPath;
-		u.StartTime = new TimeSpan(0);
+		u.StartTime = TimeSpan.FromSeconds(StartTime);
 		//TODO: check wav length
 		u.Duration = new TimeSpan(0, 1, 0);
 
