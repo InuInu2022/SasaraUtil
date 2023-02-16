@@ -56,12 +56,25 @@ public sealed class AudioConvertViewModel
 	private Func<ValueTask> SendToCeVIO()
 	=> async () =>
 	{
+		IsProcessing = true;
+		IsConvertable = false;
+
 		//TODO: support multiple files
 		var path = DroppedFiles.First().Path;
 		var newPath = Path.ChangeExtension(path, "16bit48khz.wav");
 
-		await SoundConverter
-			.ConvertAsync(path, newPath);
+		try
+		{
+			await SoundConverter
+				.ConvertAsync(path, newPath);
+		}
+		catch
+		{
+			IsProcessing = false;
+			IsConvertable = true;
+			//TODO:show dialog
+			return;
+		}
 
 		var track = await TrackTemplateLoader
 			.LoadAudioTrackAsync();
@@ -80,14 +93,28 @@ public sealed class AudioConvertViewModel
 
 		var tmp = Path.ChangeExtension(Path.GetTempFileName(),"ccst");
 
-		await track.SaveAsync(tmp);
+		try
+		{
+			await track.SaveAsync(tmp);
+		}
+		catch
+		{
+			IsProcessing = false;
+			IsConvertable = true;
+			//TODO:show dialog
+			return;
+		}
 
+		//TODO: move to SasaraUtil.Core.Windows
 		var info = new ProcessStartInfo()
 		{
 			FileName = tmp,
 			UseShellExecute = true
 		};
 		Process.Start(info);
+
+		IsProcessing = false;
+		IsConvertable = true;
 	};
 
 	private Func<ValueTask> SaveFiles()
