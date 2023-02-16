@@ -22,6 +22,10 @@
     <Copyright>InuInu</Copyright>
     <NeutralLanguage>ja-JP</NeutralLanguage>
     <Version>0.1.0.0</Version>
+    <PackageProjectUrl>https://github.com/InuInu2022/SasaraUtil</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/InuInu2022/SasaraUtil/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/InuInu2022/SasaraUtil</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <!-- AssemblyInfo プロパティ -->
     <AssemblyTitle>SasaraUtil</AssemblyTitle>
     <SupportedCultures>en-US;ja</SupportedCultures>
