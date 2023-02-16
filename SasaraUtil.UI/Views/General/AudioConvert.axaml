@@ -48,7 +48,7 @@
 					Minimum="0.0"
 					Value="{Binding StartTime}"
 					PlaceholderText="sec."
-					SimpleNumberFormat="F2"
+					SimpleNumberFormat="F3"
 					AcceptsExpression="True" />
 				<Button
 					Margin="5"
