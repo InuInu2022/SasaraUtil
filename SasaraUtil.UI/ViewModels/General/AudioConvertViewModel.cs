@@ -1,23 +1,27 @@
-﻿using System.IO;
-using System.Diagnostics.CodeAnalysis;
-using System.Diagnostics;
-////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////
 //
 // CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動で対応形式に変換します。
 //
 ////////////////////////////////////////////////////////////////////////////
-using Epoxy;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Avalonia.Input;
-using System.Linq;
-using Avalonia.Controls;
-using SasaraUtil.Models;
+
 using System;
-using Avalonia.Controls.ApplicationLifetimes;
-using Epoxy.Synchronized;
-using LibSasara.Model;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Input;
+
+using Epoxy;
+using Epoxy.Synchronized;
+
+using LibSasara.Model;
+
+using SasaraUtil.Models;
 
 namespace SasaraUtil.ViewModels;
 
