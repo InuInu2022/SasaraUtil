@@ -12,12 +12,13 @@
 	xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
 	xmlns:sty="using:FluentAvalonia.Styling"
 	xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+	xmlns:controls="clr-namespace:Avalonia.Notification.Controls;assembly=Notification.Avalonia"
 	mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
 
 	TransparencyLevelHint="AcrylicBlur"
 	Background="Transparent"
 	ExtendClientAreaChromeHints="PreferSystemChrome"
-	Title="{Binding WindowTitle}"
+	Title="{CompiledBinding WindowTitle}"
 	Icon="avares://SasaraUtil.UI/Assets/icon.ico"
 	Height="400" Width="600">
 
@@ -40,6 +41,10 @@
 					MaterialOpacity="0.25" />
 			</ExperimentalAcrylicBorder.Material>
 		</ExperimentalAcrylicBorder>
+
+		<controls:NotificationMessageContainer
+			Manager="{Binding Manager}"
+			DockPanel.Dock="Top" />
 
 		<ui:NavigationView
 			x:Name="SasaraUtilNav"

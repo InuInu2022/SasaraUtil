@@ -5,7 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System.Collections.ObjectModel;
-
+using Avalonia.Notification;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -19,6 +19,9 @@ public sealed class MainWindowViewModel
 	public string WindowTitle { get; set; }
 	public Command? Ready { get; }
 	public bool IsEnabled { get; private set; }
+
+	public INotificationMessageManager Manager { get; }
+		= new NotificationMessageManager();
 
 	public MainWindowViewModel()
 	{

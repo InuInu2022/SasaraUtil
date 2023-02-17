@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
-
+using Avalonia.Notification;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -34,12 +34,15 @@ public sealed class AudioConvertViewModel
 	public Command? ConvertAndSave { get; set; }
 	public Command? ResetFiles { get; set; }
 
+	public INotificationMessageManager? Notify { get; set; }
 	public double StartTime { get; set; }
 	public Pile<DockPanel>? DockPanelPile {get;set;}
 	public ObservableCollection<AudioConvertFileListViewModel>? DroppedFiles { get; set; }
 	public bool IsDropAreaVisibile { get; set; } = true;
 	public bool IsProcessing { get; set; } = false;
 	public bool IsConvertable { get; set; } = false;
+
+	private INotificationMessageManager? _notify;
 
 	public AudioConvertViewModel()
 	{
@@ -55,6 +58,10 @@ public sealed class AudioConvertViewModel
 
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());
+
+		_notify = Utility
+			.MainWindowUtil
+			.GetNotifyManager();
 	}
 
 	private Func<ValueTask> SendToCeVIO()
@@ -62,6 +69,8 @@ public sealed class AudioConvertViewModel
 	{
 		IsProcessing = true;
 		IsConvertable = false;
+		var loading = _notify?
+			.Loading("Now converting...","変換しています。");
 
 		//TODO: support multiple files
 		var path = DroppedFiles?.First().Path;
@@ -69,6 +78,9 @@ public sealed class AudioConvertViewModel
 		if(path is null){
 			IsProcessing = true;
 			IsConvertable = false;
+			_notify?.Dismiss(loading!);
+			_notify?
+				.Error("ファイルパスエラー", "ファイルの保存先パスが見つかりません");
 			return;
 		}
 
@@ -83,7 +95,10 @@ public sealed class AudioConvertViewModel
 		{
 			IsProcessing = false;
 			IsConvertable = true;
-			//TODO:show dialog
+			//show dialog
+			_notify?.Dismiss(loading!);
+			_notify?
+				.Error("変換失敗", "ファイルの変換に失敗しました。");
 			return;
 		}
 
@@ -112,7 +127,10 @@ public sealed class AudioConvertViewModel
 		{
 			IsProcessing = false;
 			IsConvertable = true;
-			//TODO:show dialog
+			//show dialog
+			_notify?.Dismiss(loading!);
+			_notify?
+				.Error("変換失敗", "ファイルの変換に失敗しました。");
 			return;
 		}
 
@@ -126,6 +144,7 @@ public sealed class AudioConvertViewModel
 
 		IsProcessing = false;
 		IsConvertable = true;
+		_notify?.Dismiss(loading!);
 	};
 
 	private Func<ValueTask> SaveFiles()
@@ -142,6 +161,9 @@ public sealed class AudioConvertViewModel
 			return;
 		}
 
+		var loading = _notify?
+			.Loading("Now converting...","変換しています。");
+
 		var d = new OpenFolderDialog()
 		{
 			Title = "変換したファイルの保存先を選んでください",
@@ -152,14 +174,18 @@ public sealed class AudioConvertViewModel
 		};
 
 		var saveDir = string.Empty;
-		if (Avalonia.Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-		{
-			saveDir = await d.ShowAsync(desktop!.MainWindow);
+		var mainWin = Utility.MainWindowUtil.GetWindow();
+		if(mainWin is null){
+			_notify?.Dismiss(loading!);
+			return;
+		}else{
+			saveDir = await d.ShowAsync(mainWin);
 		}
 
 		if (string.IsNullOrEmpty(saveDir))
 		{
 			//canceled
+			_notify?.Dismiss(loading!);
 			return;
 		}
 
@@ -174,6 +200,8 @@ public sealed class AudioConvertViewModel
 			"explorer.exe",
 			@$"/e,/root,""{saveDir}"""
 		);
+		_notify?.Dismiss(loading!);
+		_notify?.Info("保存成功", "保存しました", true);
 		IsProcessing = false;
 		IsConvertable = true;
 	};
