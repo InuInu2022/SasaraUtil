@@ -5,9 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Chrome;
 using Avalonia.Markup.Xaml;
 using FluentAvalonia.Core;
 using FluentAvalonia.UI.Controls;
@@ -30,36 +28,38 @@ public sealed class MainWindow : Window
 
 	protected override void OnOpened(EventArgs e)
 	{
-        base.OnOpened(e);
+		base.OnOpened(e);
 
-        // Default NavView
-        var nv = this.FindControl<NavigationView>("SasaraUtilNav");
-        nv.SelectionChanged += OnNVSample1SelectionChanged;
-        nv.SelectedItem = nv.MenuItems.ElementAt(0);
+		// Default NavView
+		var nv = this.FindControl<NavigationView>("SasaraUtilNav");
+		nv.SelectionChanged += OnNVSample1SelectionChanged;
+		nv.SelectedItem = nv.MenuItems.ElementAt(0);
 		//TitleBar.ExtendViewIntoTitleBar = true;
 	}
 
-    private void OnNVSample1SelectionChanged(object? sender, NavigationViewSelectionChangedEventArgs e)
-    {
-        if (e.IsSettingsSelected)
-        {
-            //TODO
-            //(sender as NavigationView).Content = new NVSamplePageSettings();
-        }
-        else if (e.SelectedItem is NavigationViewItem nvi)
-        {
-            var smpPage = $"SasaraUtil.UI.Views.{nvi.Tag}";
-            if(smpPage is null){
+	private void OnNVSample1SelectionChanged(object? sender, NavigationViewSelectionChangedEventArgs e)
+	{
+		if (e.IsSettingsSelected)
+		{
+			//TODO
+			//(sender as NavigationView).Content = new NVSamplePageSettings();
+		}
+		else if (e.SelectedItem is NavigationViewItem nvi)
+		{
+			var smpPage = $"SasaraUtil.UI.Views.{nvi.Tag}";
+			if (smpPage is null)
+			{
 				return;
 			}
 
 			var t = Type.GetType(smpPage);
-            if(t is null){
+			if (t is null)
+			{
 				return;
 			}
 
 			var pg = Activator.CreateInstance(t);
-            (sender as NavigationView)!.Content = pg;
-        }
-    }
+			(sender as NavigationView)!.Content = pg;
+		}
+	}
 }
