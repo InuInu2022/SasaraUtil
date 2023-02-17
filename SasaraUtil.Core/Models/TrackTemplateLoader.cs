@@ -12,7 +12,25 @@ public static class TrackTemplateLoader
 	static readonly string AudioTemplate
 		= Path.Combine(
 			AppDomain.CurrentDomain.BaseDirectory,
-			"/Templates/audio_track.ccst"
+			"Templates/audio_track.ccst"
+		);
+
+	static readonly string SongTemplate
+		= Path.Combine(
+			AppDomain.CurrentDomain.BaseDirectory,
+			"Templates/song_track.ccst"
+		);
+
+	static readonly string TalkTemplate
+		= Path.Combine(
+			AppDomain.CurrentDomain.BaseDirectory,
+			"Templates/talk_track.ccst"
+		);
+
+	static readonly string ProjectTemplate
+		= Path.Combine(
+			AppDomain.CurrentDomain.BaseDirectory,
+			"Templates/project.ccs"
 		);
 
 	public static async ValueTask<CcstTrack> LoadAudioTrackAsync()
@@ -22,7 +40,7 @@ public static class TrackTemplateLoader
 			"Templates/audio_track.ccst"
 		);
 		Debug.WriteLine(path);
-		return await LoadAnyTrackAsync(path)
+		return await LoadAnyTrackAsync(AudioTemplate)
 			.ConfigureAwait(false);
 	}
 
@@ -31,7 +49,7 @@ public static class TrackTemplateLoader
 	{
 		//TODO:implemation
 		throw new NotImplementedException();
-		return await LoadAnyTrackAsync(AudioTemplate)
+		return await LoadAnyTrackAsync(TalkTemplate)
 			.ConfigureAwait(false);
 	}
 
@@ -40,7 +58,17 @@ public static class TrackTemplateLoader
 	{
 		//TODO:implemation
 		throw new NotImplementedException();
-		return await LoadAnyTrackAsync(AudioTemplate)
+		return await LoadAnyTrackAsync(SongTemplate)
+			.ConfigureAwait(false);
+	}
+
+	public static async ValueTask<CcsProject>
+	LoadProjectAsync()
+	{
+		//TODO:implemation
+		throw new NotImplementedException();
+		return await SasaraCcs
+			.LoadAsync<CcsProject>(ProjectTemplate)
 			.ConfigureAwait(false);
 	}
 
@@ -50,6 +78,7 @@ public static class TrackTemplateLoader
     /// <param name="path"></param>
     /// <seealso cref="LoadAudioTrackAsync"/>
     /// <seealso cref="LoadTalkTrackAsync"/>
+    /// <seealso cref="LoadSongTrackAsync"/>
     /// <exception cref="InvalidDataException"></exception>
 	public static async ValueTask<CcstTrack>
 	LoadAnyTrackAsync(string path)
