@@ -88,12 +88,16 @@
 				HorizontalAlignment="Stretch"
 				>
 				<TextBlock Text="ここに音声・動画ファイルをドラッグ＆ドロップしてください。" />
-				<ui:SymbolIcon Symbol="HelpFilled">
+				<ui:SymbolIcon Symbol="HelpFilled"
+					HorizontalAlignment="Left"
+					>
 					<ToolTip.Tip>
 						<StackPanel
 							Width="300">
-							<TextBlock Text="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動で対応形式に変換します。" TextWrapping="WrapWithOverflow" />
-							<TextBlock Text="音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換します。" TextWrapping="WrapWithOverflow" />
+							<ui:InfoBar
+								Title="オーディオへ変換"
+								IsOpen="True"
+								Severity="Informational" Message="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動で対応形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換します。" />
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
