@@ -87,7 +87,9 @@
 				Margin="10 5"
 				HorizontalAlignment="Stretch"
 				>
-				<TextBlock Text="ここに音声・動画ファイルをドラッグ＆ドロップしてください。" />
+				<TextBlock
+					Name="DropHereMsg"
+					Text="ここに音声・動画ファイルをドラッグ＆ドロップしてください。" />
 				<ui:SymbolIcon Symbol="HelpFilled"
 					HorizontalAlignment="Left"
 					>
@@ -97,17 +99,12 @@
 							<ui:InfoBar
 								Title="オーディオへ変換"
 								IsOpen="True"
-								Severity="Informational" Message="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動で対応形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換します。" />
+								IsClosable="False"
+								Severity="Informational"
+								Message="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動でその形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換します。" />
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
-
-				<!-- TODO:replace to Notification.Avalonia  -->
-				<ProgressBar
-					IsVisible="{Binding IsProcessing}"
-					IsIndeterminate="true"
-					HorizontalAlignment="Stretch"
-					/>
 			</WrapPanel>
 			<Panel>
 				<ui:SymbolIcon
@@ -117,6 +114,7 @@
 					Foreground="Gray"
 					HorizontalAlignment="Stretch"
 					VerticalAlignment="Stretch"
+					ToolTip.Tip="{Binding #DropHereMsg.Text}"
 					/>
 				<ListBox
 					Items="{Binding DroppedFiles}"
