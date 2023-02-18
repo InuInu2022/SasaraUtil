@@ -62,7 +62,7 @@
 				</ui:NavigationViewItem>
 				<ui:NavigationViewItem Content="トーク" Icon="Comment" SelectsOnInvoked="False">
 					<ui:NavigationViewItem.MenuItems>
-						<ui:NavigationViewItem Content="キャストを別トラック振分" Icon="Repair" Tag="Talk.CastSplitter" IsEnabled="True" />
+						<ui:NavigationViewItem Content="キャストを別トラック振分" Icon="Repair" Tag="Talk.CastSplitter" IsEnabled="False" />
 						<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3" IsEnabled="False" />
 					</ui:NavigationViewItem.MenuItems>
 				</ui:NavigationViewItem>
