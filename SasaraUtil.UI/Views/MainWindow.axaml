@@ -60,12 +60,13 @@
 						<ui:NavigationViewItem Content="オーディオトラック変換" Icon="Repair" Tag="General.AudioConvert" IsEnabled="True" />
 					</ui:NavigationViewItem.MenuItems>
 				</ui:NavigationViewItem>
-				<ui:NavigationViewItem Content="トーク" Tag="SamplePage3" Icon="Comment" SelectsOnInvoked="False">
+				<ui:NavigationViewItem Content="トーク" Icon="Comment" SelectsOnInvoked="False">
 					<ui:NavigationViewItem.MenuItems>
+						<ui:NavigationViewItem Content="キャストを別トラック振分" Icon="Repair" Tag="Talk.CastSplitter" IsEnabled="True" />
 						<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3" IsEnabled="False" />
 					</ui:NavigationViewItem.MenuItems>
 				</ui:NavigationViewItem>
-				<ui:NavigationViewItem Content="ソング" Tag="SamplePage2" Icon="Audio" SelectsOnInvoked="False">
+				<ui:NavigationViewItem Content="ソング" Icon="Audio" SelectsOnInvoked="False">
 					<ui:NavigationViewItem.MenuItems>
 						<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3"
 						IsEnabled="False" />

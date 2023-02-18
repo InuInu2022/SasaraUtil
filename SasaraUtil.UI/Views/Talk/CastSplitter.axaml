@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+			xmlns:ui="using:FluentAvalonia.UI.Controls"
+			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+			xmlns:sty="using:FluentAvalonia.Styling"
+			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+			x:Class="SasaraUtil.UI.Views.Talk.CastSplitter"
+			x:DataType="viewmodels:CastSplitterViewModel"
+			x:CompileBindings="False"
+			 >
+	<UserControl.DataContext>
+        <viewmodels:CastSplitterViewModel />
+    </UserControl.DataContext>
+
+	<ScrollViewer>
+		<DockPanel
+			Margin="5"
+			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+			<TextBlock
+				Text="トラック内の複数キャストを別々のトラックに振りわけ"
+				TextWrapping="Wrap"
+				Margin="5"
+				HorizontalAlignment="Stretch"
+				DockPanel.Dock="Top"
+				/>
+			<Button
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				DockPanel.Dock="Bottom"
+				Margin="5"
+				Classes="accent"
+				>
+				<WrapPanel>
+					<ui:SymbolIcon Symbol="DownloadFilled" />
+					<TextBlock Text="Save" Margin="5" />
+				</WrapPanel>
+			</Button>
+			<Panel
+				DockPanel.Dock="Top"
+				>
+				<ui:SymbolIcon
+					Symbol="Restore"
+					Margin="5"
+					FontSize="100"
+					Foreground="Gray"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					/>
+				<!--
+				<ListBox
+					Items="{Binding DroppedFiles}"
+					SelectionMode="Multiple"
+					>
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								FontWeight="Bold"
+								Text="{Binding FileName}" />
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				-->
+				<Button
+					x:Name="ResetList"
+					IsVisible="False"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					Margin="5"
+					>
+					<ui:SymbolIcon Symbol="Cancel" />
+				</Button>
+			</Panel>
+
+		</DockPanel>
+	</ScrollViewer>
+</UserControl>
