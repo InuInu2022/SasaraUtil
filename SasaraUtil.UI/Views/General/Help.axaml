@@ -64,6 +64,7 @@
 						<ui:HyperlinkButton Content="CeVIO CS ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
 						<ui:HyperlinkButton Content="VoiSona 公式サイト" NavigateUri="https://voisona.com/" />
 						<ui:HyperlinkButton Content="CeVIO ユーザー互助会wiki" NavigateUri="https://w.atwiki.jp/ceviouser/" />
+						<ui:HyperlinkButton Content="UtaFormatix" NavigateUri="https://sdercolin.github.io/utaformatix3/" />
 					</WrapPanel>
 				</Expander>
 			</StackPanel>
