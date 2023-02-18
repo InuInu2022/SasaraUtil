@@ -76,7 +76,7 @@
 					Command="{Binding ConvertAndSave}"
 					>
 					<WrapPanel>
-						<ui:SymbolIcon Symbol="SaveFilled" Margin="5" />
+						<ui:SymbolIcon Symbol="DownloadFilled" Margin="5" />
 						<TextBlock Text="Save" Margin="5" />
 					</WrapPanel>
 				</Button>
@@ -101,7 +101,8 @@
 								IsOpen="True"
 								IsClosable="False"
 								Severity="Informational"
-								Message="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動でその形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換します。" />
+								FontFamily="Hiragino, Meiryo"
+								Message="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動でその形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換されます。" />
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
