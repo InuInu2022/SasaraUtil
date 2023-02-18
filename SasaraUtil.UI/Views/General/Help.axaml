@@ -12,6 +12,7 @@
 			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
 			x:Class="SasaraUtil.UI.Views.General.Help"
 			x:DataType="viewmodels:HelpViewModel"
+			x:CompileBindings="True"
 			 >
 	<UserControl.DataContext>
         <viewmodels:HelpViewModel />
