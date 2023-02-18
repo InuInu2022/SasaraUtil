@@ -4,6 +4,7 @@ using System;
 using Epoxy;
 using Epoxy.Synchronized;
 using System.IO;
+using Avalonia.Input;
 
 namespace SasaraUtil.ViewModels;
 
@@ -15,5 +16,11 @@ public class CastSplitterViewModel
 	public CastSplitterViewModel()
 	{
 		//
+	}
+
+	public async ValueTask DropFileEventAsync(DragEventArgs e)
+	{
+		//
+		await Task.Delay(10);
 	}
 }
