@@ -5,6 +5,7 @@ using SasaraUtil.Models;
 using FluentAssertions;
 using Xunit.Abstractions;
 using NAudio.Wave;
+using SasaraUtil.Models.CastSplitter;
 
 namespace Test.Core;
 
@@ -60,5 +61,22 @@ public class CoreTest
 		result.Should().Be(expect);
 
 		await Task.Delay(1000);
+	}
+
+	[Theory]
+	[InlineData(
+		"../../../assets/ccs/splittest.ccs",
+		"../../../assets/ccs/splittest.splited.ccs")]
+	public async void SplitCastAsync(string path, string dist)
+	{
+		var ccs = await LibSasara.SasaraCcs.LoadAsync(path);
+		var prevGroups = ccs.RawGroups.Count;
+		await CastSplitter.SplitTrackByCastAsync(ccs);
+		await ccs.SaveAsync(dist);
+
+		var splited = await LibSasara.SasaraCcs.LoadAsync(dist);
+		var groups = splited.RawGroups.Count;
+
+		groups.Should().BeGreaterThan(prevGroups);
 	}
 }
