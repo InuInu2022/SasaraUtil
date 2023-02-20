@@ -10,6 +10,7 @@
     x:Class="SasaraUtil.App">
     <Application.Styles>
         <sty:FluentAvaloniaTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Default.xaml"/>
         <notification:NotificationStyle />
     </Application.Styles>
 </Application>

@@ -17,6 +17,7 @@ public class CastSplitter : UserControl
     async void DropAsync(object? sender, DragEventArgs e)
 	{
 		if (DataContext is not ViewModels
+            .CastSplitter
 			.CastSplitterViewModel vm)
 		{
 			return;

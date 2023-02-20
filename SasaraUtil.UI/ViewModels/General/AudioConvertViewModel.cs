@@ -22,6 +22,7 @@ using Epoxy.Synchronized;
 using LibSasara.Model;
 
 using SasaraUtil.Models;
+using SasaraUtil.ViewModels.Utility;
 
 namespace SasaraUtil.ViewModels;
 
@@ -220,14 +221,7 @@ public sealed class AudioConvertViewModel
 
 	public async ValueTask DropFileEventAsync(DragEventArgs e)
 	{
-		if (!e.Data.Contains(DataFormats.FileNames))
-		{
-			IsConvertable = false;
-			return;
-		}
-
-		var paths = e.Data.GetFileNames();
-		if (paths is null)
+		if(!DropUtil.IsFileAvailable(e))
 		{
 			IsConvertable = false;
 			return;
@@ -235,6 +229,7 @@ public sealed class AudioConvertViewModel
 
 		IsProcessing = true;
 		IsConvertable = false;
+		var paths = DropUtil.GetFileNames(e);
 
 		await Task.Run(() =>
 		{

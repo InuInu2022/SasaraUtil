@@ -3,7 +3,7 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
-			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels.CastSplitter"
 			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
 			xmlns:ui="using:FluentAvalonia.UI.Controls"
 			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
@@ -21,6 +21,7 @@
 	<ScrollViewer>
 		<DockPanel
 			Margin="5"
+			DragDrop.AllowDrop="True"
 			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 			<TextBlock
 				Text="トラック内の複数キャストを別々のトラックに振りわけ"
@@ -35,6 +36,8 @@
 				DockPanel.Dock="Bottom"
 				Margin="5"
 				Classes="accent"
+				IsEnabled="{Binding IsConvertable}"
+				Command="{CompiledBinding SaveFile}"
 				>
 				<WrapPanel>
 					<ui:SymbolIcon Symbol="DownloadFilled" />
@@ -51,27 +54,32 @@
 					Foreground="Gray"
 					HorizontalAlignment="Stretch"
 					VerticalAlignment="Stretch"
+					IsVisible="{Binding !IsConvertable}"
 					/>
-				<!--
-				<ListBox
-					Items="{Binding DroppedFiles}"
-					SelectionMode="Multiple"
-					>
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<TextBlock
-								FontWeight="Bold"
-								Text="{Binding FileName}" />
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
-				-->
+				<StackPanel
+					IsVisible="{Binding IsConvertable}">
+					<TextBlock
+						Text="{Binding TargetFileName}"
+						Margin="5"
+						FontWeight="Bold"
+						/>
+					<DataGrid Name="TalkCastByTracks"
+						Items="{Binding CcsTrackData}"
+						AutoGenerateColumns="False" >
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="トラック" Binding="{Binding TrackName}"/>
+							<DataGridTextColumn Header="キャスト" Binding="{Binding CastName}" />
+							<DataGridTextColumn Header="セリフ" Binding="{Binding Serif}" />
+						</DataGrid.Columns>
+					</DataGrid>
+				</StackPanel>
 				<Button
 					x:Name="ResetList"
-					IsVisible="False"
+					IsVisible="{Binding IsConvertable}"
 					HorizontalAlignment="Right"
 					VerticalAlignment="Top"
 					Margin="5"
+					Command="{Binding ResetFiles}"
 					>
 					<ui:SymbolIcon Symbol="Cancel" />
 				</Button>
