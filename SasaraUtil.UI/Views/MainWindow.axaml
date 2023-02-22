@@ -61,11 +61,13 @@
 					<ui:NavigationViewItem Content="トーク" Icon="Comment" SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem Content="キャストを別トラック振分" Icon="Repair" Tag="Talk.CastSplitter" IsEnabled="True" />
+							<ui:NavigationViewItem Content="ボイパロイド" Icon="Repair" Tag="Talk.VocalPercussion" IsEnabled="False" />
 							<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3" IsEnabled="False" />
 						</ui:NavigationViewItem.MenuItems>
 					</ui:NavigationViewItem>
 					<ui:NavigationViewItem Content="ソング" Icon="Audio" SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
+							<ui:NavigationViewItem Content="ブレス消去・抑制" Icon="Repair" Tag="Song.BreathSuppressor" IsEnabled="True" />
 							<ui:NavigationViewItem Content="Coming soon..." Icon="Help" Tag="SamplePage3"
 							IsEnabled="False" />
 						</ui:NavigationViewItem.MenuItems>
