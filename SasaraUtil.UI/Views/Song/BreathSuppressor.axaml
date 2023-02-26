@@ -96,7 +96,8 @@
 								HorizontalContentAlignment="Stretch"
 								FontFamily="Yu Gothic UI, Meiryo UI"
 								Margin="5" />
-							<Button Content="Select" Margin="5,5,0,5" />
+							<Button Content="Select"
+								IsVisible="False"  Margin="5,5,0,5" />
 						</StackPanel>
 						<StackPanel Orientation="Horizontal"
 							HorizontalAlignment="Right">
@@ -112,7 +113,8 @@
 								HorizontalAlignment="Stretch"
 								HorizontalContentAlignment="Stretch"
 								Margin="5" />
-							<Button Content="Select" Margin="5,5,0,5" />
+							<Button Content="Select"
+								IsVisible="False" Margin="5,5,0,5" />
 						</StackPanel>
 					</StackPanel>
 
