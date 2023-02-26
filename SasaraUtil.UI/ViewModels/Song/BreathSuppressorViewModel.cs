@@ -11,7 +11,7 @@ using Epoxy;
 using Epoxy.Synchronized;
 
 using LibSasara;
-
+using SasaraUtil.Models.Song;
 using SasaraUtil.ViewModels.Utility;
 
 namespace SasaraUtil.ViewModels.BreathSuppressor;
@@ -28,6 +28,10 @@ public class BreathSuppressorViewModel
 	public Command ResetFiles { get; }
 
 	public Command? SaveFile { get; set; }
+	public string ProjectFileName { get; private set; } = "";
+	public string LabelFileName { get; private set; } = "";
+	string ProjectFilePath { get; set; } = "";
+	string LabelFilePath { get; set; } = "";
 
 	public BreathSuppressorViewModel()
 	{
@@ -47,7 +51,7 @@ public class BreathSuppressorViewModel
 
 	private async ValueTask SaveFileAsync()
 	{
-		if(DroppedFiles is null || DroppedFiles.Count == 0){
+		if(ProjectFilePath is null || LabelFilePath is null){
 			_notify?
 				.Warn("ファイルエラー", "変換するファイルがみつかりません");
 			return;
@@ -56,30 +60,23 @@ public class BreathSuppressorViewModel
 		var loading = _notify?
 			.Loading("Now converting...","変換しています。");
 
-		var path = DroppedFiles.FirstOrDefault();
-		if(path is null){
-			_notify?
-				.Warn("ファイルエラー", "変換するファイルがみつかりません");
-			return;
-		}
-
 		var filter = new FileDialogFilter
 		{
-			Extensions = new() { "ccs" }
+			Extensions = new() { "ccs","ccst" }
 		};
-		var fileName = Path.GetFileName(path);
+		var fileName = Path.GetFileName(ProjectFilePath);
 		var d = new SaveFileDialog()
 		{
 			Title = "変換したファイルの保存先を選んでください",
 			Directory =
-				Path.GetDirectoryName(path),
+				Path.GetDirectoryName(ProjectFilePath),
 			Filters = new(){ filter },
 			InitialFileName =
-				Path.ChangeExtension(fileName, "splitted.ccs"),
+				Path.ChangeExtension(fileName, $"suppressed{Path.GetExtension(ProjectFilePath)}"),
 		};
 
 		var saveDir = string.Empty;
-		var mainWin = Utility.MainWindowUtil.GetWindow();
+		var mainWin = MainWindowUtil.GetWindow();
 		if(mainWin is null){
 			_notify?.Dismiss(loading!);
 			return;
@@ -96,9 +93,23 @@ public class BreathSuppressorViewModel
 
 		IsConvertable = false;
 
-		var ccs = await SasaraCcs.LoadAsync(path);
+		try
+		{
+			var ccs = await SasaraCcs.LoadAsync(ProjectFilePath);
+			var lab = await SasaraLabel.LoadAsync(LabelFilePath);
 
-		await ccs.SaveAsync(saveDir);
+			await BreathSuppressorCore
+				.SuppressAsync(
+					ccs, lab, SuppressMode.Remove);
+			await ccs.SaveAsync(saveDir);
+		}
+		catch (Exception e)
+		{
+			_notify?.Dismiss(loading!);
+			_notify?.Error("エラーが発生しました！", e.Message);
+			IsConvertable = true;
+			return;
+		}
 
 		_notify?.Dismiss(loading!);
 		_notify?.Info("保存成功", "保存しました", true);
@@ -117,12 +128,9 @@ public class BreathSuppressorViewModel
 			.Loading("解析中", "ファイルを解析しています...");
 
 		var list = DropUtil.GetFileNames(e);
-		var list2 = await Task.Run(() =>
-		{
-			return list
-				.Where(v =>
-					Path.GetExtension(v) is ".ccs");
-		});
+
+		var list2 = list
+			.Where(v => Path.GetExtension(v) is ".ccst");
 
 		if(!list2.Any())
 		{
@@ -131,28 +139,32 @@ public class BreathSuppressorViewModel
 			return;
 		}
 
-		DroppedFiles = new(list2);
-		TargetFileName = Path.GetFileName(list2.First());
-		var ccs = await SasaraCcs.LoadAsync(list2.First());
-		/*var casts = await Models.BreathSuppressor.BreathSuppressor
-			.GetCastsByTrackAsync(ccs);
-		var tracks = casts.Select(v => (v.Name, v.GroupId));
+		var ccsPath = list2.First();
+		ProjectFilePath = ccsPath;
+		ProjectFileName = Path.GetFileName(ccsPath);
 
-		var list3 = casts
-			.SelectMany(v => v.Units.Select(v => v))
-			.Select(v =>
-				new CcsTrackViewModel(
-					tracks
-						.First(t => t.GroupId == v.Group)
-						.Name,
-					v.CastId,
-					v.Text
-				)
-			);
-		CcsTrackData = new(list3);
-		*/
+		if(list.Any(v => Path.GetExtension(v) is ".lab")){
+			//labファイルドロップされたら
+			LabelFilePath = list.First(v => Path.GetExtension(v) is ".lab");
+			LabelFileName = Path.GetFileName(LabelFilePath);
+		}else if(File.Exists(Path.ChangeExtension(ccsPath, ".lab"))){
+			//同名のlabファイルがあったら読む
+			LabelFilePath = Path.ChangeExtension(ProjectFilePath, ".lab");
+			LabelFileName = Path.GetFileName(LabelFilePath);
+		}
 
-		IsConvertable = true;
+		var ccs = await SasaraCcs.LoadAsync(ProjectFilePath);
+
+		//ソングかどうか
+		if(ccs.GetUnits(LibSasara.Model.Category.SingerSong).Count == 0){
+			_notify!.Dismiss(loading);
+			IsConvertable = false;
+			_notify!.Warn("ソングトラックがありません", "ファイルにソングトラックがありません！");
+			return;
+		}
+
+		IsConvertable = ProjectFilePath is not ""
+			&& LabelFilePath is not "";
 		_notify!.Dismiss(loading);
 	}
 

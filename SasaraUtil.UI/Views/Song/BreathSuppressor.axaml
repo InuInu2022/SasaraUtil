@@ -80,7 +80,6 @@
 						Foreground="Gray"
 						HorizontalAlignment="Stretch"
 						VerticalAlignment="Stretch"
-						IsVisible="{Binding !IsConvertable}"
 						/>
 					<StackPanel>
 						<StackPanel Orientation="Horizontal"
@@ -89,12 +88,13 @@
 								Margin="5"
 								VerticalAlignment="Center"
 								/>
-							<TextBox Text=""
+							<TextBox Text="{Binding ProjectFileName}"
 								MinWidth="200"
 								IsReadOnly="True"
 								Watermark="select a .ccst file"
 								HorizontalAlignment="Stretch"
 								HorizontalContentAlignment="Stretch"
+								FontFamily="Yu Gothic UI, Meiryo UI"
 								Margin="5" />
 							<Button Content="Select" Margin="5,5,0,5" />
 						</StackPanel>
@@ -104,10 +104,11 @@
 								Margin="5"
 								VerticalAlignment="Center"
 								/>
-							<TextBox Text=""
+							<TextBox Text="{Binding LabelFileName}"
 								MinWidth="200"
 								IsReadOnly="True"
 								Watermark="select a .lab file"
+								FontFamily="Yu Gothic UI, Meiryo UI"
 								HorizontalAlignment="Stretch"
 								HorizontalContentAlignment="Stretch"
 								Margin="5" />
