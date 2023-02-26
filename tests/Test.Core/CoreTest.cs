@@ -6,6 +6,10 @@ using FluentAssertions;
 using Xunit.Abstractions;
 using NAudio.Wave;
 using SasaraUtil.Models.CastSplitter;
+using LibSasara.Model;
+using LibSasara;
+using SasaraUtil.Models.Song;
+using System.Linq;
 
 namespace Test.Core;
 
@@ -78,5 +82,45 @@ public class CoreTest
 		var groups = splited.RawGroups.Count;
 
 		groups.Should().BeGreaterThan(prevGroups);
+	}
+
+	[Theory]
+	//[InlineData(
+	//	"../../../assets/ccs/breathsuppress.ccst",
+	//	"../../../assets/ccs/breathsuppress.lab")]
+	[InlineData(
+		"../../../assets/ccs/ソング.ccst",
+		"../../../assets/ccs/ソング.lab")]
+	[InlineData(
+		"../../../assets/ccs/ソング2.ccst",
+		"../../../assets/ccs/ソング2.lab")]
+	public async void BreathSuppressAsync(
+		string ccsPath,
+		string labPath
+	)
+	{
+		var ccs = await SasaraCcs.LoadAsync<CeVIOFileBase>(ccsPath);
+		var lab = await SasaraLabel.LoadAsync(labPath);
+
+		//null check
+		ccs.Should().NotBeNull();
+		lab.Should().NotBeNull();
+		if (ccs is null) { return; }
+
+		await BreathSuppressorCore
+			.SuppressAsync(
+				ccs, lab, SuppressMode.Remove);
+
+		/*ccs.GetUnits(Category.SingerSong)
+			.Cast<SongUnit>()
+			.First()
+			.Volume
+			.Length
+			.Should()
+			.BePositive();*/
+
+		await ccs.SaveAsync(
+			Path.ChangeExtension(ccsPath, ".spt.ccst")
+		);
 	}
 }

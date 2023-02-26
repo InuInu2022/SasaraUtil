@@ -24,7 +24,7 @@
 			DragDrop.AllowDrop="True"
 			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 			<TextBlock
-				Text="トラック内の複数キャストを別々のトラックに振りわけ"
+				Text="トークボイスでボーカルパーカッション"
 				TextWrapping="Wrap"
 				Margin="5"
 				HorizontalAlignment="Stretch"
