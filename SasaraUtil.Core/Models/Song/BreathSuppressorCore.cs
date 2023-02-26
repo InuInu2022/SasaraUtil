@@ -135,6 +135,7 @@ public static class BreathSuppressorCore
 		Lab lab
 	){
 		//TODO:implementaion
+		await Task.Delay(100);
 		throw new NotImplementedException();
 	}
 }
