@@ -74,7 +74,7 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 
 [![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
-![screenshots](./documents/screenshots/Talk_CastSplitter.png)
+![screenshots](./documents/screenshots/Talk_CastSplitter.PNG)
 
 通常、ひとつのトークトラックには複数のキャストが記録されます。
 
