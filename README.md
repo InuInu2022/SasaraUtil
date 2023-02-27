@@ -18,12 +18,12 @@
 > ver.0.1
 
 - 共通向け
-  - [オーディオトラック変換](/####オーディオトラック変換)
+  - [オーディオトラック変換](#オーディオトラック変換)
 - CeVIOトーク向け
-  - [キャストを別トラック振り分け](/####キャストを別トラック振り分け)
+  - [キャストを別トラック振り分け](#キャストを別トラック振り分け)
   - _coming soon_
 - CeVIOソング向け
-  - [ブレス削除・抑制](/####ブレス削除・抑制)
+  - [ブレス削除・抑制](#ブレス削除抑制)
   - _coming soon_
 
 ---
@@ -37,6 +37,9 @@
 ![screenshots](./documents/screenshots/Common_AudioConverter.png)
 
 CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。これに対応した形式に自動で変換します。
+
+<details>
+<summary>詳細</summary>
 
 ##### ファイル形式変換
 
@@ -61,10 +64,11 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 
 - ※ 変換済みの音声ファイルは元のファイルの隣に作られます。
 - ※ `.ccst` ファイルがCeVIOのエディタに関連付けられている必要があります
-
-※この機能は1ファイルのみ対応です。
+- ※この機能は1ファイルのみ対応です。
 
 なお、オーディオの開始秒数は事前に設定できます。
+
+</details>
 
 ---
 
@@ -75,6 +79,8 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 [![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
 ![screenshots](./documents/screenshots/Talk_CastSplitter.PNG)
+
+<details>
 
 通常、ひとつのトークトラックには複数のキャストが記録されます。
 
@@ -88,6 +94,8 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 
 ※現在ベータ版ではキャスト名は内部のIDで表示されます。
 
+</details>
+
 ---
 
 ### ソング向け機能
@@ -97,6 +105,8 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 [![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.3-53abdb.svg?logo=&style=flat)](https://voisona.com/)
 
 ![screenshots](./documents/screenshots/Song_BreathSuppressor.png)
+
+<details>
 
 #### ブレス消去
 
@@ -113,6 +123,8 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 #### ブレス抑制
 
 ※音量を抑える抑制機能は将来的に実装予定
+
+</details>
 
 ---
 
