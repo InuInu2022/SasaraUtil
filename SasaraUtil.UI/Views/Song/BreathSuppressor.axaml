@@ -21,6 +21,7 @@
 	<ScrollViewer>
 		<DockPanel
 			Margin="5"
+			Opacity="1"
 			DragDrop.AllowDrop="True"
 			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 

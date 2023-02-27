@@ -1,0 +1,783 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Generation>
+    <Author Version="8.4.5.0" />
+    <TTS Version="6.0.21">
+      <Dictionary Version="3.0.17">
+        <Extension Version="2.0.2" Language="English" />
+      </Dictionary>
+      <SoundSources />
+    </TTS>
+    <SVSS Version="6.2.1">
+      <Dictionary Version="3.0.1">
+        <Extension Version="2.0.1" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-A" Name="さとうささら" />
+      </SoundSources>
+    </SVSS>
+  </Generation>
+  <Sequence Id="">
+    <Scene Id="">
+      <Timeline Partition="288.666666666667,253.142857142857" CurrentPosition="00:00:04.0100000">
+        <ViewScale Horizontal="0.31" Vertical="0.64583333333333337" />
+      </Timeline>
+      <TalkEditor Partition="592">
+        <Extension VerticalRatio="206.285714285714*,313.142857142857*" />
+      </TalkEditor>
+      <SongEditor Partition="64" Quantize="240" Mode="2" EditingTool="0">
+        <ViewScale Horizontal="156" Vertical="14" />
+        <ReferenceState Current="Timing, C0" Previous="Timing, C0" />
+      </SongEditor>
+      <Units>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="497ed3d6-1f58-4fcc-b725-aa80f3004ade" StartTime="00:00:00" Duration="00:00:12.1430000" CastId="CSNV-JPF-A" Language="Japanese">
+          <Song Version="1.07">
+            <Tempo>
+              <Sound Clock="0" Tempo="120" />
+              <Sound Clock="7680" Tempo="112" />
+              <Sound Clock="11520" Tempo="80" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="4" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="0" Mode="0" />
+              <Dynamics Clock="0" Value="5" />
+              <Note Clock="4800" PitchStep="0" PitchOctave="4" Duration="960" Lyric="ド" />
+              <Note Clock="5760" PitchStep="2" PitchOctave="4" Duration="960" Lyric="レ" />
+              <Note Clock="6720" PitchStep="4" PitchOctave="4" Duration="960" Lyric="ミ" DoReMi="true" />
+              <Note Clock="8640" PitchStep="9" PitchOctave="4" Duration="960" Lyric="ラ" DoReMi="true" />
+              <Note Clock="9600" PitchStep="7" PitchOctave="4" Duration="960" Lyric="ソ" DoReMi="true" />
+              <Note Clock="12480" PitchStep="2" PitchOctave="4" Duration="960" Lyric="レ" DoReMi="true" />
+              <Note Clock="13440" PitchStep="7" PitchOctave="4" Duration="960" Lyric="ソ" DoReMi="true" />
+            </Score>
+            <Parameter>
+              <C0 Length="2429">
+                <Data Index="380">1.076490159890831</Data>
+                <Data>1.1239335340596655</Data>
+                <Data>1.1618882333947309</Data>
+                <Data>1.18402847467352</Data>
+                <Data>1.2061687159523087</Data>
+                <Data>1.2567749817323985</Data>
+                <Data>1.2710079939830483</Data>
+                <Data>1.3231957055687635</Data>
+                <Data>1.3374287178194142</Data>
+                <Data>1.3516617300700648</Data>
+                <Data>1.3706390797375971</Data>
+                <Data>1.3959422126276415</Data>
+                <Data>1.4212453455176863</Data>
+                <Data>1.4465484784077305</Data>
+                <Data>1.4655258280752652</Data>
+                <Data>1.475014502909032</Data>
+                <Data>1.4939918525765643</Data>
+                <Data Repeat="3">1.5034805274103311</Data>
+                <Data Repeat="3">1.5129692022440975</Data>
+                <Data>1.5161320938553526</Data>
+                <Data>1.5192949854666082</Data>
+                <Data Repeat="6">1.5224578770778634</Data>
+                <Data>1.5082248648272139</Data>
+                <Data>1.4939918525765643</Data>
+                <Data>1.475014502909032</Data>
+                <Data>1.4655258280752652</Data>
+                <Data>1.456037153241498</Data>
+                <Data>1.4465484784077307</Data>
+                <Data>1.4370598035739639</Data>
+                <Data>1.4085937790726653</Data>
+                <Data>1.3991051042388984</Data>
+                <Data>1.3801277545713639</Data>
+                <Data Repeat="2">1.3611504049038308</Data>
+                <Data Repeat="2">1.3326843804025317</Data>
+                <Data Repeat="3">1.3137070307349972</Data>
+                <Data>1.3089626933181138</Data>
+                <Data Repeat="13">1.3042183559012304</Data>
+                <Data>1.3137070307349972</Data>
+                <Data>1.3326843804025317</Data>
+                <Data>1.3421730552362983</Data>
+                <Data>1.3516617300700648</Data>
+                <Data>1.3706390797375971</Data>
+                <Data>1.3801277545713639</Data>
+                <Data>1.3991051042388984</Data>
+                <Data>1.408593779072665</Data>
+                <Data>1.4180824539064316</Data>
+                <Data>1.4370598035739639</Data>
+                <Data>1.4560371532414971</Data>
+                <Data>1.4702701654921475</Data>
+                <Data>1.4845031777427979</Data>
+                <Data>1.5224578770778634</Data>
+                <Data>1.5414352267453988</Data>
+                <Data>2.0633123426025661</Data>
+                <Data>2.1012670419376316</Data>
+                <Data>2.1107557167713975</Data>
+                <Data Repeat="2">2.1392217412726988</Data>
+                <Data Repeat="5">2.1487104161064647</Data>
+                <Data>2.1012670419376316</Data>
+                <Data>2.0870340296869818</Data>
+                <Data>2.072801017436332</Data>
+                <Data>2.0063802935999653</Data>
+                <Data>1.9968916187661985</Data>
+                <Data>1.9589369194311312</Data>
+                <Data>1.920982220096064</Data>
+                <Data>1.9020048704285313</Data>
+                <Data>1.8830275207609986</Data>
+                <Data>1.8545614962596972</Data>
+                <Data Repeat="6">1.8260954717583986</Data>
+                <Data>1.8308398091752816</Data>
+                <Data>1.8355841465921645</Data>
+                <Data>1.8735388459272317</Data>
+                <Data>1.9304708949298317</Data>
+                <Data>1.9897751126408734</Data>
+                <Data>2.049079330351915</Data>
+                <Data>2.1083835480629567</Data>
+                <Data>2.2815518637791983</Data>
+                <Data>2.295784876029848</Data>
+                <Data>2.3100178882804978</Data>
+                <Data>2.3147622256973808</Data>
+                <Data>2.3195065631142637</Data>
+                <Data>2.324250900531148</Data>
+                <Data Repeat="2">2.3289952379480323</Data>
+                <Data>2.3384839127817991</Data>
+                <Data Repeat="4">2.347972587615565</Data>
+                <Data Index="1121">2.5757007836259649</Data>
+                <Data>2.5092800597895981</Data>
+                <Data>2.4997913849558313</Data>
+                <Data>2.4903027101220654</Data>
+                <Data>2.4808140352882986</Data>
+                <Data>2.4642088543292067</Data>
+                <Data>2.4476036733701152</Data>
+                <Data>2.4309984924110237</Data>
+                <Data>2.4143933114519318</Data>
+                <Data>2.4049046366181659</Data>
+                <Data>2.3811829495337489</Data>
+                <Data>2.3574612624493319</Data>
+                <Data>2.3416468043930538</Data>
+                <Data>2.3258323463367758</Data>
+                <Data>2.3100178882804978</Data>
+                <Data>2.3005292134467314</Data>
+                <Data>2.2910405386129651</Data>
+                <Data>2.2720631889454324</Data>
+                <Data>2.2625745141116647</Data>
+                <Data>2.253085839277897</Data>
+                <Data>2.2388528270272476</Data>
+                <Data>2.2151311399428315</Data>
+                <Data Repeat="2">2.1961537902752997</Data>
+                <Data>2.18666511544153</Data>
+                <Data Repeat="2">2.1581990909402315</Data>
+                <Data Repeat="18">2.1487104161064647</Data>
+                <Data>2.1581990909402315</Data>
+                <Data>2.1629434283571149</Data>
+                <Data Repeat="2">2.1771764406077643</Data>
+                <Data>2.1961537902752997</Data>
+                <Data>2.2341084896103651</Data>
+                <Data>2.243597164444131</Data>
+                <Data>2.253085839277897</Data>
+                <Data>2.2602023454032221</Data>
+                <Data>2.2673188515285476</Data>
+                <Data>2.2744353576538732</Data>
+                <Data>2.2815518637791983</Data>
+                <Data>2.3289952379480323</Data>
+                <Data>2.3574612624493319</Data>
+                <Data>2.3764386121168646</Data>
+                <Data>2.4049046366181659</Data>
+                <Data>2.4238819862856986</Data>
+                <Data>2.4333706611194645</Data>
+                <Data>2.4523480107869973</Data>
+                <Data>2.4713253604545327</Data>
+                <Data>2.4784418665798573</Data>
+                <Data>2.485558372705182</Data>
+                <Data>2.4926748788305066</Data>
+                <Data Repeat="2">2.5092800597895981</Data>
+                <Data>2.518768734623364</Data>
+                <Data>2.5282574094571317</Data>
+                <Data>2.5377460842908994</Data>
+                <Data Repeat="7">2.5662121087921981</Data>
+                <Data>2.518768734623364</Data>
+                <Data>2.4428593359532313</Data>
+                <Data>2.3574612624493319</Data>
+                <Data>2.253085839277897</Data>
+                <Data>2.1012670419376316</Data>
+                <Data>1.7976294472570982</Data>
+                <Data Repeat="2">1.7691634227557977</Data>
+                <Data>1.7596747479220318</Data>
+                <Data>1.7217200485869637</Data>
+                <Data>1.7169757111700803</Data>
+                <Data>1.7122313737531969</Data>
+                <Data>1.702742698919431</Data>
+                <Data>1.697998361502548</Data>
+                <Data>1.6932540240856651</Data>
+                <Data>1.6885096866687817</Data>
+                <Data Repeat="9">1.6647879995843655</Data>
+                <Data>1.6742766744181319</Data>
+                <Data>1.6837653492518982</Data>
+                <Data>1.6932540240856646</Data>
+                <Data>1.7122313737531969</Data>
+                <Data>1.7312087234207314</Data>
+                <Data Repeat="2">1.7406973982544982</Data>
+                <Data>1.750186073088265</Data>
+                <Data>1.7596747479220318</Data>
+                <Data Repeat="3">1.7596747479220316</Data>
+                <Data Repeat="2">1.7691634227557977</Data>
+                <Data Repeat="4">1.7786520975895637</Data>
+                <Data>1.807118122090865</Data>
+                <Data>1.8166067969246318</Data>
+                <Data Repeat="3">1.8260954717583986</Data>
+                <Data>1.8308398091752816</Data>
+                <Data>1.8355841465921645</Data>
+                <Data>1.8403284840090475</Data>
+                <Data>1.8450728214259304</Data>
+                <Data>1.8545614962596972</Data>
+                <Data>1.8735388459272317</Data>
+                <Data>1.8925161955947654</Data>
+                <Data>1.9114935452622972</Data>
+                <Data>1.9209822200960645</Data>
+                <Data>1.9494482445973653</Data>
+                <Data>1.968425594264898</Data>
+                <Data>1.9874029439324308</Data>
+                <Data>1.9968916187661985</Data>
+                <Data>2.025357643267498</Data>
+                <Data>2.0443349929350307</Data>
+                <Data>2.0633123426025661</Data>
+                <Data>2.0680566800194491</Data>
+                <Data>2.072801017436332</Data>
+                <Data>2.077545354853215</Data>
+                <Data>2.0917783671038648</Data>
+                <Data>2.1107557167713975</Data>
+                <Data>2.1297330664389329</Data>
+                <Data>2.1392217412726988</Data>
+                <Data>2.1581990909402315</Data>
+                <Data>2.1676877657739984</Data>
+                <Data>2.18666511544153</Data>
+                <Data>2.2246198147765983</Data>
+                <Data>2.2388528270272476</Data>
+                <Data>2.253085839277897</Data>
+                <Data Repeat="2">2.3384839127817991</Data>
+                <Data>2.34480969600431</Data>
+                <Data>2.3511354792268211</Data>
+                <Data>2.3954159617843991</Data>
+                <Data>2.4096489740350489</Data>
+                <Data>2.4428593359532313</Data>
+                <Data>2.4808140352882986</Data>
+                <Data>2.5757007836259649</Data>
+                <Data>2.6326328326285648</Data>
+                <Data>2.6800762067973989</Data>
+                <Data>2.7180309061324643</Data>
+                <Data>2.7559856054675316</Data>
+                <Data>2.8034289796363656</Data>
+                <Data>2.8129176544701324</Data>
+                <Data>2.8508723538051979</Data>
+                <Data>2.8571981370277091</Data>
+                <Data>2.8635239202502212</Data>
+                <Data>2.8793383783064992</Data>
+                <Data>2.8983157279740319</Data>
+                <Data>2.9172930776415646</Data>
+                <Data>2.9220374150584485</Data>
+                <Data>2.9267817524753323</Data>
+                <Data>2.9362704273090992</Data>
+                <Data>2.945759102142866</Data>
+                <Data>2.9742251266441646</Data>
+                <Data>2.9837138014779314</Data>
+                <Data>2.9932024763116991</Data>
+                <Data>3.0026911511454659</Data>
+                <Data>3.0121798259792327</Data>
+                <Data Repeat="4">3.0216685008129986</Data>
+                <Data>3.0406458504805314</Data>
+                <Data>3.0501345253142982</Data>
+              </C0>
+            </Parameter>
+          </Song>
+        </Unit>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="66f8c259-3b1f-47fd-9e22-c25b797f48b3" StartTime="00:00:00" Duration="00:00:12.1430000" CastId="CSNV-JPF-A" Language="Japanese">
+          <Song Version="1.07">
+            <Tempo>
+              <Sound Clock="0" Tempo="120" />
+              <Sound Clock="7680" Tempo="112" />
+              <Sound Clock="11520" Tempo="80" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="4" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="0" Mode="0" />
+              <Dynamics Clock="0" Value="5" />
+              <Note Clock="4800" PitchStep="0" PitchOctave="4" Duration="960" Lyric="ド" />
+              <Note Clock="5760" PitchStep="2" PitchOctave="4" Duration="960" Lyric="レ" />
+              <Note Clock="6720" PitchStep="4" PitchOctave="4" Duration="960" Lyric="ミ" DoReMi="true" />
+              <Note Clock="8640" PitchStep="9" PitchOctave="4" Duration="960" Lyric="ラ" DoReMi="true" />
+              <Note Clock="9600" PitchStep="7" PitchOctave="4" Duration="960" Lyric="ソ" DoReMi="true" />
+              <Note Clock="12480" PitchStep="2" PitchOctave="4" Duration="960" Lyric="レ" DoReMi="true" />
+              <Note Clock="13440" PitchStep="7" PitchOctave="4" Duration="960" Lyric="ソ" DoReMi="true" />
+            </Score>
+            <Parameter>
+              <C0 Length="2429">
+                <Data Index="380">1.076490159890831</Data>
+                <Data>1.1239335340596655</Data>
+                <Data>1.1618882333947309</Data>
+                <Data>1.18402847467352</Data>
+                <Data>1.2061687159523087</Data>
+                <Data>1.2567749817323985</Data>
+                <Data>1.2710079939830483</Data>
+                <Data>1.3231957055687635</Data>
+                <Data>1.3374287178194142</Data>
+                <Data>1.3516617300700648</Data>
+                <Data>1.3706390797375971</Data>
+                <Data>1.3959422126276415</Data>
+                <Data>1.4212453455176863</Data>
+                <Data>1.4465484784077305</Data>
+                <Data>1.4655258280752652</Data>
+                <Data>1.475014502909032</Data>
+                <Data>1.4939918525765643</Data>
+                <Data Repeat="3">1.5034805274103311</Data>
+                <Data Repeat="3">1.5129692022440975</Data>
+                <Data>1.5161320938553526</Data>
+                <Data>1.5192949854666082</Data>
+                <Data Repeat="6">1.5224578770778634</Data>
+                <Data>1.5082248648272139</Data>
+                <Data>1.4939918525765643</Data>
+                <Data>1.475014502909032</Data>
+                <Data>1.4655258280752652</Data>
+                <Data>1.456037153241498</Data>
+                <Data>1.4465484784077307</Data>
+                <Data>1.4370598035739639</Data>
+                <Data>1.4085937790726653</Data>
+                <Data>1.3991051042388984</Data>
+                <Data>1.3801277545713639</Data>
+                <Data Repeat="2">1.3611504049038308</Data>
+                <Data Repeat="2">1.3326843804025317</Data>
+                <Data Repeat="3">1.3137070307349972</Data>
+                <Data>1.3089626933181138</Data>
+                <Data Repeat="13">1.3042183559012304</Data>
+                <Data>1.3137070307349972</Data>
+                <Data>1.3326843804025317</Data>
+                <Data>1.3421730552362983</Data>
+                <Data>1.3516617300700648</Data>
+                <Data>1.3706390797375971</Data>
+                <Data>1.3801277545713639</Data>
+                <Data>1.3991051042388984</Data>
+                <Data>1.408593779072665</Data>
+                <Data>1.4180824539064316</Data>
+                <Data>1.4370598035739639</Data>
+                <Data>1.4560371532414971</Data>
+                <Data>1.4702701654921475</Data>
+                <Data>1.4845031777427979</Data>
+                <Data>1.5224578770778634</Data>
+                <Data>1.5414352267453988</Data>
+                <Data>2.0633123426025661</Data>
+                <Data>2.1012670419376316</Data>
+                <Data>2.1107557167713975</Data>
+                <Data Repeat="2">2.1392217412726988</Data>
+                <Data Repeat="5">2.1487104161064647</Data>
+                <Data>2.1012670419376316</Data>
+                <Data>2.0870340296869818</Data>
+                <Data>2.072801017436332</Data>
+                <Data>2.0063802935999653</Data>
+                <Data>1.9968916187661985</Data>
+                <Data>1.9589369194311312</Data>
+                <Data>1.920982220096064</Data>
+                <Data>1.9020048704285313</Data>
+                <Data>1.8830275207609986</Data>
+                <Data>1.8545614962596972</Data>
+                <Data Repeat="6">1.8260954717583986</Data>
+                <Data>1.8308398091752816</Data>
+                <Data>1.8355841465921645</Data>
+                <Data>1.8735388459272317</Data>
+                <Data>1.9304708949298317</Data>
+                <Data>1.9897751126408734</Data>
+                <Data>2.049079330351915</Data>
+                <Data>2.1083835480629567</Data>
+                <Data>2.2815518637791983</Data>
+                <Data>2.295784876029848</Data>
+                <Data>2.3100178882804978</Data>
+                <Data>2.3147622256973808</Data>
+                <Data>2.3195065631142637</Data>
+                <Data>2.324250900531148</Data>
+                <Data Repeat="2">2.3289952379480323</Data>
+                <Data>2.3384839127817991</Data>
+                <Data Repeat="4">2.347972587615565</Data>
+                <Data Index="544">5.0840383441703292</Data>
+                <Data>5.1419893112758821</Data>
+                <Data>5.2115304718025488</Data>
+                <Data>5.2810716323292155</Data>
+                <Data>5.4085637599614369</Data>
+                <Data>5.4781049204881</Data>
+                <Data>5.5128755007514343</Data>
+                <Data>5.6055970481203214</Data>
+                <Data Repeat="5">5.6287774349625419</Data>
+                <Data>5.6171872415414317</Data>
+                <Data>5.5940068546992112</Data>
+                <Data>5.5244656941725463</Data>
+                <Data>5.4781049204881</Data>
+                <Data>5.46651472706699</Data>
+                <Data>5.4433343402247685</Data>
+                <Data>5.3969735665403231</Data>
+                <Data>5.3679980829875467</Data>
+                <Data>5.315842212592548</Data>
+                <Data>5.223120665223659</Data>
+                <Data>5.1303991178547719</Data>
+                <Data>5.0724481507492172</Data>
+                <Data>5.0376775704858847</Data>
+                <Data Index="626">5.8953518836480985</Data>
+                <Data>5.837400916542542</Data>
+                <Data>5.7794499494369855</Data>
+                <Data>5.738884272463098</Data>
+                <Data>5.69831859548921</Data>
+                <Data>5.6055970481203214</Data>
+                <Data>5.5592362744358779</Data>
+                <Data>5.5128755007514343</Data>
+                <Data>5.4607196303564356</Data>
+                <Data>5.4085637599614369</Data>
+                <Data>5.33902259943477</Data>
+                <Data>5.2810716323292155</Data>
+                <Data>5.2578912454869933</Data>
+                <Data>5.234710858644771</Data>
+                <Data>5.2115304718025488</Data>
+                <Data Repeat="9">5.1999402783814386</Data>
+                <Data>5.2115304718025488</Data>
+                <Data>5.2578912454869933</Data>
+                <Data>5.2752765356186595</Data>
+                <Data>5.304252019171436</Data>
+                <Data>5.4085637599614369</Data>
+                <Data>5.5128755007514343</Data>
+                <Data>5.5476460810147668</Data>
+                <Data>5.5940068546992112</Data>
+                <Data>5.69831859548921</Data>
+                <Data>5.7330891757525446</Data>
+                <Data>5.8026303362792078</Data>
+                <Data>5.81422052970032</Data>
+                <Data>5.8721714968058727</Data>
+                <Data>5.8837616902269829</Data>
+                <Data>5.8953518836480985</Data>
+                <Data Index="736">5.9301224639114292</Data>
+                <Data>5.9764832375958736</Data>
+                <Data>6.0344342047014283</Data>
+                <Data>6.092385171806983</Data>
+                <Data>6.1503361389125377</Data>
+                <Data>6.18510671917587</Data>
+                <Data>6.2198772994392044</Data>
+                <Data>6.254647879702536</Data>
+                <Data>6.3473694270714223</Data>
+                <Data>6.3744132117206815</Data>
+                <Data>6.4014569963699417</Data>
+                <Data>6.4285007810192</Data>
+                <Data>6.4671347590895705</Data>
+                <Data>6.50576873715994</Data>
+                <Data>6.5444027152303086</Data>
+                <Data>6.56758310207253</Data>
+                <Data>6.5907634889147531</Data>
+                <Data>6.6139438757569762</Data>
+                <Data>6.6429193593097526</Data>
+                <Data Repeat="4">6.683485036283642</Data>
+                <Data>6.6487144560203095</Data>
+                <Data>6.6023536823358633</Data>
+                <Data>6.5791732954936428</Data>
+                <Data>6.4980419415458659</Data>
+                <Data>6.416910587598089</Data>
+                <Data>6.3937302007558667</Data>
+                <Data>6.335779233650312</Data>
+                <Data>6.17351652575476</Data>
+                <Data>5.9301224639114292</Data>
+                <Data>5.7678597560158753</Data>
+                <Data>5.6751382086469881</Data>
+                <Data>5.6867284020680984</Data>
+                <Data>5.7214989823314291</Data>
+                <Data Index="808">1.5546018816843046</Data>
+                <Data>1.4276712872400295</Data>
+                <Data>2.0240440704240812</Data>
+                <Data>2.6728140093698514</Data>
+                <Data>3.1920227028741848</Data>
+                <Data>3.6978528239145296</Data>
+                <Data>4.1882548787012119</Data>
+                <Data>4.6571004130258569</Data>
+                <Data>4.7751109339609155</Data>
+                <Data>4.8598431898965853</Data>
+                <Data>4.9216402842416773</Data>
+                <Data>4.9801765396013273</Data>
+                <Data>5.0383971430673613</Data>
+                <Data>5.1107737256898895</Data>
+                <Data>5.1892808176889433</Data>
+                <Data>5.26083224553013</Data>
+                <Data>5.3185107828989047</Data>
+                <Data>5.3609024621858605</Data>
+                <Data>5.38414315480137</Data>
+                <Data>5.4003592731370933</Data>
+                <Data>5.40154281872654</Data>
+                <Data>5.405600853146554</Data>
+                <Data>5.4201121785058994</Data>
+                <Data>5.423680458249093</Data>
+                <Data>5.4023092200174343</Data>
+                <Data>5.3835818149461758</Data>
+                <Data>5.3715778233423244</Data>
+                <Data>5.35124842900181</Data>
+                <Data>5.3357557513132114</Data>
+                <Data>5.3359416534318935</Data>
+                <Data>5.3515652109994907</Data>
+                <Data>5.3701004959955227</Data>
+                <Data>5.370091602982523</Data>
+                <Data>5.3700922037973413</Data>
+                <Data>5.376646926583291</Data>
+                <Data>5.3921967770471593</Data>
+                <Data>5.4026980807199489</Data>
+                <Data>5.3975825049295434</Data>
+                <Data>5.4013340880289089</Data>
+                <Data>5.41179018277073</Data>
+                <Data>5.4362685896768586</Data>
+                <Data>5.4738458110704435</Data>
+                <Data>5.5109051205530175</Data>
+                <Data>5.537990453423502</Data>
+                <Data>5.5492057825937291</Data>
+                <Data>5.5507993819131869</Data>
+                <Data>5.561209099473</Data>
+                <Data>5.5755244590654378</Data>
+                <Data>5.5937114264383325</Data>
+                <Data>5.6197443224802033</Data>
+                <Data>5.635937273682595</Data>
+                <Data>5.6552554609193812</Data>
+                <Data>5.6798505999460236</Data>
+                <Data>5.7002288581743255</Data>
+                <Data>5.7090388562097569</Data>
+                <Data>5.7152457548990263</Data>
+                <Data>5.7125765444650671</Data>
+                <Data>5.7034223176851278</Data>
+                <Data>5.6889992501153959</Data>
+                <Data>5.6676258446588523</Data>
+                <Data>5.6461683108224889</Data>
+                <Data>5.62774035948658</Data>
+                <Data>5.5997868992700592</Data>
+                <Data>5.5594906975641258</Data>
+                <Data>5.5275922610178014</Data>
+                <Data>5.4895559384241119</Data>
+                <Data>5.4609009196176537</Data>
+                <Data>5.4226836897745141</Data>
+                <Data>5.3727268626108184</Data>
+                <Data>5.2945673276796352</Data>
+                <Data>5.2116527726068504</Data>
+                <Data>5.1309780814065942</Data>
+                <Data>5.0636960245981228</Data>
+                <Data>5.0038253356828708</Data>
+                <Data>4.9394540192499168</Data>
+                <Data>4.8712637760057458</Data>
+                <Data>4.7658223559274688</Data>
+                <Data>4.6553850509538659</Data>
+                <Data>4.5379946591272375</Data>
+                <Data>4.1212444934263246</Data>
+                <Data>3.716695689858438</Data>
+                <Data>3.2788311018362055</Data>
+                <Data>2.7582477595224395</Data>
+                <Data>2.1464169492139828</Data>
+                <Data>1.3240880019083034</Data>
+                <Data>0.733854571701528</Data>
+                <Data>1.0148818982257857</Data>
+                <Data>1.7025783928051006</Data>
+                <Data Index="943">6.4632713612825352</Data>
+                <Data>6.4864517481247557</Data>
+                <Data>6.5212223283880881</Data>
+                <Data>6.6023536823358633</Data>
+                <Data>6.6371242625991966</Data>
+                <Data>6.6950752297047522</Data>
+                <Data>6.7877967770736412</Data>
+                <Data>6.8051820672053074</Data>
+                <Data>6.8225673573369736</Data>
+                <Data>6.8573379376003061</Data>
+                <Data>6.8805183244425283</Data>
+                <Data>6.89210851786364</Data>
+                <Data>6.9036987112847505</Data>
+                <Data>6.9152889047058608</Data>
+                <Data>6.89210851786364</Data>
+                <Data>6.8689281310214163</Data>
+                <Data>6.7530261968103087</Data>
+                <Data>6.7240507132575305</Data>
+                <Data>6.6950752297047522</Data>
+                <Data>6.6487144560203078</Data>
+                <Data>6.6023536823358633</Data>
+                <Data>6.55599290865142</Data>
+                <Data>6.4516811678614214</Data>
+                <Data>6.4053203941769787</Data>
+                <Data>6.3821400073347565</Data>
+                <Data>6.3589596204925343</Data>
+                <Data>6.2662380731236471</Data>
+                <Data Index="1047">5.6867284020680984</Data>
+                <Data>5.5708264678569908</Data>
+                <Data>5.5302607908831023</Data>
+                <Data>5.4896951139092138</Data>
+                <Data>5.35061279285588</Data>
+                <Data>5.2810716323292155</Data>
+                <Data>5.223120665223659</Data>
+                <Data>5.1767598915392163</Data>
+                <Data>5.1303991178547719</Data>
+                <Data>5.0376775704858847</Data>
+                <Data>5.0029069902225523</Data>
+                <Data>4.9797266033803282</Data>
+                <Data>4.9565462165381078</Data>
+                <Data>4.9507511198275527</Data>
+                <Data>4.9449560231169976</Data>
+                <Data Repeat="6">4.9333658296958873</Data>
+                <Data>4.9449560231169976</Data>
+                <Data>4.9565462165381078</Data>
+                <Data>4.9797266033803282</Data>
+                <Data>4.99131679680144</Data>
+                <Data>5.0144971836436625</Data>
+                <Data>5.0376775704858838</Data>
+                <Data>5.0608579573281052</Data>
+                <Data>5.0898334408808834</Data>
+                <Data>5.1188089244336616</Data>
+                <Data>5.6635480152258779</Data>
+                <Data>5.6905917998751363</Data>
+                <Data>5.7176355845243956</Data>
+                <Data>5.7446793691736548</Data>
+                <Data>5.76206465930532</Data>
+                <Data>5.7794499494369855</Data>
+                <Data Index="1121">2.5757007836259649</Data>
+                <Data>2.5092800597895981</Data>
+                <Data>2.4997913849558313</Data>
+                <Data>2.4903027101220654</Data>
+                <Data>2.4808140352882986</Data>
+                <Data>2.4642088543292067</Data>
+                <Data>2.4476036733701152</Data>
+                <Data>2.4309984924110237</Data>
+                <Data>2.4143933114519318</Data>
+                <Data>2.4049046366181659</Data>
+                <Data>2.3811829495337489</Data>
+                <Data>2.3574612624493319</Data>
+                <Data>2.3416468043930538</Data>
+                <Data>2.3258323463367758</Data>
+                <Data>2.3100178882804978</Data>
+                <Data>2.3005292134467314</Data>
+                <Data>2.2910405386129651</Data>
+                <Data>2.2720631889454324</Data>
+                <Data>2.2625745141116647</Data>
+                <Data>2.253085839277897</Data>
+                <Data>2.2388528270272476</Data>
+                <Data>2.2151311399428315</Data>
+                <Data Repeat="2">2.1961537902752997</Data>
+                <Data>2.18666511544153</Data>
+                <Data Repeat="2">2.1581990909402315</Data>
+                <Data Repeat="18">2.1487104161064647</Data>
+                <Data>2.1581990909402315</Data>
+                <Data>2.1629434283571149</Data>
+                <Data Repeat="2">2.1771764406077643</Data>
+                <Data>2.1961537902752997</Data>
+                <Data>2.2341084896103651</Data>
+                <Data>2.243597164444131</Data>
+                <Data>2.253085839277897</Data>
+                <Data>2.2602023454032221</Data>
+                <Data>2.2673188515285476</Data>
+                <Data>2.2744353576538732</Data>
+                <Data>2.2815518637791983</Data>
+                <Data>2.3289952379480323</Data>
+                <Data>2.3574612624493319</Data>
+                <Data>2.3764386121168646</Data>
+                <Data>2.4049046366181659</Data>
+                <Data>2.4238819862856986</Data>
+                <Data>2.4333706611194645</Data>
+                <Data>2.4523480107869973</Data>
+                <Data>2.4713253604545327</Data>
+                <Data>2.4784418665798573</Data>
+                <Data>2.485558372705182</Data>
+                <Data>2.4926748788305066</Data>
+                <Data Repeat="2">2.5092800597895981</Data>
+                <Data>2.518768734623364</Data>
+                <Data>2.5282574094571317</Data>
+                <Data>2.5377460842908994</Data>
+                <Data Repeat="7">2.5662121087921981</Data>
+                <Data>2.518768734623364</Data>
+                <Data>2.4428593359532313</Data>
+                <Data>2.3574612624493319</Data>
+                <Data>2.253085839277897</Data>
+                <Data>2.1012670419376316</Data>
+                <Data>1.7976294472570982</Data>
+                <Data Repeat="2">1.7691634227557977</Data>
+                <Data>1.7596747479220318</Data>
+                <Data>1.7217200485869637</Data>
+                <Data>1.7169757111700803</Data>
+                <Data>1.7122313737531969</Data>
+                <Data>1.702742698919431</Data>
+                <Data>1.697998361502548</Data>
+                <Data>1.6932540240856651</Data>
+                <Data>1.6885096866687817</Data>
+                <Data Repeat="9">1.6647879995843655</Data>
+                <Data>1.6742766744181319</Data>
+                <Data>1.6837653492518982</Data>
+                <Data>1.6932540240856646</Data>
+                <Data>1.7122313737531969</Data>
+                <Data>1.7312087234207314</Data>
+                <Data Repeat="2">1.7406973982544982</Data>
+                <Data>1.750186073088265</Data>
+                <Data>1.7596747479220318</Data>
+                <Data Repeat="3">1.7596747479220316</Data>
+                <Data Repeat="2">1.7691634227557977</Data>
+                <Data Repeat="4">1.7786520975895637</Data>
+                <Data>1.807118122090865</Data>
+                <Data>1.8166067969246318</Data>
+                <Data Repeat="3">1.8260954717583986</Data>
+                <Data>1.8308398091752816</Data>
+                <Data>1.8355841465921645</Data>
+                <Data>1.8403284840090475</Data>
+                <Data>1.8450728214259304</Data>
+                <Data>1.8545614962596972</Data>
+                <Data>1.8735388459272317</Data>
+                <Data>1.8925161955947654</Data>
+                <Data>1.9114935452622972</Data>
+                <Data>1.9209822200960645</Data>
+                <Data>1.9494482445973653</Data>
+                <Data>1.968425594264898</Data>
+                <Data>1.9874029439324308</Data>
+                <Data>1.9968916187661985</Data>
+                <Data>2.025357643267498</Data>
+                <Data>2.0443349929350307</Data>
+                <Data>2.0633123426025661</Data>
+                <Data>2.0680566800194491</Data>
+                <Data>2.072801017436332</Data>
+                <Data>2.077545354853215</Data>
+                <Data>2.0917783671038648</Data>
+                <Data>2.1107557167713975</Data>
+                <Data>2.1297330664389329</Data>
+                <Data>2.1392217412726988</Data>
+                <Data>2.1581990909402315</Data>
+                <Data>2.1676877657739984</Data>
+                <Data>2.18666511544153</Data>
+                <Data>2.2246198147765983</Data>
+                <Data>2.2388528270272476</Data>
+                <Data>2.253085839277897</Data>
+                <Data Repeat="2">2.3384839127817991</Data>
+                <Data>2.34480969600431</Data>
+                <Data>2.3511354792268211</Data>
+                <Data>2.3954159617843991</Data>
+                <Data>2.4096489740350489</Data>
+                <Data>2.4428593359532313</Data>
+                <Data>2.4808140352882986</Data>
+                <Data>2.5757007836259649</Data>
+                <Data>2.6326328326285648</Data>
+                <Data>2.6800762067973989</Data>
+                <Data>2.7180309061324643</Data>
+                <Data>2.7559856054675316</Data>
+                <Data>2.8034289796363656</Data>
+                <Data>2.8129176544701324</Data>
+                <Data>2.8508723538051979</Data>
+                <Data>2.8571981370277091</Data>
+                <Data>2.8635239202502212</Data>
+                <Data>2.8793383783064992</Data>
+                <Data>2.8983157279740319</Data>
+                <Data>2.9172930776415646</Data>
+                <Data>2.9220374150584485</Data>
+                <Data>2.9267817524753323</Data>
+                <Data>2.9362704273090992</Data>
+                <Data>2.945759102142866</Data>
+                <Data>2.9742251266441646</Data>
+                <Data>2.9837138014779314</Data>
+                <Data>2.9932024763116991</Data>
+                <Data>3.0026911511454659</Data>
+                <Data>3.0121798259792327</Data>
+                <Data Repeat="4">3.0216685008129986</Data>
+                <Data>3.0406458504805314</Data>
+                <Data>3.0501345253142982</Data>
+              </C0>
+            </Parameter>
+          </Song>
+        </Unit>
+      </Units>
+      <Groups ActiveGroup="66f8c259-3b1f-47fd-9e22-c25b797f48b3">
+        <Group Version="1.0" Id="497ed3d6-1f58-4fcc-b725-aa80f3004ade" Category="SingerSong" Name="ソング" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-JPF-A" Language="Japanese" />
+        <Group Version="1.0" Id="66f8c259-3b1f-47fd-9e22-c25b797f48b3" Category="SingerSong" Name="ソング2" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-JPF-A" Language="Japanese" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+    </Scene>
+  </Sequence>
+</Scenario>

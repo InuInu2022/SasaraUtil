@@ -22,6 +22,7 @@
 		<DockPanel
 			Margin="5"
 			DragDrop.AllowDrop="True"
+			Opacity="1"
 			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 			<TextBlock
 				Text="トークボイスでボーカルパーカッション"

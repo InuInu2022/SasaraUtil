@@ -45,14 +45,14 @@
 
 	<Panel>
 		<DockPanel
-			 Background="Black"
-			 Opacity="0.7">
+			 Background="{DynamicResource SolidBackgroundFillColorBase}"
+			 Opacity="0.75">
 			<ExperimentalAcrylicBorder
 				 IsHitTestVisible="False">
 				<ExperimentalAcrylicBorder.Material>
 					<ExperimentalAcrylicMaterial
 						 BackgroundSource="Digger"
-						 TintColor="Black"
+						 TintColor="{DynamicResource SolidBackgroundFillColorBase}"
 						 TintOpacity="1"
 						 MaterialOpacity="0.25"/>
 				</ExperimentalAcrylicBorder.Material>

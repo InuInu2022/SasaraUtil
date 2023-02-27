@@ -22,6 +22,7 @@
 	<ScrollViewer>
 		<DockPanel
 			Margin="5"
+			Opacity="1"
 			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 			<StackPanel>
 				<TextBlock

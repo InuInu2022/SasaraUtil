@@ -26,6 +26,7 @@
 			Margin="5"
 			DragDrop.AllowDrop="True"
 			epoxy:Anchor.Pile="{Binding DockPanelPile}"
+			Opacity="1"
 			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 
 			<!-- runtime error! ...why? -->

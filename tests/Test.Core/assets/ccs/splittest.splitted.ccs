@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Generation>
+    <Author Version="8.4.5.0" />
+    <TTS Version="6.0.21">
+      <Dictionary Version="3.0.17">
+        <Extension Version="2.0.2" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-A" Name="さとうささら" />
+        <SoundSource Version="1.1.1" Id="CTNV-JPF-AHS2" Name="小春六花" />
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-USTL1" Name="フィーちゃん" />
+        <SoundSource Version="1.0.1" Id="CTNV-JPF-B" Name="すずきつづみ" />
+      </SoundSources>
+    </TTS>
+    <SVSS Version="6.2.1">
+      <Dictionary Version="3.0.1">
+        <Extension Version="2.0.1" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.2" Id="CSNV-JPF-THR1" Name="可不(KAFU)" />
+      </SoundSources>
+    </SVSS>
+  </Generation>
+  <Sequence Id="">
+    <Scene Id="">
+      <Timeline Partition="288.666666666667,246.857142857143" CurrentPosition="00:00:00">
+        <ViewScale Horizontal="0.31" Vertical="0.64583333333333337" />
+      </Timeline>
+      <TalkEditor Partition="592">
+        <Extension VerticalRatio="206.285714285714*,313.142857142857*" />
+      </TalkEditor>
+      <SongEditor Partition="64" Quantize="240" Mode="0" EditingTool="1">
+        <ViewScale Horizontal="80" Vertical="14" />
+        <ReferenceState Current="None" Previous="None" />
+      </SongEditor>
+      <Units>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="46c8f375-489c-4f9f-bbda-3b121cbf5cb2" StartTime="00:00:00" Duration="00:00:08" CastId="CSNV-JPF-THR1" Language="Japanese">
+          <Song Version="1.07">
+            <Tempo>
+              <Sound Clock="0" Tempo="120" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="4" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="0" Mode="0" />
+              <Dynamics Clock="0" Value="5" />
+              <Note Clock="4800" PitchStep="2" PitchOctave="4" Duration="960" Lyric="レ" DoReMi="true" />
+              <Note Clock="6240" PitchStep="5" PitchOctave="4" Duration="1680" Lyric="ファ" DoReMi="true" />
+              <Note Clock="9600" PitchStep="8" PitchOctave="4" Duration="1440" Lyric="ソ" DoReMi="true" />
+            </Score>
+          </Song>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="9eeeb07e-05ec-48aa-a936-5ac4efa97715" StartTime="00:00:00" Duration="00:00:02.4500000" Text="こんにちは、さとうささらです" CastId="CTNV-JPF-A" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADUB44GT44KT44Gr44Gh44GvAuOAgQHjgrPjg7Pjg4vjg4Hjg68CAWssb3xOfG4saXxjaCxpfHcsYQJwYXUBKgIqASoCKgEwAjABbGhoaGgCbAEwAjABMAIwADEB44GV44Go44GGAeOCteODiOODvAFzLGF8dCxvfG8BKgEqATABaGxsATABMAA0AeOBleOBleOCiQLjgafjgZkB44K144K144OpAuODh+OCueKAmQFzLGF8cyxhfHIsYQJkLGV8cyxVASoCKgEqAioBMAIwAWxoaAJobAEwAjABMAIwADABAQFzaWwBKgEqATABATABMA==</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="0.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="k" />
+            <Phoneme Data="o" />
+            <Phoneme Data="N" />
+            <Phoneme Data="n" />
+            <Phoneme Data="i" />
+            <Phoneme Data="ch" />
+            <Phoneme Data="i" />
+            <Phoneme Data="w" />
+            <Phoneme Data="a" />
+            <Phoneme Speed="-0.095000000000000029" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="t" />
+            <Phoneme Data="o" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="79e58c03-a647-4712-b1d9-ff9a26f1c623" StartTime="00:00:02.8600000" Duration="00:00:01.2900000" Text="小春六花です" CastId="CTNV-JPF-AHS2" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADAB5bCP5pilAeOCs+ODj+ODqwFrLG98aCxhfHIsdQEqASoBMAFsaGgBMAEwADEB5YWt6IqxAuOBp+OBmQHjg6rjg4PjgqsC44OH44K54oCZAXIsaXxjbHxrLGECZCxlfHMsVQEqAioBKgIqATACMAFobGwCbGwBMAIwATACMAAwAQEBc2lsASoBKgEwAQEwATA=</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="k" />
+            <Phoneme Data="o" />
+            <Phoneme Data="h" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="u" />
+            <Phoneme Data="r" />
+            <Phoneme Data="i" />
+            <Phoneme Data="cl" />
+            <Phoneme Data="k" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="1153ded7-4782-43e4-b557-18563384047d" StartTime="00:00:04.6500000" Duration="00:00:01.0200000" Text="フィーチャんです" CastId="CTNV-JPF-USTL1" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADEB44OV44Kj44O8AuODgeODowLjgpMC44Gn44GZAeODleOCo+ODvALjg4Hjg6MC44OzAuODh+OCueKAmQFmLGl8aQJjaCxhAk4CZCxlfHMsVQEqAioCKgIqASoCKgIqAioBMAIwAjACMAFobAJsAmwCbGwBMAIwAjACMAEwAjACMAIwADABAQFzaWwBKgEqATABATABMA==</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="f" />
+            <Phoneme Data="i" />
+            <Phoneme Data="i" />
+            <Phoneme Data="ch" />
+            <Phoneme Data="a" />
+            <Phoneme Data="N" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="9eeeb07e-05ec-48aa-a936-5ac4efa97715" StartTime="00:00:06.2600000" Duration="00:00:01.9100000" Text="2回目のさとうささらです" CastId="CTNV-JPF-A" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADAB5LqMAuWbngLnm64C44GuAeODiwLjgqvjgqQC44OhAuODjgFuLGkCayxhfGkCbSxlAm4sbwEqAioCKgIqASoCKgIqAioBMAIwAjACMAFsAmhoAmgCaAEwAjACMAIwATACMAIwAjAAMQHjgZXjgajjgYYB44K144OI44O8AXMsYXx0LG98bwEqASoBMAFobGwBMAEwADQB44GV44GV44KJAuOBp+OBmQHjgrXjgrXjg6kC44OH44K54oCZAXMsYXxzLGF8cixhAmQsZXxzLFUBKgIqASoCKgEwAjABbGhoAmhsATACMAEwAjAAMAEBAXNpbAEqASoBMAEBMAEw</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="0.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="n" />
+            <Phoneme Data="i" />
+            <Phoneme Data="k" />
+            <Phoneme Data="a" />
+            <Phoneme Data="i" />
+            <Phoneme Data="m" />
+            <Phoneme Data="e" />
+            <Phoneme Data="n" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="t" />
+            <Phoneme Data="o" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="79e58c03-a647-4712-b1d9-ff9a26f1c623" StartTime="00:00:08.6750000" Duration="00:00:02.2150000" Text="2回目の小春六花です" CastId="CTNV-JPF-AHS2" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADAB5LqMAuWbngLnm64C44GuAeODiwLjgqvjgqQC44OhAuODjgFuLGkCayxhfGkCbSxlAm4sbwEqAioCKgIqASoCKgIqAioBMAIwAjACMAFsAmhoAmgCaAEwAjACMAIwATACMAIwAjAAMAHlsI/mmKUB44Kz44OP44OrAWssb3xoLGF8cix1ASoBKgEwAWxoaAEwATAAMQHlha3oirEC44Gn44GZAeODquODg+OCqwLjg4fjgrnigJkBcixpfGNsfGssYQJkLGV8cyxVASoCKgEqAioBMAIwAWhsbAJsbAEwAjABMAIwADABAQFzaWwBKgEqATABATABMA==</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="n" />
+            <Phoneme Data="i" />
+            <Phoneme Data="k" />
+            <Phoneme Data="a" />
+            <Phoneme Data="i" />
+            <Phoneme Data="m" />
+            <Phoneme Data="e" />
+            <Phoneme Data="n" />
+            <Phoneme Data="o" />
+            <Phoneme Data="k" />
+            <Phoneme Data="o" />
+            <Phoneme Data="h" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="u" />
+            <Phoneme Data="r" />
+            <Phoneme Data="i" />
+            <Phoneme Data="cl" />
+            <Phoneme Data="k" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="fe0a9211-8a59-48d6-a301-b71f6d8ad298" StartTime="00:00:00" Duration="00:00:02.1250000" Text="別トラックのさとうささらです" CastId="CTNV-JPF-A" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADMB5YilAuODiOODqeODg+OCrwLjga4B44OZ44OE4oCZAuODiOODqeODg+OCrwLjg44BYixlfHRzLFUCdCxvfHIsYXxjbHxrLHUCbixvASoCKgIqASoCKgIqATACMAIwAWxoAmhsbGwCbAEwAjACMAEwAjACMAAxAeOBleOBqOOBhgHjgrXjg4jjg7wBcyxhfHQsb3xvASoBKgEwAWhsbAEwATAANAHjgZXjgZXjgokC44Gn44GZAeOCteOCteODqQLjg4fjgrnigJkBcyxhfHMsYXxyLGECZCxlfHMsVQEqAioBKgIqATACMAFsaGgCaGwBMAIwATACMAAwAQEBc2lsASoBKgEwAQEwATA=</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="b" />
+            <Phoneme Data="e" />
+            <Phoneme Data="ts" />
+            <Phoneme Data="U" />
+            <Phoneme Data="t" />
+            <Phoneme Data="o" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="cl" />
+            <Phoneme Data="k" />
+            <Phoneme Data="u" />
+            <Phoneme Data="n" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="t" />
+            <Phoneme Data="o" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="2657d832-d44a-4739-8050-d149c0d3eefc" StartTime="00:00:02.6250000" Duration="00:00:02.2700000" Text="別トラックのすずきつづみよ" CastId="CTNV-JPF-B" Language="Japanese">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADMB5YilAuODiOODqeODg+OCrwLjga4B44OZ44OE4oCZAuODiOODqeODg+OCrwLjg44BYixlfHRzLFUCdCxvfHIsYXxjbHxrLHUCbixvASoCKgIqASoCKgIqATACMAIwAWxoAmhsbGwCbAEwAjACMAEwAjACMAAwAeOBmeOBmuOBjQHjgrnjgrrjgq3igJkBcyx1fHosdXxrLEkBKgEqATABbGhoATABMAAwAeOBpOOBpeOBvwLjgogB44OE44OF44OfAuODqAF0cyx1fHosdXxtLGkCeSxvASoCKgEqAioBMAIwAWxoaAJoATACMAEwAjAAMAEBAXNpbAEqASoBMAEBMAEw</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="b" />
+            <Phoneme Data="e" />
+            <Phoneme Data="ts" />
+            <Phoneme Data="U" />
+            <Phoneme Data="t" />
+            <Phoneme Data="o" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="cl" />
+            <Phoneme Data="k" />
+            <Phoneme Data="u" />
+            <Phoneme Data="n" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="u" />
+            <Phoneme Data="z" />
+            <Phoneme Data="u" />
+            <Phoneme Data="k" />
+            <Phoneme Data="I" />
+            <Phoneme Data="ts" />
+            <Phoneme Data="u" />
+            <Phoneme Data="z" />
+            <Phoneme Data="u" />
+            <Phoneme Data="m" />
+            <Phoneme Data="i" />
+            <Phoneme Data="y" />
+            <Phoneme Data="o" />
+          </Phonemes>
+        </Unit>
+      </Units>
+      <Groups ActiveGroup="46c8f375-489c-4f9f-bbda-3b121cbf5cb2">
+        <Group Version="1.0" Id="9eeeb07e-05ec-48aa-a936-5ac4efa97715" Category="TextVocal" Name="トーク" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
+        <Group Version="1.0" Id="fe0a9211-8a59-48d6-a301-b71f6d8ad298" Category="TextVocal" Name="トーク 2" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
+        <Group Version="1.0" Id="46c8f375-489c-4f9f-bbda-3b121cbf5cb2" Category="SingerSong" Name="ソング" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-JPF-THR1" Language="Japanese" />
+        <Group Version="1.0" Id="9688a566-bb5a-4d9b-8c64-92ebc90e93e9" Category="OuterAudio" Name="オーディオ" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" /><Group Version="1.0" Id="79e58c03-a647-4712-b1d9-ff9a26f1c623" Category="TextVocal" Name="トーク_CTNV-JPF-AHS2" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" /><Group Version="1.0" Id="1153ded7-4782-43e4-b557-18563384047d" Category="TextVocal" Name="トーク_CTNV-JPF-USTL1" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" /><Group Version="1.0" Id="2657d832-d44a-4739-8050-d149c0d3eefc" Category="TextVocal" Name="トーク 2_CTNV-JPF-B" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+    </Scene>
+  </Sequence>
+</Scenario>

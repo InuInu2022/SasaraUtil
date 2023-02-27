@@ -136,7 +136,7 @@
             <Phoneme Data="U" />
           </Phonemes>
         </Unit>
-        <Unit Version="1.1" Id="" Category="TextVocal" Group="e757fbc7-410d-46f9-af29-3fb9ae659aea" StartTime="00:00:02.8600000" Duration="00:00:01.2900000" Text="小春六花です" CastId="CTNV-JPF-AHS2" Language="Japanese">
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="dd798af5-706d-49c3-a2e2-00810677eab2" StartTime="00:00:02.8600000" Duration="00:00:01.2900000" Text="小春六花です" CastId="CTNV-JPF-AHS2" Language="Japanese">
           <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADAB5bCP5pilAeOCs+ODj+ODqwFrLG98aCxhfHIsdQEqASoBMAFsaGgBMAEwADEB5YWt6IqxAuOBp+OBmQHjg6rjg4PjgqsC44OH44K54oCZAXIsaXxjbHxrLGECZCxlfHMsVQEqAioBKgIqATACMAFobGwCbGwBMAIwATACMAAwAQEBc2lsASoBKgEwAQEwATA=</Metadata>
           <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
             <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
@@ -209,7 +209,7 @@
             <Phoneme Data="U" />
           </Phonemes>
         </Unit>
-        <Unit Version="1.1" Id="" Category="TextVocal" Group="64325701-01e1-4dd9-95bd-d71209b998dd" StartTime="00:00:04.6500000" Duration="00:00:01.0200000" Text="フィーチャんです" CastId="CTNV-JPF-USTL1" Language="Japanese">
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="17aa0766-6a14-48e7-9c14-c8f4a85fd848" StartTime="00:00:04.6500000" Duration="00:00:01.0200000" Text="フィーチャんです" CastId="CTNV-JPF-USTL1" Language="Japanese">
           <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADEB44OV44Kj44O8AuODgeODowLjgpMC44Gn44GZAeODleOCo+ODvALjg4Hjg6MC44OzAuODh+OCueKAmQFmLGl8aQJjaCxhAk4CZCxlfHMsVQEqAioCKgIqASoCKgIqAioBMAIwAjACMAFobAJsAmwCbGwBMAIwAjACMAEwAjACMAIwADABAQFzaWwBKgEqATABATABMA==</Metadata>
           <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
             <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
@@ -359,7 +359,7 @@
             <Phoneme Data="U" />
           </Phonemes>
         </Unit>
-        <Unit Version="1.1" Id="" Category="TextVocal" Group="e757fbc7-410d-46f9-af29-3fb9ae659aea" StartTime="00:00:08.6750000" Duration="00:00:02.2150000" Text="2回目の小春六花です" CastId="CTNV-JPF-AHS2" Language="Japanese">
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="dd798af5-706d-49c3-a2e2-00810677eab2" StartTime="00:00:08.6750000" Duration="00:00:02.2150000" Text="2回目の小春六花です" CastId="CTNV-JPF-AHS2" Language="Japanese">
           <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADAB5LqMAuWbngLnm64C44GuAeODiwLjgqvjgqQC44OhAuODjgFuLGkCayxhfGkCbSxlAm4sbwEqAioCKgIqASoCKgIqAioBMAIwAjACMAFsAmhoAmgCaAEwAjACMAIwATACMAIwAjAAMAHlsI/mmKUB44Kz44OP44OrAWssb3xoLGF8cix1ASoBKgEwAWxoaAEwATAAMQHlha3oirEC44Gn44GZAeODquODg+OCqwLjg4fjgrnigJkBcixpfGNsfGssYQJkLGV8cyxVASoCKgEqAioBMAIwAWhsbAJsbAEwAjABMAIwADABAQFzaWwBKgEqATABATABMA==</Metadata>
           <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
             <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
@@ -527,7 +527,7 @@
             <Phoneme Data="U" />
           </Phonemes>
         </Unit>
-        <Unit Version="1.1" Id="" Category="TextVocal" Group="f2bd3293-908a-4a2d-81e0-a5bb7d0219a8" StartTime="00:00:02.6250000" Duration="00:00:02.2700000" Text="別トラックのすずきつづみよ" CastId="CTNV-JPF-B" Language="Japanese">
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="445fb50a-f662-4e90-bf1f-aa33fc62f25e" StartTime="00:00:02.6250000" Duration="00:00:02.2700000" Text="別トラックのすずきつづみよ" CastId="CTNV-JPF-B" Language="Japanese">
           <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADMB5YilAuODiOODqeODg+OCrwLjga4B44OZ44OE4oCZAuODiOODqeODg+OCrwLjg44BYixlfHRzLFUCdCxvfHIsYXxjbHxrLHUCbixvASoCKgIqASoCKgIqATACMAIwAWxoAmhsbGwCbAEwAjACMAEwAjACMAAwAeOBmeOBmuOBjQHjgrnjgrrjgq3igJkBcyx1fHosdXxrLEkBKgEqATABbGhoATABMAAwAeOBpOOBpeOBvwLjgogB44OE44OF44OfAuODqAF0cyx1fHosdXxtLGkCeSxvASoCKgEqAioBMAIwAWxoaAJoATACMAEwAjAAMAEBAXNpbAEqASoBMAEBMAEw</Metadata>
           <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
             <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
@@ -617,7 +617,7 @@
         <Group Version="1.0" Id="9eeeb07e-05ec-48aa-a936-5ac4efa97715" Category="TextVocal" Name="トーク" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
         <Group Version="1.0" Id="fe0a9211-8a59-48d6-a301-b71f6d8ad298" Category="TextVocal" Name="トーク 2" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
         <Group Version="1.0" Id="46c8f375-489c-4f9f-bbda-3b121cbf5cb2" Category="SingerSong" Name="ソング" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-JPF-THR1" Language="Japanese" />
-        <Group Version="1.0" Id="9688a566-bb5a-4d9b-8c64-92ebc90e93e9" Category="OuterAudio" Name="オーディオ" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" /><Group Version="1.0" Id="e757fbc7-410d-46f9-af29-3fb9ae659aea" Category="TextVocal" Name="トーク_CTNV-JPF-AHS2" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" /><Group Version="1.0" Id="64325701-01e1-4dd9-95bd-d71209b998dd" Category="TextVocal" Name="トーク_CTNV-JPF-USTL1" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" /><Group Version="1.0" Id="f2bd3293-908a-4a2d-81e0-a5bb7d0219a8" Category="TextVocal" Name="トーク 2_CTNV-JPF-B" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" />
+        <Group Version="1.0" Id="9688a566-bb5a-4d9b-8c64-92ebc90e93e9" Category="OuterAudio" Name="オーディオ" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" /><Group Version="1.0" Id="dd798af5-706d-49c3-a2e2-00810677eab2" Category="TextVocal" Name="トーク_CTNV-JPF-AHS2" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" /><Group Version="1.0" Id="17aa0766-6a14-48e7-9c14-c8f4a85fd848" Category="TextVocal" Name="トーク_CTNV-JPF-USTL1" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" /><Group Version="1.0" Id="445fb50a-f662-4e90-bf1f-aa33fc62f25e" Category="TextVocal" Name="トーク 2_CTNV-JPF-B" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanaese" />
       </Groups>
       <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
     </Scene>
