@@ -35,6 +35,34 @@
 				 Property="FontFamily"
 				 Value="Meiryo UI, Hiragino, Osaka, Noto Sans CJK JP"/>
 		</Style>
+		<!-- Accent SplitButton -->
+		<Style Selector="ui|SplitButton">
+			<Setter Property="Transitions">
+				<Transitions>
+					<BrushTransition Duration="00:00:00.083" Property="Background" />
+				</Transitions>
+			</Setter>
+		</Style>
+		<Style Selector="ui|SplitButton.accent">
+			<Setter Property="Background" Value="{DynamicResource AccentButtonBackground}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrush}" />
+			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForeground}" />
+		</Style>
+		<Style Selector="ui|SplitButton.accent:pointerover">
+			<Setter Property="Background" Value="{DynamicResource AccentButtonBackgroundPointerOver}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushPointerOver}" />
+			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundPointerOver}" />
+		</Style>
+		<Style Selector="ui|SplitButton.accent:pressed">
+			<Setter Property="Background" Value="{DynamicResource AccentButtonBackgroundPressed}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushPressed}" />
+			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundPressed}" />
+		</Style>
+		<Style Selector="ui|SplitButton.accent:disabled">
+			<Setter Property="Background" Value="{DynamicResource AccentButtonBackgroundDisabled}" />
+			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushDisabled}" />
+			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundDisabled}" />
+		</Style>
 	</Window.Styles>
 
 	<epoxy:EventBinder.Events>

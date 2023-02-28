@@ -28,6 +28,8 @@ public class BreathSuppressorViewModel
 	public Command ResetFiles { get; }
 
 	public Command? SaveFile { get; set; }
+
+	public bool IsOpenWithCeVIO { get; set; }
 	public string ProjectFileName { get; private set; } = "";
 	public string LabelFileName { get; private set; } = "";
 	string ProjectFilePath { get; set; } = "";
@@ -75,16 +77,16 @@ public class BreathSuppressorViewModel
 				Path.ChangeExtension(fileName, $"suppressed{Path.GetExtension(ProjectFilePath)}"),
 		};
 
-		var saveDir = string.Empty;
+		var savePath = string.Empty;
 		var mainWin = MainWindowUtil.GetWindow();
 		if(mainWin is null){
 			_notify?.Dismiss(loading!);
 			return;
 		}else{
-			saveDir = await d.ShowAsync(mainWin);
+			savePath = await d.ShowAsync(mainWin);
 		}
 
-		if (saveDir is null)
+		if (savePath is null)
 		{
 			//canceled
 			_notify?.Dismiss(loading!);
@@ -101,7 +103,7 @@ public class BreathSuppressorViewModel
 			await BreathSuppressorCore
 				.SuppressAsync(
 					ccs, lab, SuppressMode.Remove);
-			await ccs.SaveAsync(saveDir);
+			await ccs.SaveAsync(savePath);
 		}
 		catch (Exception e)
 		{
@@ -114,6 +116,11 @@ public class BreathSuppressorViewModel
 		_notify?.Dismiss(loading!);
 		_notify?.Info("保存成功", "保存しました", true);
 		IsConvertable = true;
+
+		if(IsOpenWithCeVIO){
+			Core.Models.ProcessManager
+				.Open(savePath);
+		}
 	}
 
 	public async ValueTask DropFileEventAsync(DragEventArgs e)

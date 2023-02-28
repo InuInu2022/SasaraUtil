@@ -5,6 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using FluentAvalonia.Core;
@@ -19,8 +20,18 @@ public sealed class MainWindow : Window
 		InitializeComponent();
 	}
 
-	private void InitializeComponent() =>
+	private void InitializeComponent(
+		bool loadXaml = true,
+		bool attachDevTools = true)
+	{
 		AvaloniaXamlLoader.Load(this);
+#if DEBUG
+		if (attachDevTools)
+		{
+			this.AttachDevTools();
+		}
+#endif
+	}
 
 	// To access the CoreApplicationViewTitleBar, use the TitleBar property on the CoreWindow
 

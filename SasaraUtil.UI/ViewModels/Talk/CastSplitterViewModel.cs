@@ -28,6 +28,7 @@ public class CastSplitterViewModel
 	public Command ResetFiles { get; }
 
 	public Command? SaveFile { get; set; }
+	public bool IsOpenWithCeVIO { get; set; }
 
 	public CastSplitterViewModel()
 	{
@@ -105,6 +106,11 @@ public class CastSplitterViewModel
 		_notify?.Dismiss(loading!);
 		_notify?.Info("保存成功", "保存しました", true);
 		IsConvertable = true;
+
+		if(IsOpenWithCeVIO){
+			Core.Models.ProcessManager
+				.Open(saveDir);
+		}
 	}
 
 	public async ValueTask DropFileEventAsync(DragEventArgs e)

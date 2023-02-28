@@ -54,20 +54,51 @@
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
 			</WrapPanel>
-			<Button
-				HorizontalAlignment="Right"
-				VerticalAlignment="Bottom"
+			<StackPanel
 				DockPanel.Dock="Bottom"
-				Margin="5"
-				Classes="accent"
-				IsEnabled="{Binding IsConvertable}"
-				Command="{CompiledBinding SaveFile}"
-				>
-				<WrapPanel>
-					<ui:SymbolIcon Symbol="DownloadFilled" />
-					<TextBlock Text="Save" Margin="5" />
-				</WrapPanel>
-			</Button>
+				HorizontalAlignment="Right"
+				Orientation="Horizontal">
+				<ToggleSwitch
+					OnContent="send CeVIO"
+					OffContent="send CeVIO"
+					HorizontalAlignment="Left"
+					IsChecked="{Binding IsOpenWithCeVIO}"
+					>
+					<ToggleSwitch.OnContent>
+						<StackPanel
+							Orientation="Horizontal"
+							>
+							<ui:SymbolIcon
+								Margin="5 0"
+								Symbol="SendFilled" />
+							<TextBlock Text="send CeVIO" />
+						</StackPanel>
+					</ToggleSwitch.OnContent>
+					<ToggleSwitch.OffContent>
+						<StackPanel
+							Orientation="Horizontal"
+							>
+							<ui:SymbolIcon
+								Margin="5 0"
+								Symbol="Send" />
+							<TextBlock Text="send CeVIO" />
+						</StackPanel>
+					</ToggleSwitch.OffContent>
+				</ToggleSwitch>
+				<Button
+					HorizontalAlignment="Right"
+					VerticalAlignment="Bottom"
+					Margin="5"
+					Classes="accent"
+					IsEnabled="{Binding IsConvertable}"
+					Command="{CompiledBinding SaveFile}"
+					>
+					<WrapPanel>
+						<ui:SymbolIcon Symbol="DownloadFilled" />
+						<TextBlock Text="Save" Margin="5" />
+					</WrapPanel>
+				</Button>
+			</StackPanel>
 			<StackPanel DockPanel.Dock="Top">
 				<StackPanel Orientation="Horizontal"
 					Background="{DynamicResource SolidBackgroundFillColorTertiaryBrush}"
