@@ -1,3 +1,6 @@
 [submodule "libs/LibSasara"]
 	path = libs/LibSasara
 	url = https://github.com/InuInu2022/LibSasara.git
+[submodule "libs/FluentCeVIOWrapper"]
+	path = libs/FluentCeVIOWrapper
+	url = https://github.com/InuInu2022/FluentCeVIOWrapper.git
