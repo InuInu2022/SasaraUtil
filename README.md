@@ -12,6 +12,10 @@
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/inuinu2022/sasarautil?include_prereleases&label=%F0%9F%9A%80release) ![GitHub all releases](https://img.shields.io/github/downloads/InuInu2022/SasaraUtil/total?color=green&label=%E2%AC%87%20downloads) ![GitHub Repo stars](https://img.shields.io/github/stars/InuInu2022/SasaraUtil?label=%E2%98%85&logo=github)
 [![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.3-53abdb.svg?logo=&style=flat)](https://voisona.com/)
 
+## 最新版ダウンロード / Download latest
+
+- **[Download SasaraUtil](https://github.com/InuInu2022/SasaraUtil/releases/latest)**
+
 ## 機能 / Functions
 
 > ![screenshots](./documents/screenshots/sasarautil.png)
@@ -138,6 +142,8 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 
 - [Avalonia UI](https://avaloniaui.net/)
 - [Epoxy](https://github.com/kekyo/Epoxy)
+- [LibSasara](https://github.com/InuInu2022/LibSasara)
+- [Fluent CeVIO Wrapper](https://github.com/InuInu2022/FluentCeVIOWrapper)
 
 ## Projects
 
@@ -158,6 +164,21 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 ### Libraries licenses
 
 - [licenses](./licenses/)
+
+## Related Projects
+
+- **[NodoAme](https://inuinu2022.github.io/NodoAme.Home/)**
+  - CeVIO ソング（可不ちゃんなど）をしゃべってる風に歌わせる
+  - ソフトウェアトークソフトのしゃべりをマネする
+  - CeVIO ソングサポートツール
+- **[KuchiPaku](https://github.com/InuInu2022/KuchiPaku)**
+  - KuchiPaku (クチパク) はYMM4（ゆっくりムービーメーカー4）むけの「あいうえお口パク（リップシンク）」を生成するツールです。
+  - CeVIOトークと連動し、口パクデータを自動生成します
+- [LibSasara](https://github.com/InuInu2022/LibSasara)
+  - The utility library for CeVIO project file (.ccs / .ccst) and timing label file (.lab).
+  - SasaraUtilを支えるライブラリです
+- [Fluent CeVIO Wrapper](https://github.com/InuInu2022/FluentCeVIOWrapper)
+  - A wrapper library and integration IPC server of the CeVIO API for .NET 7 / .NET Standard 2.0
 
 ## 🐶Developed by InuInu
 
