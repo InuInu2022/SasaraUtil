@@ -243,3 +243,4 @@ tests/Test.Core/assets/audio/
 SasaraUtil.UI/Views/General/NVSamplePage1.axaml.cs
 SasaraUtil.UI/Views/General/NVSamplePage1.axaml
 /server/*
+!/server/.gitkeep
