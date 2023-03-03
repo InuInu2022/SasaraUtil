@@ -242,3 +242,4 @@ tests/Test.Core/assets/audio/
 .vscode/tasks.json
 SasaraUtil.UI/Views/General/NVSamplePage1.axaml.cs
 SasaraUtil.UI/Views/General/NVSamplePage1.axaml
+/server/*
