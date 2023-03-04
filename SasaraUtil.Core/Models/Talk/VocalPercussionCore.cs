@@ -33,10 +33,12 @@ public class VocalPercussionCore{
 		string castName,
 		CeVIOFileBase template,
 		string TTS,
-		bool stretch
+		bool stretch,
+		IEnumerable<Guid> tracks
 	)
 	{
-		if(!File.Exists(src)){
+		if (!File.Exists(src))
+		{
 			throw new FileNotFoundException($"src:{src} is not found");
 		}
 
@@ -67,7 +69,8 @@ public class VocalPercussionCore{
 			"CeVIOトークでボイパロイドします。"
 		);
 
-		if(!casts.Contains(castName)){
+		if (!casts.Contains(castName))
+		{
 			process!.Kill();
 			throw new ArgumentException($"{castName}は存在しないキャスト名です。");
 		}
@@ -76,15 +79,40 @@ public class VocalPercussionCore{
 		await fcw.SpeakAsync($"キャストを{castName}に切り替えました。");
 
 		srcCcs = await SasaraCcs.LoadAsync(src);
-		song = srcCcs
+		await srcCcs
 			.GetUnits(Category.SingerSong)
 			.OfType<SongUnit>()
-			.First();
+			.Where(u => tracks.Any(t => t == u.Group))
+			.ToAsyncEnumerable()
+			.ForEachAwaitAsync(async s =>
+				await ToPercussionAsync(s, castName, template, stretch)
+			);
+
+		if(exportCcs is null){
+			return;
+		}
+
+		exportCcs
+			.GetTrackSet(new Guid("7abcbac7-a4e6-459d-a507-bf0f0bb7123a"))
+			.group
+			.Remove();
+
+		await exportCcs
+			.SaveAsync($"{this.dist}");
+	}
+
+	private async Task ToPercussionAsync(
+		SongUnit song,
+		string castName,
+		CeVIOFileBase template,
+		bool stretch
+	)
+	{
 		var tempo = song.Tempo;
 		var notes = song.Notes;
 		var groupId = Guid.NewGuid();
 
-		var c = await fcw
+		var c = await fcw!
 			.GetComponentsAsync();
 
 		var castId = await fcw.GetCastIdAsync(castName);
@@ -101,7 +129,7 @@ public class VocalPercussionCore{
 		exportCcs.AddGroup(
 			groupId,
 			Category.TextVocal,
-			$"ボイパ_{castName}_{srcCcs.GetTrackSet(song.Group).group.Attribute("Name")?.Value}"
+			$"ボイパ_{castName}_{srcCcs!.GetTrackSet(song.Group).group.Attribute("Name")?.Value}"
 		);
 
 		var cacheTones = new Dictionary<string, double>();
@@ -131,11 +159,13 @@ public class VocalPercussionCore{
 				//API: 0.2 ～ 5.0 (cen:1.0)
 				//ccs: 0 ～ 100 (cen: 50)
 
-				if(stretch)
+				if (stretch)
 				{
 					//TODO: stretch
 					await fcw.SetSpeedAsync((uint)50);
-				}else{
+				}
+				else
+				{
 					await fcw.SetSpeedAsync(50);
 				}
 
@@ -153,11 +183,12 @@ public class VocalPercussionCore{
 				var isCachedLyric = cacheTones.ContainsKey(v.Lyric!);
 
 				double avgFreq;
-				if(isCachedLyric)
+				if (isCachedLyric)
 				{
 					avgFreq = cacheTones[v.Lyric!];
 				}
-				else{
+				else
+				{
 					var wp = await EstimateAsync(v.Lyric!);
 					avgFreq = wp.F0?.Where(f => f > 0).Mean() ?? 0;
 					cacheTones
@@ -203,7 +234,7 @@ public class VocalPercussionCore{
 						v.Lyric ?? ""
 					)
 					.Group(groupId)
-					.Speed(1m)	//TODO:option
+					.Speed(1m)  //TODO:option
 					.Phonemes(phs)
 					.Build();
 
@@ -211,21 +242,19 @@ public class VocalPercussionCore{
 			})
 			.ToListAsync()
 			;
-		await exportCcs
-			.SaveAsync($"{this.dist}");
 	}
 
 	/// <summary>
-    /// 「っ」を置き換える
-    /// </summary>
+	/// 「っ」を置き換える
+	/// </summary>
 	/// <remarks>
 	/// 「っ」単体の場合は直前の母音を調べて、先頭にくっつける。
-    /// 見つからない場合は「あっ」。
+	/// 見つからない場合は「あっ」。
 	/// </remarks>
-    /// <param name="v"></param>
-    /// <param name="i"></param>
-    /// <param name="notes"></param>
-    /// <returns></returns>
+	/// <param name="v"></param>
+	/// <param name="i"></param>
+	/// <param name="notes"></param>
+	/// <returns></returns>
 	private async ValueTask<Note> ReplaceCloseConsonantAsync(Note v, int i, List<Note> notes)
 	{
 		//TODO:「っ」で始まる複数文字の歌詞の場合の対応

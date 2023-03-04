@@ -13,6 +13,7 @@ using Epoxy.Synchronized;
 using LibSasara;
 using SasaraUtil.Models.Talk;
 using SasaraUtil.ViewModels.Utility;
+using LibSasara.Model;
 
 namespace SasaraUtil.ViewModels.VocalPercussion;
 
@@ -29,6 +30,11 @@ public class VocalPercussionViewModel
 	public Command? SaveFile { get; set; }
 	public Command? SelectFile { get; set; }
 	public bool IsOpenWithCeVIO { get; set; }
+	public string DirectInputCastName { get; set; } = "さとうささら";
+	public int SelectedTalkApp { get; set; }
+
+	public ObservableCollection<TalkApps> TalkApps { get; set; }
+		= new(Enum.GetValues(typeof(TalkApps)).Cast<TalkApps>());
 
 	public VocalPercussionViewModel()
 	{
@@ -111,15 +117,21 @@ public class VocalPercussionViewModel
 
 		var vp = new VocalPercussionCore();
 		var template = await Models.TrackTemplateLoader.LoadProjectAsync();
+		var tracks = CcsTrackData
+			.Where(v => v.IsConvert)
+			.Select(v => v.Id)
+			.ToList();
+
 		try
 		{
 			await vp.ExecuteAsync(
 				path,
 				saveDir,
-				"タカハシ",
+				DirectInputCastName,
 				template,
-				"CeVIO_CS",
-				false
+				TalkApps[SelectedTalkApp].ToString(),
+				false,
+				tracks:tracks
 			);
 		}
 		catch (Exception e)
@@ -213,6 +225,30 @@ public class VocalPercussionViewModel
 		var ccs = await SasaraCcs.LoadAsync(list2.First());
 
 		//TODO:here
+		ccs
+			.GetUnits(Category.SingerSong)
+			.Cast<SongUnit>()
+			.ToList()
+			.ForEach(u =>
+			{
+				var track = ccs
+					.GetTrackSet<SongUnit>(u.Group);
+				var name = track.Name;
+				var cast = track.CastId;
+				var lyrics = string.
+					Join(
+						" ",
+						u.Notes
+							.Select(n => n.Lyric ?? "")
+					);
+				CcsTrackData.Add(new(
+					name,
+					cast,
+					lyrics,
+					false,
+					id: track.GroupId
+				));
+			});
 
 		IsConvertable = true;
 		_notify!.Dismiss(loading);
@@ -222,8 +258,14 @@ public class VocalPercussionViewModel
 	=> () =>
 	{
 		DroppedFiles = new();
+		CcsTrackData = new();
 		IsConvertable = false;
 	};
+}
+
+public enum TalkApps{
+	CeVIO_AI,
+	CeVIO_CS,
 }
 
 [ViewModel]
@@ -231,15 +273,21 @@ public class CcsTrackViewModel{
 	public string TrackName { get; set; }
 	public string CastName { get; set; }
 	public string Serif { get; set; }
+	public bool IsConvert { get; set; }
+	public Guid Id { get; set; }
 
 	public CcsTrackViewModel(
 		string trackName,
 		string castName,
-		string serif
+		string serif,
+		bool isConvert,
+		Guid id
 	)
 	{
 		TrackName = trackName;
 		CastName = castName;
 		Serif = serif;
+		IsConvert = isConvert;
+		Id = id;
 	}
 }
