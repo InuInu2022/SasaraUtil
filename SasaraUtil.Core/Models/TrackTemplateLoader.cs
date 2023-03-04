@@ -47,8 +47,6 @@ public static class TrackTemplateLoader
 	public static async ValueTask<CcstTrack>
 	LoadTalkTrackAsync()
 	{
-		//TODO:implemation
-		throw new NotImplementedException();
 		return await LoadAnyTrackAsync(TalkTemplate)
 			.ConfigureAwait(false);
 	}
@@ -56,20 +54,26 @@ public static class TrackTemplateLoader
 	public static async ValueTask<CcstTrack>
 	LoadSongTrackAsync()
 	{
-		//TODO:implemation
-		throw new NotImplementedException();
 		return await LoadAnyTrackAsync(SongTemplate)
 			.ConfigureAwait(false);
 	}
 
+	/// <summary>
+    /// テンプレートのCeVIOプロジェクトファイルを読み込む
+    /// </summary>
+    /// <returns>テンプレートCeVIOプロジェクトファイル</returns>
+    /// <exception cref="InvalidDataException"></exception>
 	public static async ValueTask<CcsProject>
 	LoadProjectAsync()
 	{
-		//TODO:implemation
-		throw new NotImplementedException();
-		return await SasaraCcs
+		var proj = await SasaraCcs
 			.LoadAsync<CcsProject>(ProjectTemplate)
 			.ConfigureAwait(false);
+		if(proj is null){
+			throw new InvalidDataException("loaded project is invalid");
+		}
+
+		return proj;
 	}
 
 	/// <summary>
