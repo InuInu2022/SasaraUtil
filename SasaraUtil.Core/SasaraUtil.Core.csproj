@@ -16,6 +16,7 @@
     </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotnetWorld" Version="1.2.5" />
+    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
     <PackageReference Include="NAudio.Core" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />
@@ -24,5 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\libs\LibSasara\LibSasara\LibSasara.csproj" />
+    <ProjectReference Include="..\libs\FluentCeVIOWrapper\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
   </ItemGroup>
 </Project>

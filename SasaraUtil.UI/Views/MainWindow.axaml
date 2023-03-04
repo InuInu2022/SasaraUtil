@@ -130,7 +130,7 @@
 								 Content="ボイパロイド"
 								 Icon="Repair"
 								 Tag="Talk.VocalPercussion"
-								 IsEnabled="False"/>
+								 IsEnabled="True"/>
 							<ui:NavigationViewItem
 								 Content="Coming soon..."
 								 Icon="Help"
