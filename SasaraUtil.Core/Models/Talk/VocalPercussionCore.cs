@@ -345,7 +345,7 @@ public class VocalPercussionCore{
 				@".\server\FluentCeVIOWrapper.Server.exe"
 			),
 			Arguments = $"-cevio {TTS}",
-			CreateNoWindow = true,
+			CreateNoWindow = !Core.Models.AppUtil.IsDebug,	//show console if debug,
 			ErrorDialog = true,
 			UseShellExecute = true,
 			//RedirectStandardOutput = true,
@@ -358,6 +358,7 @@ public class VocalPercussionCore{
 		catch (Exception e)
 		{
 			Console.WriteLine($"Error {e}");
+			throw;
 		}
 
 		System.Console.WriteLine("awaked.");
