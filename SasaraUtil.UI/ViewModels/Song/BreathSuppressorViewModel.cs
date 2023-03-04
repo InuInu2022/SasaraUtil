@@ -118,7 +118,7 @@ public class BreathSuppressorViewModel
 		IsConvertable = true;
 
 		if(IsOpenWithCeVIO){
-			Core.Models.ProcessManager
+			Models.ProcessManager
 				.Open(savePath);
 		}
 	}

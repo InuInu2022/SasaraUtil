@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace SasaraUtil.Core.Models;
+namespace SasaraUtil.Models;
 
 public static class ProcessManager
 {

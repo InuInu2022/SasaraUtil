@@ -108,7 +108,7 @@ public class CastSplitterViewModel
 		IsConvertable = true;
 
 		if(IsOpenWithCeVIO){
-			Core.Models.ProcessManager
+			Models.ProcessManager
 				.Open(saveDir);
 		}
 	}
