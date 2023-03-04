@@ -9,7 +9,7 @@ public static class AppUtil
     /// <summary>
     /// Debugビルドかを判定
     /// </summary>
-    public const bool IsDebug =
+    public static bool IsDebug =
 #if DEBUG
     true;
 #else

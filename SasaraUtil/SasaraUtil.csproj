@@ -44,9 +44,11 @@
   <Target Name="MakeZipPackage" AfterTargets="Publish">
       <MakeDir Directories="$(OutputPath)/../../../../../publish/" />
       <Delete Files="$(OutputPath)/LibSasara.xml" />
+      <Delete Files="$(OutputPath)/FluentCeVIOWrapper.Common.xml" />
       <Delete Files="$(OutputPath)/$(AssemblyName).pdb" />
       <Delete Files="$(OutputPath)/publish/$(AssemblyName).pdb" />
       <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
+      <Delete Files="$(OutputPath)/publish/FluentCeVIOWrapper.Common.xml" />
       <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/../../../../../publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
       <Message Text="Actions After Publish" Importance="high" />
   </Target>

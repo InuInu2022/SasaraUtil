@@ -4,5 +4,6 @@
         "titleBar.activeForeground": "#fdfcfc",
         "activityBar.background": "#c30000",
         "activityBar.foreground": "#ffffff"
-    }
+    },
+    "task.quickOpen.showAll": true
 }

@@ -346,10 +346,14 @@ public class VocalPercussionCore{
 			),
 			Arguments = $"-cevio {TTS}",
 			CreateNoWindow = !Core.Models.AppUtil.IsDebug,	//show console if debug,
-			ErrorDialog = true,
-			UseShellExecute = true,
+			//ErrorDialog = true,
+			UseShellExecute = false,
 			//RedirectStandardOutput = true,
 		};
+		if(!Core.Models.AppUtil.IsDebug){
+			ps!.WindowStyle = ProcessWindowStyle.Hidden;
+		}
+
 		ps.WorkingDirectory = Path.GetDirectoryName(ps.FileName);
 		try
 		{
