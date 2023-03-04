@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Sequence Id="">
+    <Scene Id="">
+      <Units />
+      <Groups ActiveGroup="7abcbac7-a4e6-459d-a507-bf0f0bb7123a">
+        <Group Version="1.0" Id="7abcbac7-a4e6-459d-a507-bf0f0bb7123a" Category="OuterAudio" Name="何もないCCSファイル" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="true" CastId="Mixed" Language="Japanese" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="120" MasterVolume="0" />
+    </Scene>
+  </Sequence>
+</Scenario>
