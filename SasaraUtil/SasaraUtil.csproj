@@ -39,6 +39,9 @@
       <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
       <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
       <DebugSymbols>false</DebugSymbols>
+      <TrimMode>copyused</TrimMode>
+      <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+      <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
 
   <Target Name="MakeZipPackage" AfterTargets="Publish">
