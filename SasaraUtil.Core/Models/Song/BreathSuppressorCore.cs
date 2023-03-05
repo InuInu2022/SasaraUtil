@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using System;
 using LibSasara.Model;
 using System.Threading.Tasks;
@@ -72,11 +73,13 @@ public static class BreathSuppressorCore
 			Convert.ToInt32(total / INDEX_SPAN_TIME),
 			su.Volume.Length
 		);
-		su.Volume.Length = totalLen;
 
-		var fullVol = su.Volume
-			.GetFullData()
+		var fullVol = (su.Volume.Length == 0) ?
+			su.Volume.GetFullData(totalLen) :
+			su.Volume.GetFullData()
 			;
+
+		su.Volume.Length = totalLen;
 
 		var nsList = noSounds
 			.AsParallel()
@@ -112,9 +115,11 @@ public static class BreathSuppressorCore
 
 		//上書き！
 		var newVol = su.Volume;
-		newVol.Data = full2
+		newVol.Data = Parameters
+			.ShrinkData(full2)
 			.Cast<TuneData>()
-			.ToList();
+			.ToList()
+			;
 		newVol.Length = full2.Count;
 		su.Volume = newVol;
 	}
