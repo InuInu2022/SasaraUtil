@@ -30,6 +30,7 @@ public class BreathSuppressorViewModel
 	public Command? SaveFile { get; set; }
 
 	public bool IsOpenWithCeVIO { get; set; }
+	public bool IsKeepTuned { get; set; }
 	public string ProjectFileName { get; private set; } = "";
 	public string LabelFileName { get; private set; } = "";
 	string ProjectFilePath { get; set; } = "";
@@ -102,7 +103,10 @@ public class BreathSuppressorViewModel
 
 			await BreathSuppressorCore
 				.SuppressAsync(
-					ccs, lab, SuppressMode.Remove);
+					ccs,
+					lab,
+					SuppressMode.Remove,
+					new(IsKeepTuned));
 			await ccs.SaveAsync(savePath);
 		}
 		catch (Exception e)

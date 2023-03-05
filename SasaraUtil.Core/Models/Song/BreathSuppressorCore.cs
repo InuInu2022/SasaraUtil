@@ -19,21 +19,22 @@ public static class BreathSuppressorCore
 	public static async ValueTask SuppressAsync(
 		CeVIOFileBase project,
 		Lab lab,
-		SuppressMode mode = SuppressMode.Remove
+		SuppressMode mode = SuppressMode.Remove,
+		SuppressOption? option = null
 	)
 	{
 		switch (mode)
 		{
 			case SuppressMode.Remove:
 			{
-				await RemoveAsync(project, lab)
+				await RemoveAsync(project, lab, option)
 					.ConfigureAwait(false);
 				break;
 			}
 
 			case SuppressMode.Suppress:
 			{
-				await SuppressVolumeAsync(project, lab)
+				await SuppressVolumeAsync(project, lab, option)
 					.ConfigureAwait(false);
 				break;
 			}
@@ -45,7 +46,8 @@ public static class BreathSuppressorCore
 
 	static async ValueTask RemoveAsync(
 		CeVIOFileBase project,
-		Lab lab
+		Lab lab,
+		SuppressOption? option
 	)
 	{
 		//labからブレス部分のみを抜き出し
@@ -97,11 +99,14 @@ public static class BreathSuppressorCore
 			.SelectAwait(async v =>
 			{
 				var isInner = await IsInNoVoiceAsync(nsList, v);
+				var isKeep = option?.IsKeepTuned ?? false;
 
 				if(isInner){
 					var n = new Data
 					{
-						Value = Convert.ToDecimal(VOL_ZERO),
+						Value = isKeep && v is Data d ?
+							d.Value :
+							Convert.ToDecimal(VOL_ZERO),
 						Index = v.Index,
 						Repeat = v.Repeat
 					};
@@ -137,7 +142,8 @@ public static class BreathSuppressorCore
 
 	static async ValueTask SuppressVolumeAsync(
 		CeVIOFileBase project,
-		Lab lab
+		Lab lab,
+		SuppressOption? option
 	){
 		//TODO:implementaion
 		await Task.Delay(100);
@@ -149,4 +155,14 @@ public enum SuppressMode
 {
 	Remove,
 	Suppress
+}
+
+public record SuppressOption
+{
+	public bool IsKeepTuned;
+
+	public SuppressOption(bool isKeepTuned)
+	{
+		IsKeepTuned = isKeepTuned;
+	}
 }
