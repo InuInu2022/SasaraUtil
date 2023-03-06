@@ -108,6 +108,22 @@
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
 			</WrapPanel>
+			<!-- IsMonoral -->
+			<StackPanel
+				Margin="5"
+				DockPanel.Dock="Top"
+				Background="{DynamicResource SolidBackgroundFillColorTertiaryBrush}">
+				<StackPanel>
+					<StackPanel>
+						<ToggleSwitch
+							IsChecked="{Binding IsMonoral}"
+							OnContent="モノラル変換"
+							OffContent="モノラル変換"
+							HorizontalAlignment="Right"
+							/>
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
 			<Panel>
 				<ui:SymbolIcon
 					Symbol="Restore"

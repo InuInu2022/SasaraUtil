@@ -42,6 +42,7 @@ public sealed class AudioConvertViewModel
 	public bool IsDropAreaVisibile { get; set; } = true;
 	public bool IsProcessing { get; set; } = false;
 	public bool IsConvertable { get; set; } = false;
+	public bool IsMonoral { get; set; }
 
 	private INotificationMessageManager? _notify;
 
@@ -90,7 +91,7 @@ public sealed class AudioConvertViewModel
 		try
 		{
 			await SoundConverter
-				.ConvertAsync(path, newPath);
+				.ConvertAsync(path, newPath, IsMonoral);
 		}
 		catch
 		{
@@ -195,7 +196,7 @@ public sealed class AudioConvertViewModel
 		IsProcessing = true;
 		IsConvertable = false;
 		await Task.WhenAll((IEnumerable<Task>)DroppedFiles
-			.Select(async v => await ConvertAsync(v.Path, saveDir))
+			.Select(async v => await ConvertAsync(v.Path, saveDir, IsMonoral))
 		);
 		Process.Start(
 			"explorer.exe",
@@ -207,7 +208,7 @@ public sealed class AudioConvertViewModel
 		IsConvertable = true;
 	};
 
-	private static async ValueTask ConvertAsync(string path, string? saveDir)
+	private static async ValueTask ConvertAsync(string path, string? saveDir, bool isMonoral = false)
 	{
 		var p = Path.GetFullPath(path);
 		var f = Path.GetFileName(p);
@@ -216,7 +217,7 @@ public sealed class AudioConvertViewModel
 			Path.ChangeExtension(f, "16bit48khz.wav")
 		);
 		await SoundConverter
-			.ConvertAsync(p, n);
+			.ConvertAsync(p, n, isMonoral);
 	}
 
 	public async ValueTask DropFileEventAsync(DragEventArgs e)

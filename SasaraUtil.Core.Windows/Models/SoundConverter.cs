@@ -14,7 +14,8 @@ public static class SoundConverter
 
 	public static async ValueTask<string> ConvertAsync(
 		string path,
-		string? outPath = null
+		string? outPath = null,
+		bool isMonoral = false
 	){
 		if(!File.Exists(path)){
 			throw new FileNotFoundException($"audio file path:{path} is not found!");
@@ -25,10 +26,14 @@ public static class SoundConverter
 		using var reader = new AudioFileReader(path);
 		var resampler = new WdlResamplingSampleProvider(reader, CevioAcceptFormat.SampleRate);
 
-		ISampleProvider sp = resampler
-			.ToMono()
-			.ToWaveProvider16()
-			.ToSampleProvider();
+		ISampleProvider sp = isMonoral ?
+			resampler
+				.ToMono()
+				.ToWaveProvider16()
+				.ToSampleProvider() :
+			resampler
+				.ToWaveProvider16()
+				.ToSampleProvider() ;
 
 		try
 		{
