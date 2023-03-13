@@ -16,6 +16,14 @@
 
 - **[Download SasaraUtil](https://github.com/InuInu2022/SasaraUtil/releases/latest)**
 
+- ダウンロード方法
+  - 上から一番新しい物を選んでzipファイルをダウンロードして展開して使ってください
+  - アップデートはそのまま上書きしてください
+  - アンインストールは解凍したフォルダをまるごと消してください
+- [ニコニ・コモンズ nc29686](https://commons.nicovideo.jp/material/nc296868)
+  - ニコニコ動画等で投稿する作品で使用した場合、利用登録してくださるとうれしいです
+  - ※登録は必須ではありません
+
 ## 機能 / Functions
 
 > ![screenshots](./documents/screenshots/sasarautil.png)
@@ -209,6 +217,9 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 
 - [LICENSE](LICENSE)
 
+[ニコニ・コモンズ](https://commons.nicovideo.jp/material/nc296868)
+ニコニコ動画等で投稿する作品で使用した場合、利用登録してくださるとうれしいです（必須ではありません）。
+
 ### Libraries licenses
 
 - [licenses](./licenses/)
@@ -227,6 +238,7 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
   - SasaraUtilを支えるライブラリです
 - [Fluent CeVIO Wrapper](https://github.com/InuInu2022/FluentCeVIOWrapper)
   - A wrapper library and integration IPC server of the CeVIO API for .NET 7 / .NET Standard 2.0
+  - CeVIOトークとの連携に使用しています
 
 ## 🐶Developed by InuInu
 
