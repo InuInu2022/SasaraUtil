@@ -4,3 +4,6 @@
 [submodule "libs/FluentCeVIOWrapper"]
 	path = libs/FluentCeVIOWrapper
 	url = https://github.com/InuInu2022/FluentCeVIOWrapper.git
+[submodule "libs/cevio-casts"]
+	path = libs/cevio-casts
+	url = https://github.com/InuInu2022/cevio-casts.git
