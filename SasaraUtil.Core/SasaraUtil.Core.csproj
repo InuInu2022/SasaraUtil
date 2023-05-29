@@ -26,5 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\libs\LibSasara\LibSasara\LibSasara.csproj" />
     <ProjectReference Include="..\libs\FluentCeVIOWrapper\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
+    <ProjectReference Include="..\libs\cevio-casts\languages\csharp\CevioCasts\CevioCasts.csproj" />
   </ItemGroup>
 </Project>
