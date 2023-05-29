@@ -1,122 +1,150 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
-			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels.CastSplitter"
-			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
-			xmlns:ui="using:FluentAvalonia.UI.Controls"
-			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
-			xmlns:sty="using:FluentAvalonia.Styling"
-			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
-			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
-			x:Class="SasaraUtil.UI.Views.Talk.CastSplitter"
-			x:DataType="viewmodels:CastSplitterViewModel"
-			x:CompileBindings="False"
-			 >
+<UserControl
+	 xmlns="https://github.com/avaloniaui"
+	 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+	 xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels.CastSplitter"
+	 xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+	 xmlns:ui="using:FluentAvalonia.UI.Controls"
+	 xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+	 xmlns:sty="using:FluentAvalonia.Styling"
+	 xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+	 mc:Ignorable="d"
+	 d:DesignWidth="400"
+	 d:DesignHeight="450"
+	 x:Class="SasaraUtil.UI.Views.Talk.CastSplitter"
+	 x:DataType="viewmodels:CastSplitterViewModel"
+	 x:CompileBindings="False">
 	<UserControl.DataContext>
-        <viewmodels:CastSplitterViewModel />
-    </UserControl.DataContext>
-
+		<viewmodels:CastSplitterViewModel/>
+	</UserControl.DataContext>
 	<ScrollViewer>
 		<DockPanel
-			Margin="5"
-			DragDrop.AllowDrop="True"
-			Opacity="1"
-			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
-			<TextBlock
-				Text="トラック内の複数キャストを別々のトラックに振りわけ"
-				TextWrapping="Wrap"
-				Margin="5"
-				HorizontalAlignment="Stretch"
-				DockPanel.Dock="Top"
-				/>
+			 Margin="5"
+			 DragDrop.AllowDrop="True"
+			 Opacity="1"
+			 Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+			<WrapPanel
+				 Orientation="Horizontal"
+				 HorizontalAlignment="Stretch"
+				 DockPanel.Dock="Top">
+				<TextBlock
+					 Text="トラック内の複数キャストを別々のトラックに振りわけ"
+					 TextWrapping="Wrap"
+					 Margin="5"
+					 HorizontalAlignment="Stretch"
+					 DockPanel.Dock="Top"/>
+				<ui:SymbolIcon
+					 Symbol="HelpFilled"
+					 Margin="5"
+					 HorizontalAlignment="Left">
+					<ToolTip.Tip>
+						<StackPanel
+							 Width="300">
+							<ui:InfoBar
+								 Title="キャストを別トラック振り分け"
+								 IsOpen="True"
+								 IsClosable="False"
+								 Severity="Informational"
+								 FontFamily="Hiragino, Meiryo"
+								 Message="通常、ひとつのトークトラックには複数のキャストが記録されます。
+
+これをキャストごとに別々のトラックに振り分けようとすると手作業が大変ですが、この「キャストを別トラック振り分け」機能を使うと自動で振り分けられます。"/>
+						</StackPanel>
+					</ToolTip.Tip>
+				</ui:SymbolIcon>
+			</WrapPanel>
 			<StackPanel
-				DockPanel.Dock="Bottom"
-				HorizontalAlignment="Right"
-				Orientation="Horizontal">
+				 DockPanel.Dock="Bottom"
+				 HorizontalAlignment="Right"
+				 Orientation="Horizontal">
 				<ToggleSwitch
-					OnContent="send CeVIO"
-					OffContent="send CeVIO"
-					HorizontalAlignment="Left"
-					IsChecked="{Binding IsOpenWithCeVIO}"
-					>
+					 OnContent="send CeVIO"
+					 OffContent="send CeVIO"
+					 HorizontalAlignment="Left"
+					 IsChecked="{Binding IsOpenWithCeVIO}">
 					<ToggleSwitch.OnContent>
 						<StackPanel
-							Orientation="Horizontal"
-							>
+							 Orientation="Horizontal">
 							<ui:SymbolIcon
-								Margin="5 0"
-								Symbol="SendFilled" />
-							<TextBlock Text="send CeVIO" />
+								 Margin="5 0"
+								 Symbol="SendFilled"/>
+							<TextBlock
+								 Text="send CeVIO"/>
 						</StackPanel>
 					</ToggleSwitch.OnContent>
 					<ToggleSwitch.OffContent>
 						<StackPanel
-							Orientation="Horizontal"
-							>
+							 Orientation="Horizontal">
 							<ui:SymbolIcon
-								Margin="5 0"
-								Symbol="Send" />
-							<TextBlock Text="send CeVIO" />
+								 Margin="5 0"
+								 Symbol="Send"/>
+							<TextBlock
+								 Text="send CeVIO"/>
 						</StackPanel>
 					</ToggleSwitch.OffContent>
 				</ToggleSwitch>
 				<Button
-					HorizontalAlignment="Right"
-					VerticalAlignment="Bottom"
-					Margin="5"
-					Classes="accent"
-					IsEnabled="{Binding IsConvertable}"
-					Command="{CompiledBinding SaveFile}"
-					>
+					 HorizontalAlignment="Right"
+					 VerticalAlignment="Bottom"
+					 Margin="5"
+					 Classes="accent"
+					 IsEnabled="{Binding IsConvertable}"
+					 Command="{CompiledBinding SaveFile}">
 					<WrapPanel>
-						<ui:SymbolIcon Symbol="DownloadFilled" />
-						<TextBlock Text="Save" Margin="5" />
+						<ui:SymbolIcon
+							 Symbol="DownloadFilled"/>
+						<TextBlock
+							 Text="Save"
+							 Margin="5"/>
 					</WrapPanel>
 				</Button>
 			</StackPanel>
 			<Panel
-				DockPanel.Dock="Top"
-				>
+				 DockPanel.Dock="Top">
 				<ui:SymbolIcon
-					Symbol="Restore"
-					Margin="5"
-					FontSize="100"
-					Foreground="Gray"
-					HorizontalAlignment="Stretch"
-					VerticalAlignment="Stretch"
-					IsVisible="{Binding !IsConvertable}"
-					/>
+					 Symbol="Restore"
+					 Margin="5"
+					 FontSize="100"
+					 Foreground="Gray"
+					 HorizontalAlignment="Stretch"
+					 VerticalAlignment="Stretch"
+					 IsVisible="{Binding !IsConvertable}"/>
 				<StackPanel
-					IsVisible="{Binding IsConvertable}">
+					 IsVisible="{Binding IsConvertable}">
 					<TextBlock
-						Text="{Binding TargetFileName}"
-						Margin="5"
-						FontWeight="Bold"
-						/>
-					<DataGrid Name="TalkCastByTracks"
-						Items="{Binding CcsTrackData}"
-						AutoGenerateColumns="False" >
+						 Text="{Binding TargetFileName}"
+						 Margin="5"
+						 FontWeight="Bold"/>
+					<DataGrid
+						 Name="TalkCastByTracks"
+						 Items="{Binding CcsTrackData}"
+						 AutoGenerateColumns="False">
 						<DataGrid.Columns>
-							<DataGridTextColumn Header="トラック" Binding="{Binding TrackName}"/>
-							<DataGridTextColumn Header="キャスト" Binding="{Binding CastName}" />
-							<DataGridTextColumn Header="セリフ" Binding="{Binding Serif}" />
+							<DataGridTextColumn
+								 Header="トラック"
+								 Binding="{Binding TrackName}"/>
+							<DataGridTextColumn
+								 Header="キャスト"
+								 Binding="{Binding CastName}"/>
+							<DataGridTextColumn
+								 Header="セリフ"
+								 Binding="{Binding Serif}"/>
 						</DataGrid.Columns>
 					</DataGrid>
 				</StackPanel>
 				<Button
-					x:Name="ResetList"
-					IsVisible="{Binding IsConvertable}"
-					HorizontalAlignment="Right"
-					VerticalAlignment="Top"
-					Margin="5"
-					Command="{Binding ResetFiles}"
-					>
-					<ui:SymbolIcon Symbol="Cancel" />
+					 x:Name="ResetList"
+					 IsVisible="{Binding IsConvertable}"
+					 HorizontalAlignment="Right"
+					 VerticalAlignment="Top"
+					 Margin="5"
+					 Command="{Binding ResetFiles}">
+					<ui:SymbolIcon
+						 Symbol="Cancel"/>
 				</Button>
 			</Panel>
-
 		</DockPanel>
 	</ScrollViewer>
 </UserControl>
