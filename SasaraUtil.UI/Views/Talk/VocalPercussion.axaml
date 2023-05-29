@@ -48,7 +48,7 @@
 								IsClosable="False"
 								Severity="Informational"
 								FontFamily="Hiragino, Meiryo"
-								Message="ccsファイルを元にトークでボイスパーカッションを生成します。" />
+								Message="ソングのccsファイルを元にトークでボイスパーカッションを生成します。" />
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
