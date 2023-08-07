@@ -72,6 +72,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
+    <!-- Cast data definition json -->
+    <Content Include="../libs/cevio-casts/data/data.json" LinkBase="Assets/">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
     <!-- Fluent CeVIO Wrapper server bins -->
     <Content Include="../server/**" LinkBase="server">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -15,8 +15,8 @@
 			x:CompileBindings="False"
 			 >
 	<UserControl.DataContext>
-        <viewmodels:VocalPercussionViewModel />
-    </UserControl.DataContext>
+				<viewmodels:VocalPercussionViewModel />
+		</UserControl.DataContext>
 
 	<ScrollViewer>
 		<DockPanel
@@ -171,7 +171,7 @@
 						<ComboBox x:Name="comboApp"
 							Items="{Binding TalkApps}"
 							MinWidth="100"
-							SelectedIndex="{CompiledBinding SelectedTalkApp}"
+							SelectedIndex="{Binding SelectedTalkApp}"
 							Margin="5"
 							>
 						</ComboBox>
@@ -190,16 +190,9 @@
 						<ComboBox x:Name="comboCast"
 							MinWidth="200"
 							PlaceholderText="select a talk cast"
-							SelectedIndex="0"
+							Items="{Binding TalkCasts}"
+							SelectedIndex="{Binding SelectedTalkCast}"
 							Margin="5"
-							IsVisible="false"
-							/>
-
-						<TextBox
-							Text="{Binding DirectInputCastName}"
-							Margin="5"
-							MinWidth="100"
-							FontFamily="Hiragino, Meiryo"
 							/>
 
 						<Button Content="Select"

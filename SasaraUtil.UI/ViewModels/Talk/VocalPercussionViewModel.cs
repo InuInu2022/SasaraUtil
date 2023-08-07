@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using System.Diagnostics;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -14,6 +16,9 @@ using LibSasara;
 using SasaraUtil.Models.Talk;
 using SasaraUtil.ViewModels.Utility;
 using LibSasara.Model;
+using System.Diagnostics.CodeAnalysis;
+using SasaraUtil.Core.Models;
+using System.Collections.Generic;
 
 namespace SasaraUtil.ViewModels.VocalPercussion;
 
@@ -21,6 +26,8 @@ namespace SasaraUtil.ViewModels.VocalPercussion;
 public class VocalPercussionViewModel
 {
 	private readonly INotificationMessageManager? _notify;
+	private ReadOnlyCollection<(string, string)> currentCastNames
+		= new(new List<(string, string)>());
 
 	public bool IsConvertable { get; set; }
 	public ObservableCollection<string> DroppedFiles { get; set; }
@@ -29,25 +36,31 @@ public class VocalPercussionViewModel
 	public Command ResetFiles { get; }
 	public Command? SaveFile { get; set; }
 	public Command? SelectFile { get; set; }
+	public Command? Ready { get; set; }
 	public bool IsOpenWithCeVIO { get; set; }
-	public string DirectInputCastName { get; set; } = "さとうささら";
-	public int SelectedTalkApp { get; set; }
+	public int SelectedTalkApp { get; set; } = -1;
 
 	public ObservableCollection<TalkApps> TalkApps { get; set; }
-		= new(Enum.GetValues(typeof(TalkApps)).Cast<TalkApps>());
+
+	public int SelectedTalkCast { get; set; }
+
+	public ObservableCollection<string> TalkCasts { get; set; }
+		= new();
 
 	public VocalPercussionViewModel()
 	{
 		DroppedFiles = new();
 		CcsTrackData = new();
+		TalkApps = new(Enum.GetValues(typeof(TalkApps)).Cast<TalkApps>());
+		SelectedTalkApp = 0;
 
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());
 
-		SaveFile = CommandFactory
+		SaveFile = Command.Factory
 			.Create(SaveFileAsync);
 
-		SelectFile = CommandFactory
+		SelectFile = Command.Factory
 			.Create(LoadFileAsync);
 
 		_notify = Utility
@@ -127,7 +140,7 @@ public class VocalPercussionViewModel
 			await vp.ExecuteAsync(
 				path,
 				saveDir,
-				DirectInputCastName,
+				TalkCasts[SelectedTalkCast],
 				template,
 				TalkApps[SelectedTalkApp].ToString(),
 				false,
@@ -261,6 +274,31 @@ public class VocalPercussionViewModel
 		CcsTrackData = new();
 		IsConvertable = false;
 	};
+
+	[PropertyChanged(nameof(SelectedTalkApp))]
+	[SuppressMessage("Usage", "IDE0051")]
+	private async ValueTask SelectedTalkAppChangedAsync(int value)
+	{
+		if(value < 0)return;
+
+		currentCastNames = await CastDataManager
+			.GetCastNamesAsync(
+				CastDataManager.ConvertProduct(TalkApps[value].ToString()),
+				CevioCasts.Category.TextVocal
+			);
+		var names = currentCastNames
+			.Select(v => v.Item2);
+
+		TalkCasts = new(names);
+		SelectedTalkCast = 0;
+	}
+
+	[PropertyChanged(nameof(SelectedTalkCast))]
+	[SuppressMessage("Usage", "IDE0051")]
+	private ValueTask SelectedTalkCastChangedAsync(int value)
+	{
+		return new ValueTask();
+	}
 }
 
 public enum TalkApps{
