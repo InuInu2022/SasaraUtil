@@ -93,7 +93,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NLog" Version="5.1.5" />
+    <PackageReference Include="NLog" Version="5.2.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SasaraUtil.UI\SasaraUtil.UI.csproj" />
