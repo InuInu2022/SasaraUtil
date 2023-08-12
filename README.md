@@ -10,7 +10,7 @@
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET 7.0](https://img.shields.io/badge/%20.NET-7.0-blue.svg?logo=dotnet&style=flat)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/inuinu2022/sasarautil?include_prereleases&label=%F0%9F%9A%80release) ![GitHub all releases](https://img.shields.io/github/downloads/InuInu2022/SasaraUtil/total?color=green&label=%E2%AC%87%20downloads) ![GitHub Repo stars](https://img.shields.io/github/stars/InuInu2022/SasaraUtil?label=%E2%98%85&logo=github)
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.3-53abdb.svg?logo=&style=flat)](https://voisona.com/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.7-53abdb.svg?logo=&style=flat)](https://voisona.com/)
 
 ## 最新版ダウンロード / Download latest
 
@@ -45,7 +45,7 @@
 
 #### オーディオトラック変換
 
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
 ![screenshots](./documents/screenshots/Common_AudioConverter.png)
 
@@ -89,7 +89,7 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 
 #### キャストを別トラック振り分け
 
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
 ![screenshots](./documents/screenshots/Talk_CastSplitter.PNG)
 
@@ -105,13 +105,11 @@ SasaraUtilの「**オーディオトラック変換**」にファイルをドラ
 
 ※CeVIOのトラックは32トラックが最大のため、合計で32トラック以上になる場合は何が起きるかわかりません。。。
 
-※現在ベータ版ではキャスト名は内部のIDで表示されます。
-
 </details>
 
 #### ボイパロイド
 
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/)
 
 ![screenshots](./documents/screenshots/Talk_VocalPercussion.png)
 
@@ -148,7 +146,7 @@ CeVIOのソングエディタをお持ちでない場合や元の楽譜データ
 
 #### ブレス削除・抑制
 
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.4-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.3-53abdb.svg?logo=&style=flat)](https://voisona.com/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.7-53abdb.svg?logo=&style=flat)](https://voisona.com/)
 
 ![screenshots](./documents/screenshots/Song_BreathSuppressor.png)
 
@@ -200,6 +198,8 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 - [Epoxy](https://github.com/kekyo/Epoxy)
 - [LibSasara](https://github.com/InuInu2022/LibSasara)
 - [Fluent CeVIO Wrapper](https://github.com/InuInu2022/FluentCeVIOWrapper)
+- [cevio-casts](https://github.com/InuInu2022/cevio-casts)
+  - ※上記リポジトリから`data.json`をDLして上書きすることで最新のキャストデータに更新できます
 
 ## Projects
 
