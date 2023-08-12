@@ -5,5 +5,6 @@
         "activityBar.background": "#c30000",
         "activityBar.foreground": "#ffffff"
     },
-    "task.quickOpen.showAll": true
+    "task.quickOpen.showAll": true,
+    "dotnet.defaultSolution": "SasaraUtil.sln"
 }
