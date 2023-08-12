@@ -11,7 +11,7 @@ using Epoxy;
 using Epoxy.Synchronized;
 
 using LibSasara;
-
+using SasaraUtil.Core.Models;
 using SasaraUtil.ViewModels.Utility;
 
 namespace SasaraUtil.ViewModels.CastSplitter;
@@ -146,17 +146,33 @@ public class CastSplitterViewModel
 			.GetCastsByTrackAsync(ccs);
 		var tracks = casts.Select(v => (v.Name, v.GroupId));
 
+		var castsCS = await CastDataManager
+			.GetCastNamesAsync(
+				CevioCasts.Product.CeVIO_CS,
+				CevioCasts.Category.TextVocal
+			);
+		var castsAI = await CastDataManager
+			.GetCastNamesAsync(
+				CevioCasts.Product.CeVIO_AI,
+				CevioCasts.Category.TextVocal);
+		var names = castsCS.Concat(castsAI);
+
+
 		var list3 = casts
 			.SelectMany(v => v.Units.Select(v => v))
 			.Select(v =>
-				new CcsTrackViewModel(
+			{
+				var n = names.FirstOrDefault(a => a.Item1 == v.CastId).Item2;
+				return new CcsTrackViewModel(
 					tracks
 						.First(t => t.GroupId == v.Group)
 						.Name,
-					v.CastId,
+					n,
 					v.Text
-				)
-			);
+				);
+			}
+			)
+			;
 		CcsTrackData = new(list3);
 
 		IsConvertable = true;
