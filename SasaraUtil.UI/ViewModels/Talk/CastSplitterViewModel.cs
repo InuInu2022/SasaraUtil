@@ -146,16 +146,8 @@ public class CastSplitterViewModel
 			.GetCastsByTrackAsync(ccs);
 		var tracks = casts.Select(v => (v.Name, v.GroupId));
 
-		var castsCS = await CastDataManager
-			.GetCastNamesAsync(
-				CevioCasts.Product.CeVIO_CS,
-				CevioCasts.Category.TextVocal
-			);
-		var castsAI = await CastDataManager
-			.GetCastNamesAsync(
-				CevioCasts.Product.CeVIO_AI,
-				CevioCasts.Category.TextVocal);
-		var names = castsCS.Concat(castsAI);
+		var names = await CastDataManager
+			.GetCastNamesAsync(CevioCasts.Category.TextVocal);
 
 
 		var list3 = casts

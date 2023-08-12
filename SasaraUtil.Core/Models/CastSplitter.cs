@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibSasara.Model;
 using System.Collections.Generic;
+using SasaraUtil.Core.Models;
 
 namespace SasaraUtil.Models.CastSplitter;
 
@@ -26,6 +27,10 @@ public static class CastSplitter
 	public static async ValueTask SplitTrackByCastAsync(CeVIOFileBase ccs){
 		var tracks = await GetCastsByTrackAsync(ccs)
 			.ConfigureAwait(false);
+
+		//get cast names for track name
+		var names = await CastDataManager
+			.GetCastNamesAsync(CevioCasts.Category.TextVocal);
 
 		//全トークユニット
 		var units = tracks
@@ -55,7 +60,7 @@ public static class CastSplitter
 				var prevName = exists.First(e => e.GroupId == u.Group).Name;
 				var newId = Guid.NewGuid();
 				newtracks.Add((
-					name: $"{prevName}_{u.CastId}",
+					name: $"{prevName}_{names.FirstOrDefault(n => n.Item1 == u.CastId).Item2}",
 					id: newId,
 					prevId: u.Group,
 					castId: u.CastId,

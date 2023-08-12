@@ -28,6 +28,13 @@ public static class CastDataManager
 			});
 	}
 
+	/// <summary>
+	/// Get all cast names by category and product
+	/// </summary>
+	/// <param name="product"></param>
+	/// <param name="category"></param>
+	/// <param name="lang"></param>
+	/// <returns></returns>
 	public static async ValueTask<ReadOnlyCollection<(string, string)>> GetCastNamesAsync(
 		Product product,
 		Category category,
@@ -45,6 +52,37 @@ public static class CastDataManager
 				c => c.Product == product
 					&& c.Category == category
 			)
+			.Select(v =>
+				(
+					id: v.Id,
+					name: Array.Find(v.Names, n => n.Lang == lang).Display
+				)
+			)
+			.ToList()
+			;
+		return new(names);
+	}
+
+	/// <summary>
+	/// Get all cast names by a category（talk or song）
+	/// </summary>
+	/// <param name="category">talk or song</param>
+	/// <param name="lang"></param>
+	/// <returns></returns>
+	public static async ValueTask<ReadOnlyCollection<(string, string)>> GetCastNamesAsync(
+		Category category,
+		Lang lang = Lang.Japanese
+	)
+	{
+		var defs = _defs ?? await LoadAsync();
+		if(defs is null)
+		{
+			return new(new List<(string, string)>());
+		}
+
+		var names = defs
+			.Casts
+			.Where(c => c.Category == category)
 			.Select(v =>
 				(
 					id: v.Id,
