@@ -47,7 +47,7 @@ public static class SoundConverter
 		}
 		catch
 		{
-			reader.Dispose();
+			reader?.Dispose();
 			throw;
 		}
 
