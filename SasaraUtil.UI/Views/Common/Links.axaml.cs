@@ -3,7 +3,7 @@ using Avalonia.Markup.Xaml;
 
 namespace SasaraUtil.Views.Common;
 
-public class Links : UserControl
+public partial class Links : UserControl
 {
     public Links()
     {

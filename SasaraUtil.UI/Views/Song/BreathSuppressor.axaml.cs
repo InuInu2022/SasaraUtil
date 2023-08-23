@@ -5,7 +5,7 @@ using Avalonia.Threading;
 
 namespace SasaraUtil.UI.Views.Song;
 
-public class BreathSuppressor : UserControl
+public partial class BreathSuppressor : UserControl
 {
     public BreathSuppressor()
     {
@@ -16,19 +16,24 @@ public class BreathSuppressor : UserControl
 
     async void DropAsync(object? sender, DragEventArgs e)
 	{
-		if (DataContext is not ViewModels
+		if (DataContext is not SasaraUtil.ViewModels
             .BreathSuppressor
 			.BreathSuppressorViewModel vm)
 		{
 			return;
 		}
 
+		await vm.DropFileEventAsync(e)
+			.ConfigureAwait(false);
+
+		/*
 		var _ = await Dispatcher
 			.UIThread
 			.InvokeAsync(
 				() => vm.DropFileEventAsync(e),
 				DispatcherPriority.Background
 			);
+		*/
 	}
 
     private void InitializeComponent()

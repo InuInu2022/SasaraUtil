@@ -2,11 +2,12 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reactive.Joins;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
-
+using Avalonia.Platform.Storage;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -20,6 +21,7 @@ namespace SasaraUtil.ViewModels.BreathSuppressor;
 public class BreathSuppressorViewModel
 {
 	private readonly INotificationMessageManager? _notify;
+	private readonly IStorageProvider? _storage;
 
 	public bool IsConvertable { get; set; }
 	public ObservableCollection<string> DroppedFiles { get; set; }
@@ -44,12 +46,16 @@ public class BreathSuppressorViewModel
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());
 
-		SaveFile = CommandFactory
+		SaveFile = Command.Factory
 			.Create(SaveFileAsync);
 
 		_notify = Utility
 			.MainWindowUtil
 			.GetNotifyManager();
+
+		_storage = MainWindowUtil
+			.GetWindow()?
+			.StorageProvider;
 	}
 
 	private async ValueTask SaveFileAsync()
@@ -59,16 +65,43 @@ public class BreathSuppressorViewModel
 				.Warn("ファイルエラー", "変換するファイルがみつかりません");
 			return;
 		}
+		if(_storage is null){
+			_notify?.Error("ERROR", "保存ダイアログを開けません");
+			return;
+		}
 
 		var loading = _notify?
 			.Loading("Now converting...","変換しています。");
 
-		var filter = new FileDialogFilter
+		var dir = await _storage
+			.TryGetFolderFromPathAsync(ProjectFilePath);
+		var fileName = Path.GetFileName(ProjectFilePath);
+		var f = await _storage.SaveFilePickerAsync(new()
+		{
+			Title = "変換したファイルの保存先を選んでください",
+			SuggestedStartLocation = dir!,
+			SuggestedFileName = Path.ChangeExtension(
+				fileName,
+				$"suppressed{Path.GetExtension(ProjectFilePath)}"),
+			FileTypeChoices = new FilePickerFileType[]{
+				new("ccs"){Patterns = new []{"*.ccs", "*.ccst"}}
+			},
+		});
+
+		var savePath = string.Empty;
+		if(f is null){
+			_notify?.Dismiss(loading!);
+			return;
+		}else{
+			savePath = f.Path.LocalPath;
+		}
+
+		/*var filter = new FileDialogFilter
 		{
 			Extensions = new() { "ccs","ccst" }
-		};
-		var fileName = Path.GetFileName(ProjectFilePath);
-		var d = new SaveFileDialog()
+		};*/
+		//var fileName = Path.GetFileName(ProjectFilePath);
+		/*var d = new SaveFileDialog()
 		{
 			Title = "変換したファイルの保存先を選んでください",
 			Directory =
@@ -77,8 +110,9 @@ public class BreathSuppressorViewModel
 			InitialFileName =
 				Path.ChangeExtension(fileName, $"suppressed{Path.GetExtension(ProjectFilePath)}"),
 		};
+		*/
 
-		var savePath = string.Empty;
+		/*
 		var mainWin = MainWindowUtil.GetWindow();
 		if(mainWin is null){
 			_notify?.Dismiss(loading!);
@@ -86,6 +120,7 @@ public class BreathSuppressorViewModel
 		}else{
 			savePath = await d.ShowAsync(mainWin);
 		}
+		*/
 
 		if (savePath is null)
 		{

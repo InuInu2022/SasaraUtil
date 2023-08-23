@@ -5,34 +5,39 @@ using Avalonia.Threading;
 
 namespace SasaraUtil.UI.Views.Talk;
 
-public class CastSplitter : UserControl
+public partial class CastSplitter : UserControl
 {
-    public CastSplitter()
-    {
-        this.InitializeComponent();
-
-        AddHandler(DragDrop.DropEvent, DropAsync);
-    }
-
-    async void DropAsync(object? sender, DragEventArgs e)
+	public CastSplitter()
 	{
-		if (DataContext is not ViewModels
-            .CastSplitter
+		this.InitializeComponent();
+
+		AddHandler(DragDrop.DropEvent, DropAsync);
+	}
+
+	async void DropAsync(object? sender, DragEventArgs e)
+	{
+		if (DataContext is not SasaraUtil.ViewModels
+			.CastSplitter
 			.CastSplitterViewModel vm)
 		{
 			return;
 		}
 
+        await vm.DropFileEventAsync(e)
+			.ConfigureAwait(false);
+
+		/*
 		var _ = await Dispatcher
 			.UIThread
 			.InvokeAsync(
 				() => vm.DropFileEventAsync(e),
-				DispatcherPriority.Background
+				DispatcherPriority.SystemIdle
 			);
+		*/
 	}
 
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
+	private void InitializeComponent()
+	{
+		AvaloniaXamlLoader.Load(this);
+	}
 }

@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-using System.Diagnostics;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -19,6 +17,8 @@ using LibSasara.Model;
 using System.Diagnostics.CodeAnalysis;
 using SasaraUtil.Core.Models;
 using System.Collections.Generic;
+using Avalonia.Platform.Storage;
+using SasaraUtil.UI.ViewModels.Utility;
 
 namespace SasaraUtil.ViewModels.VocalPercussion;
 
@@ -26,7 +26,8 @@ namespace SasaraUtil.ViewModels.VocalPercussion;
 public class VocalPercussionViewModel
 {
 	private readonly INotificationMessageManager? _notify;
-	private ReadOnlyCollection<(string, string)> currentCastNames
+    private readonly IStorageProvider? _storage;
+    private ReadOnlyCollection<(string, string)> currentCastNames
 		= new(new List<(string, string)>());
 
 	public bool IsConvertable { get; set; }
@@ -66,6 +67,10 @@ public class VocalPercussionViewModel
 		_notify = Utility
 			.MainWindowUtil
 			.GetNotifyManager();
+
+		_storage = MainWindowUtil
+			.GetWindow()?
+			.StorageProvider;
 	}
 
 	private async ValueTask SaveFileAsync()
@@ -88,7 +93,34 @@ public class VocalPercussionViewModel
 			IsConvertable = true;
 			return;
 		}
+		if(_storage is null){
+			_notify?.Error("ERROR", "保存ダイアログを開けません");
+			return;
+		}
 
+		var dir = await _storage
+			.TryGetFolderFromPathAsync(path);
+		var fileName = Path.GetFileName(path);
+		var f = await _storage.SaveFilePickerAsync(new()
+		{
+			Title = "変換したファイルの保存先を選んでください",
+			SuggestedStartLocation = dir!,
+			SuggestedFileName = Path.ChangeExtension(
+				fileName,
+				"voiceperc.ccs"),
+			FileTypeChoices = new FilePickerFileType[]{
+				new("ccs"){Patterns = new []{"*.ccs"}}
+			},
+		});
+
+		var saveDir = string.Empty;
+		if(f is null){
+			_notify?.Dismiss(loading!);
+			return;
+		}else{
+			saveDir = f.Path.LocalPath;
+		}
+		/*
 		var filter = new FileDialogFilter
 		{
 			Extensions = new() { "ccs" }
@@ -113,6 +145,7 @@ public class VocalPercussionViewModel
 		}else{
 			saveDir = await d.ShowAsync(mainWin);
 		}
+		*/
 
 		if (saveDir is null)
 		{
@@ -171,6 +204,7 @@ public class VocalPercussionViewModel
 	}
 
 	private async ValueTask LoadFileAsync(){
+		/*
 		var filter = new FileDialogFilter
 		{
 			Extensions = new() { "ccs", "ccst" }
@@ -181,8 +215,15 @@ public class VocalPercussionViewModel
 			AllowMultiple = false,
 			Filters = new(){ filter },
 		};
+		*/
+		var songCcs = await StorageUtil.OpenAsync(
+			title:"ボイパさせるソングデータを含むccsファイルを選んでください",
+			allowMultiple: false,
+			patterns: new[]{"*.css", "*.ccst"},
+			path:null
+		);
 
-		string[]? songCcs;
+		/*
 		var mainWin = MainWindowUtil.GetWindow();
 		if(mainWin is null){
 			return;
@@ -190,13 +231,20 @@ public class VocalPercussionViewModel
 			songCcs = await d
 				.ShowAsync(mainWin);
 		}
+		*/
 
-		if (songCcs is null)
+		if (songCcs is null || songCcs.Count == 0)
 		{
 			return;
 		}
 
-		await ProcessingFileAsync(new ReadOnlyCollection<string>(songCcs));
+		var list = songCcs
+			.Where(v => v is not null)
+			.Select(v => v!.Path.LocalPath)
+			.ToList()
+			;
+
+		await ProcessingFileAsync(new ReadOnlyCollection<string>(list));
 	}
 
 	public async ValueTask DropFileEventAsync(DragEventArgs e)

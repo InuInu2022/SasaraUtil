@@ -35,7 +35,7 @@
 				DockPanel.Dock="Top"
 				/>
 			<ui:SymbolIcon
-				Symbol="HelpFilled"
+				Symbol="Help"
 				Margin="5"
 				HorizontalAlignment="Left"
 				>
@@ -93,7 +93,7 @@
 				Command="{CompiledBinding SaveFile}"
 				>
 				<WrapPanel>
-					<ui:SymbolIcon Symbol="DownloadFilled" />
+					<ui:SymbolIcon Symbol="Download" />
 					<TextBlock Text="Save" Margin="5" />
 				</WrapPanel>
 			</Button>

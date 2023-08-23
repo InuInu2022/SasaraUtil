@@ -14,7 +14,7 @@ public class HelpViewModel
 
 	public HelpViewModel()
 	{
-		OpenLicense = CommandFactory.
+		OpenLicense = Command.Factory.
 			Create(async ()=>{
 				var path = Path.Combine(
 					AppDomain.CurrentDomain.BaseDirectory,

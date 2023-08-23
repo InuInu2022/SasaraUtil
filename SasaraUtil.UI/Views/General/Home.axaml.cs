@@ -3,7 +3,7 @@ using Avalonia.Markup.Xaml;
 
 namespace SasaraUtil.UI.Views.General;
 
-public class Home : UserControl
+public partial class Home : UserControl
 {
     public Home()
     {

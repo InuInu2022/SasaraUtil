@@ -23,8 +23,7 @@ public class VocalPercussionCore{
 	private FluentCeVIO? fcw;
 	private CeVIOFileBase? srcCcs;
 	private CeVIOFileBase? exportCcs;
-	private SongUnit? song;
-	private string? src;
+    private string? src;
 	private string? dist;
 
 	public async Task ExecuteAsync(

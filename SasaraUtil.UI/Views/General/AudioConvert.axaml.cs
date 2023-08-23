@@ -9,7 +9,7 @@ using Avalonia.Threading;
 
 namespace SasaraUtil.UI.Views.General;
 
-public class AudioConvert : UserControl
+public partial class AudioConvert : UserControl
 {
 	public AudioConvert()
 	{
@@ -20,18 +20,23 @@ public class AudioConvert : UserControl
 
 	async void DropAsync(object? sender, DragEventArgs e)
 	{
-		if (DataContext is not ViewModels
+		if (DataContext is not SasaraUtil.ViewModels
 			.AudioConvertViewModel vm)
 		{
 			return;
 		}
 
+		await vm.DropFileEventAsync(e)
+			.ConfigureAwait(false);
+
+		/*
 		var _ = await Dispatcher
 			.UIThread
 			.InvokeAsync(
 				() => vm.DropFileEventAsync(e),
 				DispatcherPriority.Background
 			);
+		*/
 	}
 
 	private void InitializeComponent()

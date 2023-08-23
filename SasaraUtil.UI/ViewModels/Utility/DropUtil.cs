@@ -13,17 +13,14 @@ public static class DropUtil
 	/// </summary>
 	/// <param name="e"></param>
 	public static bool IsFileAvailable(DragEventArgs e){
-		if (!e.Data.Contains(DataFormats.FileNames))
-		{
-			return false;
-		}
+		if (e?.Data?.GetFiles() is null) return false;
+		else if (e?.Data?.GetFiles() is {} files && files.Any()) return true;
+		//if (e?.Data?.GetFiles() is not {} files || files.Any())
+		//{
+		//	return false;
+		//}
 
-		if (e?.Data?.GetFileNames() is null)
-		{
-			return false;
-		}
-
-		return true;
+		return false;
 	}
 
 	/// <summary>
@@ -32,7 +29,8 @@ public static class DropUtil
     /// <param name="e"></param>
     /// <returns></returns>
 	public static ReadOnlyCollection<string> GetFileNames(DragEventArgs e){
-		return e.Data.GetFileNames()?
+		return e.Data.GetFiles()?
+			.Select(v => v.Path.LocalPath)
 			.ToList()
 			.AsReadOnly()
 			?? new List<string>().AsReadOnly();

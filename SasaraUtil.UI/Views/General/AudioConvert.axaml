@@ -77,7 +77,7 @@
 					Command="{Binding ConvertAndSave}"
 					>
 					<WrapPanel>
-						<ui:SymbolIcon Symbol="DownloadFilled" Margin="5" />
+						<ui:SymbolIcon Symbol="Download" Margin="5" />
 						<TextBlock Text="Save" Margin="5" />
 					</WrapPanel>
 				</Button>
@@ -91,7 +91,7 @@
 				<TextBlock
 					Name="DropHereMsg"
 					Text="ここに音声・動画ファイルをドラッグ＆ドロップしてください。" />
-				<ui:SymbolIcon Symbol="HelpFilled"
+				<ui:SymbolIcon Symbol="Help"
 					HorizontalAlignment="Left"
 					>
 					<ToolTip.Tip>
@@ -135,7 +135,7 @@
 					ToolTip.Tip="{Binding #DropHereMsg.Text}"
 					/>
 				<ListBox
-					Items="{Binding DroppedFiles}"
+					ItemsSource="{Binding DroppedFiles}"
 					SelectionMode="Multiple"
 					>
 					<ListBox.ItemTemplate>

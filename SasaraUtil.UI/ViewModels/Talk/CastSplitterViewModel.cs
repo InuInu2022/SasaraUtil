@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
-
+using Avalonia.Platform.Storage;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -20,8 +20,9 @@ namespace SasaraUtil.ViewModels.CastSplitter;
 public class CastSplitterViewModel
 {
 	private readonly INotificationMessageManager? _notify;
+    private readonly IStorageProvider? _storage;
 
-	public bool IsConvertable { get; set; }
+    public bool IsConvertable { get; set; }
 	public ObservableCollection<string> DroppedFiles { get; set; }
 	public string? TargetFileName { get; set; }
 	public ObservableCollection<CcsTrackViewModel> CcsTrackData { get; set; }
@@ -38,12 +39,16 @@ public class CastSplitterViewModel
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());
 
-		SaveFile = CommandFactory
+		SaveFile = Command.Factory
 			.Create(SaveFileAsync);
 
 		_notify = Utility
 			.MainWindowUtil
 			.GetNotifyManager();
+
+		_storage = MainWindowUtil
+			.GetWindow()?
+			.StorageProvider;
 	}
 
 	private async ValueTask SaveFileAsync()
@@ -63,7 +68,34 @@ public class CastSplitterViewModel
 				.Warn("ファイルエラー", "変換するファイルがみつかりません");
 			return;
 		}
+		if(_storage is null){
+			_notify?.Error("ERROR", "保存ダイアログを開けません");
+			return;
+		}
 
+		var dir = await _storage
+			.TryGetFolderFromPathAsync(path);
+		var fileName = Path.GetFileName(path);
+		var f = await _storage.SaveFilePickerAsync(new()
+		{
+			Title = "変換したファイルの保存先を選んでください",
+			SuggestedStartLocation = dir!,
+			SuggestedFileName = Path.ChangeExtension(
+				fileName,
+				"splitted.ccs"),
+			FileTypeChoices = new FilePickerFileType[]{
+				new("ccs"){Patterns = new []{"*.ccs"}}
+			},
+		});
+
+		var saveDir = string.Empty;
+		if(f is null){
+			_notify?.Dismiss(loading!);
+			return;
+		}else{
+			saveDir = f.Path.LocalPath;
+		}
+		/*
 		var filter = new FileDialogFilter
 		{
 			Extensions = new() { "ccs" }
@@ -87,6 +119,7 @@ public class CastSplitterViewModel
 		}else{
 			saveDir = await d.ShowAsync(mainWin);
 		}
+		*/
 
 		if (saveDir is null)
 		{

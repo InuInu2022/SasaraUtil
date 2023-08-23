@@ -16,6 +16,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Notification;
+using Avalonia.Platform.Storage;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -52,10 +53,10 @@ public sealed class AudioConvertViewModel
 
 		StartTime = 0.0f;
 
-		ConvertAndSend = CommandFactory
+		ConvertAndSend = Command.Factory
 			.Create(SendToCeVIO());
 
-		ConvertAndSave = CommandFactory
+		ConvertAndSave = Command.Factory
 			.Create(SaveFiles());
 
 		ResetFiles = Command.Factory
@@ -150,63 +151,67 @@ public sealed class AudioConvertViewModel
 	};
 
 	private Func<ValueTask> SaveFiles()
-	=> async () =>
 	{
-		if (DroppedFiles is null)
+		return async () =>
 		{
-			return;
-		}
+			if (DroppedFiles is null)
+			{
+				return;
+			}
 
-		var path = DroppedFiles.FirstOrDefault()?.Path;
+			var path = DroppedFiles.FirstOrDefault()?.Path;
 
-		if(path is null){
-			return;
-		}
+			if (path is null)
+			{
+				return;
+			}
 
-		var loading = _notify?
-			.Loading("Now converting...","変換しています。");
+			var loading = _notify?
+				.Loading("Now converting...", "変換しています。");
 
-		var d = new OpenFolderDialog()
-		{
-			Title = "変換したファイルの保存先を選んでください",
-			Directory =
-				Directory
-					.GetParent(Path.GetDirectoryName(path)!)?
-					.FullName,
+			var toplevel = Utility
+				.MainWindowUtil
+				.GetWindow();
+			var canOpen = toplevel?.StorageProvider.CanPickFolder ?? false;
+			if(toplevel is null || canOpen is false){
+				_notify?.Dismiss(loading!);
+				_notify?.Error("ERROR", "保存先フォルダを開けません");
+				return;
+			}
+
+			var dir = await toplevel.StorageProvider
+				.TryGetFolderFromPathAsync(path);
+			var f = await toplevel.StorageProvider.OpenFolderPickerAsync(new(){
+				Title = "変換したファイルの保存先を選んでください",
+				AllowMultiple = false,
+				SuggestedStartLocation = dir!
+			});
+
+			if (f.Count == 0)
+			{
+				//canceled
+				_notify?.Dismiss(loading!);
+				return;
+			}
+
+			var saveDir = f[0].Path.LocalPath;
+			Debug.WriteLine($"save dir:{saveDir}");
+
+			IsProcessing = true;
+			IsConvertable = false;
+			await Task.WhenAll((IEnumerable<Task>)DroppedFiles
+				.Select(async v => await ConvertAsync(v.Path, saveDir, IsMonoral))
+			);
+			Process.Start(
+				"explorer.exe",
+				@$"/e,/root,""{saveDir}"""
+			);
+			_notify?.Dismiss(loading!);
+			_notify?.Info("保存成功", "保存しました", true);
+			IsProcessing = false;
+			IsConvertable = true;
 		};
-
-		var saveDir = string.Empty;
-		var mainWin = Utility.MainWindowUtil.GetWindow();
-		if(mainWin is null){
-			_notify?.Dismiss(loading!);
-			return;
-		}else{
-			saveDir = await d.ShowAsync(mainWin);
-		}
-
-		if (string.IsNullOrEmpty(saveDir))
-		{
-			//canceled
-			_notify?.Dismiss(loading!);
-			return;
-		}
-
-		Debug.WriteLine($"save dir:{saveDir}");
-
-		IsProcessing = true;
-		IsConvertable = false;
-		await Task.WhenAll((IEnumerable<Task>)DroppedFiles
-			.Select(async v => await ConvertAsync(v.Path, saveDir, IsMonoral))
-		);
-		Process.Start(
-			"explorer.exe",
-			@$"/e,/root,""{saveDir}"""
-		);
-		_notify?.Dismiss(loading!);
-		_notify?.Info("保存成功", "保存しました", true);
-		IsProcessing = false;
-		IsConvertable = true;
-	};
+	}
 
 	private static async ValueTask ConvertAsync(string path, string? saveDir, bool isMonoral = false)
 	{

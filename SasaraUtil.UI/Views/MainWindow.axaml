@@ -36,6 +36,7 @@
 				 Value="Meiryo UI, Hiragino, Osaka, Noto Sans CJK JP"/>
 		</Style>
 		<!-- Accent SplitButton -->
+		<!--
 		<Style Selector="ui|SplitButton">
 			<Setter Property="Transitions">
 				<Transitions>
@@ -63,6 +64,7 @@
 			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushDisabled}" />
 			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundDisabled}" />
 		</Style>
+		-->
 	</Window.Styles>
 
 	<epoxy:EventBinder.Events>
@@ -97,60 +99,60 @@
 					<ui:NavigationViewItem
 						 Content="Home"
 						 Tag="General.Home"
-						 Icon="Home"/>
+						 IconSource="Home"/>
 					<ui:NavigationViewItem
 						 Content="共通"
 						 Tag="SamplePage2"
-						 Icon="Globe"
+						 IconSource="Globe"
 						 SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem
 								 Content="オーディオトラック変換"
-								 Icon="Repair"
+								 IconSource="Repair"
 								 Tag="General.AudioConvert"
 								 IsEnabled="True"/>
 							<ui:NavigationViewItem
 								 Content="Coming soon..."
-								 Icon="Help"
+								 IconSource="Help"
 								 Tag=""
 								 IsEnabled="False"/>
 						</ui:NavigationViewItem.MenuItems>
 					</ui:NavigationViewItem>
 					<ui:NavigationViewItem
 						 Content="トーク"
-						 Icon="Comment"
+						 IconSource="Comment"
 						 SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem
 								 Content="キャストを別トラック振分"
-								 Icon="Repair"
+								 IconSource="Repair"
 								 Tag="Talk.CastSplitter"
 								 IsEnabled="True"/>
 							<ui:NavigationViewItem
 								 Content="ボイパロイド"
-								 Icon="Repair"
+								 IconSource="Repair"
 								 Tag="Talk.VocalPercussion"
 								 IsEnabled="True"/>
 							<ui:NavigationViewItem
 								 Content="Coming soon..."
-								 Icon="Help"
+								 IconSource="Help"
 								 Tag="SamplePage3"
 								 IsEnabled="False"/>
 						</ui:NavigationViewItem.MenuItems>
 					</ui:NavigationViewItem>
 					<ui:NavigationViewItem
 						 Content="ソング"
-						 Icon="Audio"
+						 IconSource="Audio"
 						 SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem
 								 Content="ブレス消去・抑制"
-								 Icon="Repair"
+								 IconSource="Repair"
 								 Tag="Song.BreathSuppressor"
 								 IsEnabled="True"/>
 							<ui:NavigationViewItem
 								 Content="Coming soon..."
-								 Icon="Help"
+								 IconSource="Help"
 								 Tag="SamplePage3"
 								 IsEnabled="False"/>
 						</ui:NavigationViewItem.MenuItems>
@@ -161,7 +163,7 @@
 					<ui:NavigationViewItem
 						 Content="Help"
 						 Tag="General.Help"
-						 Icon="Help"
+						 IconSource="Help"
 						 IsEnabled="True"/>
 				</ui:NavigationView.FooterMenuItems>
 			</ui:NavigationView>

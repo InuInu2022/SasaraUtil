@@ -5,32 +5,17 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using FluentAvalonia.Core;
 using FluentAvalonia.UI.Controls;
 
 namespace SasaraUtil.Views;
 
-public sealed class MainWindow : Window
+public sealed partial class MainWindow : Window
 {
 	public MainWindow()
 	{
 		InitializeComponent();
-	}
-
-	private void InitializeComponent(
-		bool loadXaml = true,
-		bool attachDevTools = true)
-	{
-		AvaloniaXamlLoader.Load(this);
-#if DEBUG
-		if (attachDevTools)
-		{
-			this.AttachDevTools();
-		}
-#endif
 	}
 
 	// To access the CoreApplicationViewTitleBar, use the TitleBar property on the CoreWindow
@@ -43,6 +28,7 @@ public sealed class MainWindow : Window
 
 		// Default NavView
 		var nv = this.FindControl<NavigationView>("SasaraUtilNav");
+		if (nv is null) return;
 		nv.SelectionChanged += OnNVSample1SelectionChanged;
 		nv.SelectedItem = nv.MenuItems.ElementAt(0);
 		//TitleBar.ExtendViewIntoTitleBar = true;

@@ -5,12 +5,11 @@
     xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
     xmlns:sty="using:FluentAvalonia.Styling"
     xmlns:wnd="using:FluentAvalonia.UI.Windowing"
-    xmlns:notification="clr-namespace:Avalonia.Notification;assembly=Notification.Avalonia"
+    xmlns:notification="clr-namespace:Avalonia.Notification"
 
     x:Class="SasaraUtil.App">
     <Application.Styles>
         <sty:FluentAvaloniaTheme />
-        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Default.xaml"/>
-        <notification:NotificationStyle />
+        <StyleInclude Source="avares://Notification.Avalonia/Themes/Generic.xaml" />
     </Application.Styles>
 </Application>
