@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
 
@@ -98,20 +97,12 @@ public class VocalPercussionViewModel
 			return;
 		}
 
-		var dir = await _storage
-			.TryGetFolderFromPathAsync(path);
-		var fileName = Path.GetFileName(path);
-		var f = await _storage.SaveFilePickerAsync(new()
-		{
-			Title = "変換したファイルの保存先を選んでください",
-			SuggestedStartLocation = dir!,
-			SuggestedFileName = Path.ChangeExtension(
-				fileName,
-				"voiceperc.ccs"),
-			FileTypeChoices = new FilePickerFileType[]{
-				new("ccs"){Patterns = new []{"*.ccs"}}
-			},
-		});
+		var f = await StorageUtil.SaveAsync(
+			path,
+			new[] { "*.ccs" },
+			"変換したファイルの保存先を選んでください",
+			"voiceperc.ccs"
+		);
 
 		var saveDir = string.Empty;
 		if(f is null){
@@ -120,32 +111,6 @@ public class VocalPercussionViewModel
 		}else{
 			saveDir = f.Path.LocalPath;
 		}
-		/*
-		var filter = new FileDialogFilter
-		{
-			Extensions = new() { "ccs" }
-		};
-		var fileName = Path.GetFileName(path);
-		var d = new SaveFileDialog()
-		{
-			Title = "変換したファイルの保存先を選んでください",
-			Directory =
-				Path.GetDirectoryName(path),
-			Filters = new(){ filter },
-			InitialFileName =
-				Path.ChangeExtension(fileName, "voiceperc.ccs"),
-		};
-
-		var saveDir = string.Empty;
-		var mainWin = Utility.MainWindowUtil.GetWindow();
-		if(mainWin is null){
-			_notify?.Dismiss(loading!);
-			IsConvertable = true;
-			return;
-		}else{
-			saveDir = await d.ShowAsync(mainWin);
-		}
-		*/
 
 		if (saveDir is null)
 		{
@@ -156,10 +121,6 @@ public class VocalPercussionViewModel
 		}
 
 		IsConvertable = false;
-
-		//var ccs = await SasaraCcs.LoadAsync(path);
-		//await Models.VocalPercussion.VocalPercussion
-		//	.SplitTrackByCastAsync(ccs);
 
 		var vp = new VocalPercussionCore();
 		var template = await Models.TrackTemplateLoader.LoadProjectAsync();
@@ -204,18 +165,6 @@ public class VocalPercussionViewModel
 	}
 
 	private async ValueTask LoadFileAsync(){
-		/*
-		var filter = new FileDialogFilter
-		{
-			Extensions = new() { "ccs", "ccst" }
-		};
-		var d = new OpenFileDialog()
-		{
-			Title = "ボイパさせるソングデータを含むccsファイルを選んでください",
-			AllowMultiple = false,
-			Filters = new(){ filter },
-		};
-		*/
 		var songCcs = await StorageUtil.OpenCevioFileAsync(
 			title:"ボイパさせるソングデータを含むccsファイルを選んでください",
 			allowMultiple: false,
