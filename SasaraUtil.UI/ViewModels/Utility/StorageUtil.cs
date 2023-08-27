@@ -7,38 +7,64 @@ using SasaraUtil.ViewModels.Utility;
 
 namespace SasaraUtil.UI.ViewModels.Utility;
 
-public class StorageUtil
+public static class StorageUtil
 {
-	private static IStorageProvider? _storage =
+	private static readonly IStorageProvider? _storage =
 		MainWindowUtil
 			.GetWindow()?
 			.StorageProvider;
 
+	#region fileformats
+	private static readonly FilePickerFileType cevioFiles =
+		new("CeVIO files")
+		{
+			Patterns = new[] { "*.ccs", "*.ccst" },
+			MimeTypes = new List<string>() { "text/xml" },
+			AppleUniformTypeIdentifiers = new[] { "content" }
+		};
+	private static readonly FilePickerFileType cevioProjFile =
+		new("CeVIO project file")
+		{
+			Patterns = new List<string>() { "*.ccs" },
+			MimeTypes = new List<string>() { "text/xml" },
+			AppleUniformTypeIdentifiers = new[] { "content" }
+		};
+	private static readonly FilePickerFileType cevioTrackFile =
+		new("CeVIO track file")
+		{
+			Patterns = new List<string>() { "*.ccst" },
+			MimeTypes = new List<string>() { "text/xml" },
+			AppleUniformTypeIdentifiers = new[] { "content" }
+		};
+	#endregion
+
 	/// <summary>
-	///
+	/// open file folder dialog
 	/// </summary>
 	/// <returns></returns>
-	public static async Task<IReadOnlyList<IStorageFile?>?> OpenAsync(
+	public static async Task<IReadOnlyList<IStorageFile?>?> OpenCevioFileAsync(
 		bool allowMultiple,
-		string[] patterns,
 		string? path,
-		string title = "開くファイルを選んでください"
+		string title = "開くファイルを選んでください",
+		OpenCcsType openType = OpenCcsType.CssAndCsst
 	)
 	{
 		if(_storage is null){
 			return default;
 		}
 
+		FilePickerFileType[] types = openType switch
+		{
+			OpenCcsType.CcsOnly => new []{cevioProjFile},
+			OpenCcsType.CsstOnly => new []{cevioTrackFile},
+			_ => new[]{cevioFiles,cevioProjFile,cevioTrackFile}
+		};
+
 		var opt = new FilePickerOpenOptions()
 		{
 			Title = title,
 			AllowMultiple = allowMultiple,
-			FileTypeFilter = new FilePickerFileType[]{
-				new("ccs"){
-					Patterns = patterns,
-					AppleUniformTypeIdentifiers = new []{"content"}
-				}
-			},
+			FileTypeFilter = types
 		};
 		if(path is not null){
 			opt.SuggestedStartLocation = await _storage
@@ -86,4 +112,10 @@ public class StorageUtil
 		});
 		return f;
 	}
+}
+
+public enum OpenCcsType{
+	CssAndCsst,
+	CcsOnly,
+	CsstOnly
 }

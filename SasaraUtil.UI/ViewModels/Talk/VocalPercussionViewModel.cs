@@ -216,22 +216,11 @@ public class VocalPercussionViewModel
 			Filters = new(){ filter },
 		};
 		*/
-		var songCcs = await StorageUtil.OpenAsync(
+		var songCcs = await StorageUtil.OpenCevioFileAsync(
 			title:"ボイパさせるソングデータを含むccsファイルを選んでください",
 			allowMultiple: false,
-			patterns: new[]{"*.css", "*.ccst"},
 			path:null
 		);
-
-		/*
-		var mainWin = MainWindowUtil.GetWindow();
-		if(mainWin is null){
-			return;
-		}else{
-			songCcs = await d
-				.ShowAsync(mainWin);
-		}
-		*/
 
 		if (songCcs is null || songCcs.Count == 0)
 		{
