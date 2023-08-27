@@ -27,7 +27,7 @@
 ## 機能 / Functions
 
 > ![screenshots](./documents/screenshots/sasarautil.png)
-> ver.0.1
+> ver.1.0.0-rc
 
 - 共通向け
   - [オーディオトラック変換](#オーディオトラック変換)
