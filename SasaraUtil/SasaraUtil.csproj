@@ -40,11 +40,13 @@
       <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
       <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
       <DebugSymbols>false</DebugSymbols>
+	  <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
       <TrimMode>copyused</TrimMode>
       <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
       <PublishReadyToRun>true</PublishReadyToRun>
       <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
       <DebuggerSupport>false</DebuggerSupport>
+	  <SatelliteResourceLanguages>en-US;ja-JP</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <Target Name="MakeZipPackage" AfterTargets="Publish">

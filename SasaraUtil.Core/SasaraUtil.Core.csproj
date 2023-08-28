@@ -8,12 +8,12 @@
     <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
-        <Deterministic>true</Deterministic>
-        <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
-        <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
-        <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
-        <DebugSymbols>false</DebugSymbols>
-    </PropertyGroup>
+	<Deterministic>true</Deterministic>
+	<DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+	<RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+	<PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+	<DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotnetWorld" Version="1.2.5" />
     <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
@@ -24,6 +24,8 @@
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
   <ItemGroup>
+	<TrimmerRootAssembly Include="LibSasara" />
+	<TrimmerRootAssembly Include="FluentCeVIOWrapper.Common" />
     <ProjectReference Include="..\libs\LibSasara\LibSasara\LibSasara.csproj" />
     <ProjectReference Include="..\libs\FluentCeVIOWrapper\FluentCeVIOWrapper.Common\FluentCeVIOWrapper.Common.csproj" />
     <ProjectReference Include="..\libs\cevio-casts\languages\csharp\CevioCasts\CevioCasts.csproj" />
