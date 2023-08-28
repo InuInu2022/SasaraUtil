@@ -2,9 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Reactive.Joins;
 using System.Threading.Tasks;
-using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
@@ -95,32 +93,6 @@ public class BreathSuppressorViewModel
 		}else{
 			savePath = f.Path.LocalPath;
 		}
-
-		/*var filter = new FileDialogFilter
-		{
-			Extensions = new() { "ccs","ccst" }
-		};*/
-		//var fileName = Path.GetFileName(ProjectFilePath);
-		/*var d = new SaveFileDialog()
-		{
-			Title = "変換したファイルの保存先を選んでください",
-			Directory =
-				Path.GetDirectoryName(ProjectFilePath),
-			Filters = new(){ filter },
-			InitialFileName =
-				Path.ChangeExtension(fileName, $"suppressed{Path.GetExtension(ProjectFilePath)}"),
-		};
-		*/
-
-		/*
-		var mainWin = MainWindowUtil.GetWindow();
-		if(mainWin is null){
-			_notify?.Dismiss(loading!);
-			return;
-		}else{
-			savePath = await d.ShowAsync(mainWin);
-		}
-		*/
 
 		if (savePath is null)
 		{

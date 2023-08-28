@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Reflection;
 
@@ -6,25 +5,25 @@ namespace SasaraUtil.Core.Models;
 
 public static class AppUtil
 {
-    /// <summary>
-    /// Debugビルドかを判定
-    /// </summary>
-    public static bool IsDebug =
+	/// <summary>
+	/// Debugビルドかを判定
+	/// </summary>
+	public static bool IsDebug =
 #if DEBUG
-    true;
+	true;
 #else
-    false;
+	false;
 #endif
 
-    public static string GetWindowTitle(){
-        var assembly = Assembly.GetEntryAssembly().GetName();
+	public static string GetWindowTitle(){
+		var assembly = Assembly.GetEntryAssembly().GetName();
 
-        var versionInfo = Assembly
-            .GetEntryAssembly()
-            .GetCustomAttributes(typeof(AssemblyInformationalVersionAttribute))
-            .Cast<AssemblyInformationalVersionAttribute>()
-            .FirstOrDefault();
+		var versionInfo = Assembly
+			.GetEntryAssembly()
+			.GetCustomAttributes(typeof(AssemblyInformationalVersionAttribute))
+			.Cast<AssemblyInformationalVersionAttribute>()
+			.FirstOrDefault();
 
-        return $"{assembly.Name} ver. {versionInfo.InformationalVersion}";
-    }
+		return $"{assembly.Name} ver. {versionInfo.InformationalVersion}";
+	}
 }

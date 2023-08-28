@@ -13,10 +13,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
+
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -45,7 +45,7 @@ public sealed class AudioConvertViewModel
 	public bool IsConvertable { get; set; } = false;
 	public bool IsMonoral { get; set; }
 
-	private INotificationMessageManager? _notify;
+	private readonly INotificationMessageManager? _notify;
 
 	public AudioConvertViewModel()
 	{

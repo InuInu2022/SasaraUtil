@@ -66,14 +66,10 @@ public static class TrackTemplateLoader
 	public static async ValueTask<CcsProject>
 	LoadProjectAsync()
 	{
-		var proj = await SasaraCcs
+		return await SasaraCcs
 			.LoadAsync<CcsProject>(ProjectTemplate)
-			.ConfigureAwait(false);
-		if(proj is null){
-			throw new InvalidDataException("loaded project is invalid");
-		}
-
-		return proj;
+			.ConfigureAwait(false)
+			?? throw new InvalidDataException("loaded project is invalid");
 	}
 
 	/// <summary>

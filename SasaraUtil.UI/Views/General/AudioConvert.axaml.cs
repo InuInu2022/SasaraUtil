@@ -1,11 +1,12 @@
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+////////////////////////////////////////////////////////////////////////////
+//
+// SasaraUtil
+//
+////////////////////////////////////////////////////////////////////////////
 
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
-using Avalonia.Threading;
 
 namespace SasaraUtil.UI.Views.General;
 
@@ -28,15 +29,6 @@ public partial class AudioConvert : UserControl
 
 		await vm.DropFileEventAsync(e)
 			.ConfigureAwait(false);
-
-		/*
-		var _ = await Dispatcher
-			.UIThread
-			.InvokeAsync(
-				() => vm.DropFileEventAsync(e),
-				DispatcherPriority.Background
-			);
-		*/
 	}
 
 	private void InitializeComponent()

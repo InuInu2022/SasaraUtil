@@ -1,7 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
-using Avalonia.Threading;
 
 namespace SasaraUtil.UI.Views.Talk;
 
@@ -25,15 +24,6 @@ public partial class CastSplitter : UserControl
 
         await vm.DropFileEventAsync(e)
 			.ConfigureAwait(false);
-
-		/*
-		var _ = await Dispatcher
-			.UIThread
-			.InvokeAsync(
-				() => vm.DropFileEventAsync(e),
-				DispatcherPriority.SystemIdle
-			);
-		*/
 	}
 
 	private void InitializeComponent()

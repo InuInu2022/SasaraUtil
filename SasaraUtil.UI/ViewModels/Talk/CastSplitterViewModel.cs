@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
@@ -95,31 +94,6 @@ public class CastSplitterViewModel
 		}else{
 			saveDir = f.Path.LocalPath;
 		}
-		/*
-		var filter = new FileDialogFilter
-		{
-			Extensions = new() { "ccs" }
-		};
-		var fileName = Path.GetFileName(path);
-		var d = new SaveFileDialog()
-		{
-			Title = "変換したファイルの保存先を選んでください",
-			Directory =
-				Path.GetDirectoryName(path),
-			Filters = new(){ filter },
-			InitialFileName =
-				Path.ChangeExtension(fileName, "splitted.ccs"),
-		};
-
-		var saveDir = string.Empty;
-		var mainWin = Utility.MainWindowUtil.GetWindow();
-		if(mainWin is null){
-			_notify?.Dismiss(loading!);
-			return;
-		}else{
-			saveDir = await d.ShowAsync(mainWin);
-		}
-		*/
 
 		if (saveDir is null)
 		{

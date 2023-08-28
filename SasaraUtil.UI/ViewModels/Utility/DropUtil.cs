@@ -15,11 +15,6 @@ public static class DropUtil
 	public static bool IsFileAvailable(DragEventArgs e){
 		if (e?.Data?.GetFiles() is null) return false;
 		else if (e?.Data?.GetFiles() is {} files && files.Any()) return true;
-		//if (e?.Data?.GetFiles() is not {} files || files.Any())
-		//{
-		//	return false;
-		//}
-
 		return false;
 	}
 

@@ -25,15 +25,6 @@ public partial class BreathSuppressor : UserControl
 
 		await vm.DropFileEventAsync(e)
 			.ConfigureAwait(false);
-
-		/*
-		var _ = await Dispatcher
-			.UIThread
-			.InvokeAsync(
-				() => vm.DropFileEventAsync(e),
-				DispatcherPriority.Background
-			);
-		*/
 	}
 
     private void InitializeComponent()

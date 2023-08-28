@@ -43,11 +43,6 @@ public static class Program
 		AppBuilder.Configure<App>()
 			.UsePlatformDetect()
 			.LogToTrace()
-			//.With(new Win32PlatformOptions
-			//	{
-			//		UseWindowsUIComposition = true
-			//	}
-			//)
 			;
 
 	private static void InitLogger()
