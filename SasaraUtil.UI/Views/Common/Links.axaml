@@ -11,7 +11,7 @@
 			xmlns:sty="using:FluentAvalonia.Styling"
 			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
 
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
 			x:Class="SasaraUtil.Views.Common.Links"
 			 >
 
