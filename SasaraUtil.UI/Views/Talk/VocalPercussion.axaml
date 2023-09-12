@@ -49,6 +49,24 @@
 								Severity="Informational"
 								FontFamily="Hiragino, Meiryo"
 								Message="ソングのccsファイルを元にトークでボイスパーカッションを生成します。" />
+							<ui:InfoBar
+								IsOpen="True"
+								IsIconVisible="True"
+								IsClosable="False"
+								Severity="Warning"
+								Margin="5"
+								FontFamily="Hiragino, Meiryo"
+								Message="曲中のテンポチェンジに未対応">
+							</ui:InfoBar>
+							<ui:InfoBar
+								IsOpen="True"
+								IsIconVisible="True"
+								IsClosable="False"
+								Severity="Warning"
+								Margin="5"
+								FontFamily="Hiragino, Meiryo"
+								Message="CeVIO AIは非常に重い">
+							</ui:InfoBar>
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
@@ -199,31 +217,6 @@
 							IsVisible="False" Margin="5,5,0,5" />
 					</StackPanel>
 				</StackPanel>
-
-				<Expander
-					Header="⚠制限"
-					ExpandDirection="Down">
-					<StackPanel>
-						<ui:InfoBar
-							IsOpen="True"
-							IsIconVisible="True"
-							IsClosable="False"
-							Severity="Warning"
-							Margin="5"
-							FontFamily="Hiragino, Meiryo"
-							Message="曲中のテンポチェンジに未対応">
-						</ui:InfoBar>
-						<ui:InfoBar
-							IsOpen="True"
-							IsIconVisible="True"
-							IsClosable="False"
-							Severity="Warning"
-							Margin="5"
-							FontFamily="Hiragino, Meiryo"
-							Message="CeVIO AIは非常に重い">
-						</ui:InfoBar>
-					</StackPanel>
-				</Expander>
 			</StackPanel>
 
 
