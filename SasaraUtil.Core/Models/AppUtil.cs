@@ -24,6 +24,7 @@ public static class AppUtil
 			.Cast<AssemblyInformationalVersionAttribute>()
 			.FirstOrDefault();
 
-		return $"{assembly.Name} ver. {versionInfo.InformationalVersion}";
+		var pkgVer = versionInfo.InformationalVersion.Split('+')[0];
+		return $"{assembly.Name} ver. {pkgVer}";
 	}
 }
