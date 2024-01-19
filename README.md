@@ -10,7 +10,7 @@
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET 8.0](https://img.shields.io/badge/%20.NET-8.0-blue.svg?logo=dotnet&style=flat)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/inuinu2022/sasarautil?include_prereleases&label=%F0%9F%9A%80release) ![GitHub all releases](https://img.shields.io/github/downloads/InuInu2022/SasaraUtil/total?color=green&label=%E2%AC%87%20downloads) ![GitHub Repo stars](https://img.shields.io/github/stars/InuInu2022/SasaraUtil?label=%E2%98%85&logo=github)
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-8.6-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.7-53abdb.svg?logo=&style=flat)](https://voisona.com/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-9.0-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.7-53abdb.svg?logo=&style=flat)](https://voisona.com/)
 
 ## 最新版ダウンロード / Download latest
 
@@ -213,7 +213,7 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 
 >MIT License
 >
->Copyright (c) 2023 InuInu
+>Copyright (c) 2024 InuInu
 
 - [LICENSE](LICENSE)
 
@@ -233,6 +233,8 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 - **[KuchiPaku](https://github.com/InuInu2022/KuchiPaku)**
   - KuchiPaku (クチパク) はYMM4（ゆっくりムービーメーカー4）むけの「あいうえお口パク（リップシンク）」を生成するツールです。
   - CeVIOトークと連動し、口パクデータを自動生成します
+- **[KotoKanade](https://github.com/InuInu2022/KotoKanade)**
+  - VoiSona Talkを"歌わせる"ツールです
 - [LibSasara](https://github.com/InuInu2022/LibSasara)
   - The utility library for CeVIO project file (.ccs / .ccst) and timing label file (.lab).
   - SasaraUtilを支えるライブラリです
