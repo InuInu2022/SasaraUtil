@@ -92,9 +92,9 @@
     </Content>
 
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
-    <PackageReference Include="Avalonia" Version="11.0.7" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.7" />
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.7" />
+    <PackageReference Include="Avalonia" Version="11.0.9" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.9" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.9" />
     <PackageReference Include="MinVer" Version="4.3.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
