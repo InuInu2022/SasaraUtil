@@ -25,6 +25,7 @@
 		<ui:HyperlinkButton Content="CeVIO ユーザー互助会wiki" NavigateUri="https://w.atwiki.jp/ceviouser/" />
 		<ui:HyperlinkButton Content="UtaFormatix" NavigateUri="https://sdercolin.github.io/utaformatix3/" />
 		<ui:HyperlinkButton Content="NodoAme" NavigateUri="https://inuinu2022.github.io/NodoAme.Home/" />
+		<ui:HyperlinkButton Content="KotoKanade" NavigateUri="https://inuinu2022.github.io/KotoKanade/" />
 	</WrapPanel>
 
 </UserControl>
