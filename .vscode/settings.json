@@ -6,5 +6,6 @@
         "activityBar.foreground": "#ffffff"
     },
     "task.quickOpen.showAll": true,
-    "dotnet.defaultSolution": "SasaraUtil.sln"
+    "dotnet.defaultSolution": "SasaraUtil.sln",
+    "sarif-viewer.connectToGithubCodeScanning": "off"
 }
