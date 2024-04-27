@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using CodingSeb.Localization;
 using CodingSeb.Localization.Loaders;
@@ -23,6 +24,10 @@ public static class LangUtil
 					"Assets/strings.loc.yaml"
 				)
 			);
+
+		var tl = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName ?? "en";
+		var hasLoc = Loc.AvailableLanguages.Contains(tl);
+		Loc.Instance.CurrentLanguage = hasLoc ? tl : "en";
 
 		//ReloadFiles();
 	}
