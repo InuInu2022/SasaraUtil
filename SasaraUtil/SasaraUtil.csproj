@@ -58,6 +58,8 @@
       <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
       <Delete Files="$(OutputPath)/publish/FluentCeVIOWrapper.Common.xml" />
       <Delete Files="$(OutputPath)/publish/CevioCasts.pdb" />
+	  <Delete Files="$(OutputPath)/publish/CodingSeb.Localization.pdb" />
+	  <Delete Files="$(OutputPath)/publish/CodingSeb.Localization.Avalonia.pdb" />
       <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/../../../../../publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
       <Message Text="Actions After Publish" Importance="high" />
   </Target>
