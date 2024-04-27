@@ -30,7 +30,7 @@
 				 HorizontalAlignment="Stretch"
 				 DockPanel.Dock="Top">
 				<TextBlock
-					 Text="トラック内の複数キャストを別々のトラックに振りわけ"
+					 Text="{Tr CastSplitter.Title}"
 					 TextWrapping="Wrap"
 					 Margin="5"
 					 HorizontalAlignment="Stretch"
@@ -43,14 +43,12 @@
 						<StackPanel
 							 Width="300">
 							<ui:InfoBar
-								 Title="キャストを別トラック振り分け"
+								 Title="{Tr CastSplitter.Tip.Title}"
 								 IsOpen="True"
 								 IsClosable="False"
 								 Severity="Informational"
 								 FontFamily="Hiragino, Meiryo"
-								 Message="通常、ひとつのトークトラックには複数のキャストが記録されます。
-
-これをキャストごとに別々のトラックに振り分けようとすると手作業が大変ですが、この「キャストを別トラック振り分け」機能を使うと自動で振り分けられます。"/>
+								 Message="{Tr CastSplitter.Tip.Message}"/>
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
@@ -123,13 +121,13 @@
 						 AutoGenerateColumns="False">
 						<DataGrid.Columns>
 							<DataGridTextColumn
-								 Header="トラック"
+								 Header="{Tr CastSplitter.DataGridColumns.Track}"
 								 Binding="{Binding TrackName}"/>
 							<DataGridTextColumn
-								 Header="キャスト"
+								 Header="{Tr CastSplitter.DataGridColumns.Cast}"
 								 Binding="{Binding CastName}"/>
 							<DataGridTextColumn
-								 Header="セリフ"
+								 Header="{Tr CastSplitter.DataGridColumns.Script}"
 								 Binding="{Binding Serif}"/>
 						</DataGrid.Columns>
 					</DataGrid>

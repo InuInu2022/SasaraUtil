@@ -1,6 +1,13 @@
 <Project>
  <PropertyGroup>
    <Deterministic>true</Deterministic>
+   <!-- net analyzer -->
+    <EnableNETAnalyzers
+       Condition="'$(Configuration)' == 'Debug'">true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-Recommended</AnalysisLevel>
+    <ReportAnalyzer Condition="'$(Configuration)' == 'Debug'">true</ReportAnalyzer>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
  </PropertyGroup>
  <ItemGroup>
   <PackageReference Include="roslynator.analyzers" Version="4.12.2">

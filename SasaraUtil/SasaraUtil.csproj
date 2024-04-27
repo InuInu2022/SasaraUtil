@@ -78,6 +78,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
+	<!-- localization yaml -->
+	<Content Include="../dic/strings.loc.yaml" LinkBase="Assets/">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
     <!-- Cast data definition json -->
     <Content Include="../libs/cevio-casts/data/data.json" LinkBase="Assets/">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

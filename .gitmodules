@@ -7,3 +7,7 @@
 [submodule "libs/cevio-casts"]
 	path = libs/cevio-casts
 	url = https://github.com/InuInu2022/cevio-casts.git
+[submodule "libs/Localization"]
+	path = libs/Localization
+	url = https://github.com/InuInu2022/Localization.git
+	branch = feat-support-avalonia-v11

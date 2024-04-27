@@ -244,3 +244,4 @@ SasaraUtil.UI/Views/General/NVSamplePage1.axaml.cs
 SasaraUtil.UI/Views/General/NVSamplePage1.axaml
 /server/*
 !/server/.gitkeep
+.cosine/data.db

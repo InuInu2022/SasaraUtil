@@ -6,20 +6,25 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-
+using SasaraUtil.Core.Models;
 using SasaraUtil.Views;
 
 namespace SasaraUtil
 {
     public sealed class App : Application
     {
-        public override void Initialize() =>
-            AvaloniaXamlLoader.Load(this);
+		public override void Initialize()
+		{
+			GC.KeepAlive(typeof(CodingSeb.Localization.Avalonia.Tr).Assembly);
+			LangUtil.Init();
+			AvaloniaXamlLoader.Load(this);
+		}
 
-        public override void OnFrameworkInitializationCompleted()
+		public override void OnFrameworkInitializationCompleted()
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

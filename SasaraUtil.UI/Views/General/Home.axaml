@@ -9,8 +9,9 @@
 			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
 			xmlns:sty="using:FluentAvalonia.Styling"
 			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+			xmlns:loc="clr-namespace:CodingSeb.Localization;assembly=CodingSeb.Localization"
 			xmlns:common="clr-namespace:SasaraUtil.Views.Common"
-			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+			 mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
 			 x:Class="SasaraUtil.UI.Views.General.Home"
 			 >
 	<ScrollViewer>
@@ -27,7 +28,7 @@
 				DockPanel.Dock="Top"
 				/>
 			<TextBlock
-				Text="←使いたい機能を選んでください。"
+				Text="{Tr 'Home.SelectFuntionYouWithToUse'}"
 				HorizontalAlignment="Stretch"
 				DockPanel.Dock="Top"
 				/>
@@ -44,6 +45,19 @@
 				>
 				<common:Links x:Name="commonLinks" />
 			</WrapPanel>
+			<ui:SettingsExpander
+				Header="UI Language"
+				Name="LanguageSelector"
+				IconSource="World"
+				DockPanel.Dock="Bottom"
+				>
+				<ui:SettingsExpander.Footer>
+					<ComboBox
+						ItemsSource="{Binding Source={x:Static loc:Loc.AvailableLanguages}}"
+						SelectedItem="{Binding CurrentLanguage, Source={x:Static loc:Loc.Instance}}"
+						/>
+				</ui:SettingsExpander.Footer>
+			</ui:SettingsExpander>
 		</DockPanel>
 	</ScrollViewer>
 </UserControl>

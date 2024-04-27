@@ -35,36 +35,6 @@
 				 Property="FontFamily"
 				 Value="Meiryo UI, Hiragino, Osaka, Noto Sans CJK JP"/>
 		</Style>
-		<!-- Accent SplitButton -->
-		<!--
-		<Style Selector="ui|SplitButton">
-			<Setter Property="Transitions">
-				<Transitions>
-					<BrushTransition Duration="00:00:00.083" Property="Background" />
-				</Transitions>
-			</Setter>
-		</Style>
-		<Style Selector="ui|SplitButton.accent">
-			<Setter Property="Background" Value="{DynamicResource AccentButtonBackground}" />
-			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrush}" />
-			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForeground}" />
-		</Style>
-		<Style Selector="ui|SplitButton.accent:pointerover">
-			<Setter Property="Background" Value="{DynamicResource AccentButtonBackgroundPointerOver}" />
-			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushPointerOver}" />
-			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundPointerOver}" />
-		</Style>
-		<Style Selector="ui|SplitButton.accent:pressed">
-			<Setter Property="Background" Value="{DynamicResource AccentButtonBackgroundPressed}" />
-			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushPressed}" />
-			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundPressed}" />
-		</Style>
-		<Style Selector="ui|SplitButton.accent:disabled">
-			<Setter Property="Background" Value="{DynamicResource AccentButtonBackgroundDisabled}" />
-			<Setter Property="BorderBrush" Value="{DynamicResource AccentButtonBorderBrushDisabled}" />
-			<Setter Property="Foreground" Value="{DynamicResource AccentButtonForegroundDisabled}" />
-		</Style>
-		-->
 	</Window.Styles>
 
 	<epoxy:EventBinder.Events>
@@ -101,13 +71,13 @@
 						 Tag="General.Home"
 						 IconSource="Home"/>
 					<ui:NavigationViewItem
-						 Content="共通"
+						 Content="{Tr Sidebar.MenuCommon}"
 						 Tag="SamplePage2"
 						 IconSource="Globe"
 						 SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem
-								 Content="オーディオトラック変換"
+								 Content="{Tr Sidebar.MenuCommon.AudioConvert}"
 								 IconSource="Repair"
 								 Tag="General.AudioConvert"
 								 IsEnabled="True"/>
@@ -119,17 +89,17 @@
 						</ui:NavigationViewItem.MenuItems>
 					</ui:NavigationViewItem>
 					<ui:NavigationViewItem
-						 Content="トーク"
+						 Content="{Tr Sidebar.MenuTalk}"
 						 IconSource="Comment"
 						 SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem
-								 Content="キャストを別トラック振分"
+								 Content="{Tr Sidebar.MenuTalk.CastSplitter}"
 								 IconSource="Repair"
 								 Tag="Talk.CastSplitter"
 								 IsEnabled="True"/>
 							<ui:NavigationViewItem
-								 Content="ボイパロイド"
+								 Content="{Tr Sidebar.MenuTalk.VocalPercussion}"
 								 IconSource="Repair"
 								 Tag="Talk.VocalPercussion"
 								 IsEnabled="True"/>
@@ -141,12 +111,12 @@
 						</ui:NavigationViewItem.MenuItems>
 					</ui:NavigationViewItem>
 					<ui:NavigationViewItem
-						 Content="ソング"
+						 Content="{Tr Sidebar.MenuSong}"
 						 IconSource="Audio"
 						 SelectsOnInvoked="False">
 						<ui:NavigationViewItem.MenuItems>
 							<ui:NavigationViewItem
-								 Content="ブレス消去・抑制"
+								 Content="{Tr Sidebar.MenuSong.BreathSuppressor}"
 								 IconSource="Repair"
 								 Tag="Song.BreathSuppressor"
 								 IsEnabled="True"/>
@@ -161,7 +131,7 @@
 				<ui:NavigationView.FooterMenuItems>
 					<ui:NavigationViewItemSeparator/>
 					<ui:NavigationViewItem
-						 Content="Help"
+						 Content="{Tr Sidebar.MenuHelp}"
 						 Tag="General.Help"
 						 IconSource="Help"
 						 IsEnabled="True"/>

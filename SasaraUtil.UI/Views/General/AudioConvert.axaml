@@ -54,7 +54,7 @@
 				<Button
 					Margin="5"
 					HorizontalAlignment="Left"
-					ToolTip.Tip="CeVIOエディタに変換して送る"
+					ToolTip.Tip="{Tr AudioConvert.Tip.SendCeVIO}"
 					ToolTip.VerticalOffset="-30"
 					Classes="accent"
 					IsEnabled="{Binding IsConvertable}"
@@ -70,7 +70,7 @@
 					Margin="5"
 					DockPanel.Dock="Right"
 					HorizontalAlignment="Right"
-					ToolTip.Tip="ccstファイル保存"
+					ToolTip.Tip="{Tr AudioConvert.Tip.SaveFile}"
 					ToolTip.VerticalOffset="-30"
 					Classes="accent"
 					IsEnabled="{Binding IsConvertable}"
@@ -90,7 +90,7 @@
 				>
 				<TextBlock
 					Name="DropHereMsg"
-					Text="ここに音声・動画ファイルをドラッグ＆ドロップしてください。" />
+					Text="{Tr AudioConvert.DropHereMessage}" />
 				<ui:SymbolIcon Symbol="Help"
 					HorizontalAlignment="Left"
 					>
@@ -98,12 +98,12 @@
 						<StackPanel
 							Width="300">
 							<ui:InfoBar
-								Title="オーディオへ変換"
+								Title="{Tr AudioConvert.Tip.ConvertAudio.Title}"
 								IsOpen="True"
 								IsClosable="False"
 								Severity="Informational"
 								FontFamily="Hiragino, Meiryo"
-								Message="CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動でその形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換されます。" />
+								Message="{Tr AudioConvert.Tip.ConvertAudio.Message}" />
 						</StackPanel>
 					</ToolTip.Tip>
 				</ui:SymbolIcon>
@@ -117,8 +117,8 @@
 					<StackPanel>
 						<ToggleSwitch
 							IsChecked="{Binding IsMonoral}"
-							OnContent="モノラル変換"
-							OffContent="モノラル変換"
+							OnContent="{Tr AudioConvert.ToggleMonoConvert}"
+							OffContent="{Tr AudioConvert.ToggleMonoConvert}"
 							HorizontalAlignment="Right"
 							/>
 					</StackPanel>

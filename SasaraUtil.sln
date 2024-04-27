@@ -47,6 +47,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{79A7F8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CevioCasts", "libs\cevio-casts\languages\csharp\CevioCasts\CevioCasts.csproj", "{F981CD60-599E-497C-BEBB-E7C614694DDE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Localization", "Localization", "{723552A1-E6D7-4C90-8751-E6697015A562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingSeb.Localization.Avalonia", "libs\Localization\CodingSeb.Localization.Avalonia\CodingSeb.Localization.Avalonia.csproj", "{D31DEFBD-24FE-47CA-B95A-50A86089CD9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingSeb.Localization", "libs\Localization\CodingSeb.Localization\CodingSeb.Localization.csproj", "{7E3B5CEB-B50D-4B90-A16D-A0C421609446}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +103,14 @@ Global
 		{F981CD60-599E-497C-BEBB-E7C614694DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F981CD60-599E-497C-BEBB-E7C614694DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F981CD60-599E-497C-BEBB-E7C614694DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31DEFBD-24FE-47CA-B95A-50A86089CD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31DEFBD-24FE-47CA-B95A-50A86089CD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31DEFBD-24FE-47CA-B95A-50A86089CD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31DEFBD-24FE-47CA-B95A-50A86089CD9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +130,8 @@ Global
 		{347FA36A-631B-4245-8350-C42CC0C2EC8D} = {5E83B07A-D4CA-44DC-BEBC-D586AC8E38E2}
 		{79A7F8B5-5DDB-4FF5-9277-9E03414E02B4} = {347FA36A-631B-4245-8350-C42CC0C2EC8D}
 		{F981CD60-599E-497C-BEBB-E7C614694DDE} = {79A7F8B5-5DDB-4FF5-9277-9E03414E02B4}
+		{723552A1-E6D7-4C90-8751-E6697015A562} = {499B0954-8579-42B1-93C1-DEF522B9898C}
+		{D31DEFBD-24FE-47CA-B95A-50A86089CD9A} = {723552A1-E6D7-4C90-8751-E6697015A562}
+		{7E3B5CEB-B50D-4B90-A16D-A0C421609446} = {723552A1-E6D7-4C90-8751-E6697015A562}
 	EndGlobalSection
 EndGlobal

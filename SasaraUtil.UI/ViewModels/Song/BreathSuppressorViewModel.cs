@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
+using CodingSeb.Localization;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -60,30 +61,36 @@ public class BreathSuppressorViewModel
 	{
 		if(ProjectFilePath is null || LabelFilePath is null){
 			_notify?
-				.Warn("ファイルエラー", "変換するファイルがみつかりません");
+				.Warn(
+					$"{Loc.Tr("Errors.NotFoundFile.Header")}",
+					$"{Loc.Tr("Errors.NotFoundFile.Message")}");
 			return;
 		}
 		if(_storage is null){
-			_notify?.Error("ERROR", "保存ダイアログを開けません");
+			_notify?.Error(
+				$"{Loc.Tr("Errors.CannotOpenSaveDialog.Header")}",
+				$"{Loc.Tr("Errors.CannotOpenSaveDialog.Message")}");
 			return;
 		}
 
 		var loading = _notify?
-			.Loading("Now converting...","変換しています。");
+			.Loading(
+				$"{Loc.Tr("Notify.Processing.Header")}",
+				$"{Loc.Tr("Notify.Processing.Message")}");
 
 		var dir = await _storage
 			.TryGetFolderFromPathAsync(ProjectFilePath);
 		var fileName = Path.GetFileName(ProjectFilePath);
 		var f = await _storage.SaveFilePickerAsync(new()
 		{
-			Title = "変換したファイルの保存先を選んでください",
+			Title = $"{Loc.Tr("Dialog.SelectConvertedFile.Title")}",
 			SuggestedStartLocation = dir!,
 			SuggestedFileName = Path.ChangeExtension(
 				fileName,
 				$"suppressed{Path.GetExtension(ProjectFilePath)}"),
-			FileTypeChoices = new FilePickerFileType[]{
-				new("ccs"){Patterns = new []{"*.ccs", "*.ccst"}}
-			},
+			FileTypeChoices = [
+				new("ccs"){Patterns = ["*.ccs", "*.ccst"]}
+			],
 		});
 
 		var savePath = string.Empty;
@@ -125,7 +132,10 @@ public class BreathSuppressorViewModel
 		}
 
 		_notify?.Dismiss(loading!);
-		_notify?.Info("保存成功", "保存しました", true);
+		_notify?.Info(
+			$"{Loc.Tr("Notify.SaveSuccess.Header")}",
+			$"{Loc.Tr("Notify.SaveSuccess.Message")}",
+			true);
 		IsConvertable = true;
 
 		if(IsOpenWithCeVIO){
@@ -143,7 +153,8 @@ public class BreathSuppressorViewModel
 		}
 
 		var loading = _notify!
-			.Loading("解析中", "ファイルを解析しています...");
+			.Loading($"{Loc.Tr("Notify.Processing.Header")}",
+			$"{Loc.Tr("Notify.Processing.Message")}");
 
 		var list = DropUtil.GetFileNames(e);
 

@@ -10,6 +10,7 @@ using Epoxy;
 using Epoxy.Synchronized;
 
 using SasaraUtil.Core.Models;
+using CodingSeb.Localization;
 
 namespace SasaraUtil.ViewModels;
 
@@ -28,6 +29,9 @@ public sealed class MainWindowViewModel
 		WindowTitle = AppUtil.GetWindowTitle();
 
 		// A handler for window opened
-		this.Ready = Command.Factory.CreateSync(() => this.IsEnabled = true);
+		this.Ready = Command.Factory.CreateSync(() =>
+		{
+			this.IsEnabled = true;
+		});
 	}
 }

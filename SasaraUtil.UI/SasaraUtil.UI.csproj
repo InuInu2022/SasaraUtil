@@ -24,7 +24,6 @@
 
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.10" />
     <PackageReference Condition="'$(Configuration)'=='Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
-    <PackageReference Include="CodingSeb.Localization.Avalonia" Version="1.3.0" />
     <PackageReference Include="CodingSeb.Localization.YamlFileLoader" Version="1.3.0" />
     <PackageReference Include="Epoxy.Avalonia11" Version="1.13.0" />
     <PackageReference Include="FluentAvaloniaUI" Version="2.0.5" />
@@ -39,6 +38,8 @@
     <ProjectReference Include="..\SasaraUtil.Core.Windows\SasaraUtil.Core.Windows.csproj">
       <NoWarn>NU1701</NoWarn>
     </ProjectReference>
+    <ProjectReference Include="..\libs\Localization\CodingSeb.Localization.Avalonia\CodingSeb.Localization.Avalonia.csproj" />
+    <ProjectReference Include="..\libs\Localization\CodingSeb.Localization\CodingSeb.Localization.csproj" />
   </ItemGroup>
 
 </Project>

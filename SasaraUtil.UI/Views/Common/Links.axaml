@@ -17,15 +17,15 @@
 
 	<WrapPanel>
 		<ui:HyperlinkButton
-		Content="SasaraUtil 公式サイト" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
-		<ui:HyperlinkButton Content="CeVIO 公式サイト" NavigateUri="https://cevio.jp/" />
-		<ui:HyperlinkButton Content="CeVIO AI ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
-		<ui:HyperlinkButton Content="CeVIO CS ユーザーズガイド" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
-		<ui:HyperlinkButton Content="VoiSona 公式サイト" NavigateUri="https://voisona.com/" />
-		<ui:HyperlinkButton Content="CeVIO ユーザー互助会wiki" NavigateUri="https://w.atwiki.jp/ceviouser/" />
-		<ui:HyperlinkButton Content="UtaFormatix" NavigateUri="https://sdercolin.github.io/utaformatix3/" />
-		<ui:HyperlinkButton Content="NodoAme" NavigateUri="https://inuinu2022.github.io/NodoAme.Home/" />
-		<ui:HyperlinkButton Content="KotoKanade" NavigateUri="https://inuinu2022.github.io/KotoKanade/" />
+		Content="{Tr Links.OfficialSite}" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
+		<ui:HyperlinkButton Content="{Tr Links.CeVIOOfficialSite}" NavigateUri="https://cevio.jp/" />
+		<ui:HyperlinkButton Content="{Tr Links.CeVIOAIUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
+		<ui:HyperlinkButton Content="{Tr Links.CeVIOCSUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
+		<ui:HyperlinkButton Content="{Tr Links.VoiSonaOfficialSite}" NavigateUri="https://voisona.com/" />
+		<ui:HyperlinkButton Content="{Tr Links.CeVIOUserWiki}" NavigateUri="https://w.atwiki.jp/ceviouser/" />
+		<ui:HyperlinkButton Content="{Tr Links.UtaFormatix}" NavigateUri="https://sdercolin.github.io/utaformatix3/" />
+		<ui:HyperlinkButton Content="{Tr Links.NodoAme}" NavigateUri="https://inuinu2022.github.io/NodoAme.Home/" />
+		<ui:HyperlinkButton Content="{Tr Links.KotoKanade}" NavigateUri="https://inuinu2022.github.io/KotoKanade/" />
 	</WrapPanel>
 
 </UserControl>

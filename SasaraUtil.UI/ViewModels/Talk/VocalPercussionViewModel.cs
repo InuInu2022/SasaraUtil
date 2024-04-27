@@ -18,6 +18,7 @@ using SasaraUtil.Core.Models;
 using System.Collections.Generic;
 using Avalonia.Platform.Storage;
 using SasaraUtil.UI.ViewModels.Utility;
+using CodingSeb.Localization;
 
 namespace SasaraUtil.ViewModels.VocalPercussion;
 
@@ -46,6 +47,8 @@ public class VocalPercussionViewModel
 
 	public ObservableCollection<string> TalkCasts { get; set; }
 		= new();
+
+	private static readonly string[] patterns = ["*.ccs"];
 
 	public VocalPercussionViewModel()
 	{
@@ -77,30 +80,38 @@ public class VocalPercussionViewModel
 		IsConvertable = false;
 		if(DroppedFiles is null || DroppedFiles.Count == 0){
 			_notify?
-				.Warn("ファイルエラー", "変換するファイルがみつかりません");
+				.Warn(
+					$"{Loc.Tr("Errors.NotFoundFile.Header")}",
+					$"{Loc.Tr("Errors.NotFoundFile.Message")}");
 			IsConvertable = true;
 			return;
 		}
 
 		var loading = _notify?
-			.Loading("Now converting...","変換しています。");
+			.Loading(
+				$"{Loc.Tr("Notify.NowConverting.Header")}",
+				$"{Loc.Tr("Notify.NowConverting.Message")}");
 
 		var path = DroppedFiles.FirstOrDefault();
 		if(path is null){
 			_notify?
-				.Warn("ファイルエラー", "変換するファイルがみつかりません");
+				.Warn(
+					$"{Loc.Tr("Errors.NotFoundFile.Header")}",
+					$"{Loc.Tr("Errors.NotFoundFile.Message")}");
 			IsConvertable = true;
 			return;
 		}
 		if(_storage is null){
-			_notify?.Error("ERROR", "保存ダイアログを開けません");
+			_notify?.Error(
+				$"{Loc.Tr("Errors.CannotOpenSaveDialog.Header")}",
+				$"{Loc.Tr("Errors.CannotOpenSaveDialog.Message")}");
 			return;
 		}
 
 		var f = await StorageUtil.SaveAsync(
 			path,
-			new[] { "*.ccs" },
-			"変換したファイルの保存先を選んでください",
+			patterns,
+			$"{Loc.Tr("Dialog.SelectConvertedFile.Title")}",
 			"voiceperc.ccs"
 		);
 
@@ -145,7 +156,9 @@ public class VocalPercussionViewModel
 		{
 			_notify?.Dismiss(loading!);
 			_notify?
-				.Warn("ファイルエラー", $"変換に失敗しました。{e.Message}");
+				.Warn(
+					$"{Loc.Tr("Errors.CannotConvert.Header")}",
+					$"{Loc.Tr("Errors.CannotConvert.Message")} {e.Message}");
 			VocalPercussionCore.Finish();
 			IsConvertable = true;
 			return;
@@ -155,7 +168,10 @@ public class VocalPercussionViewModel
 		}
 
 		_notify?.Dismiss(loading!);
-		_notify?.Info("保存成功", "保存しました", true);
+		_notify?.Info(
+			$"{Loc.Tr("Notify.SaveSuccess.Header")}",
+			$"{Loc.Tr("Notify.SaveSuccess.Message")}",
+			true);
 		IsConvertable = true;
 
 		if(IsOpenWithCeVIO){
@@ -166,7 +182,7 @@ public class VocalPercussionViewModel
 
 	private async ValueTask LoadFileAsync(){
 		var songCcs = await StorageUtil.OpenCevioFileAsync(
-			title:"ボイパさせるソングデータを含むccsファイルを選んでください",
+			title:$"{Loc.Tr("Dialog.SelectOpenCeVIOFile.Title")}",
 			allowMultiple: false,
 			path:null
 		);
@@ -201,7 +217,9 @@ public class VocalPercussionViewModel
 	)
 	{
 		var loading = _notify!
-			.Loading("解析中", "ファイルを解析しています...");
+			.Loading(
+				$"{Loc.Tr("Notify.Processing.Header")}",
+				$"{Loc.Tr("Notify.Processing.Message")}");
 
 		var list = pathes;
 		var list2 = await Task.Run(() =>
@@ -267,10 +285,18 @@ public class VocalPercussionViewModel
 	{
 		if(value < 0)return;
 
+		var lang = Loc.Instance.CurrentLanguage switch
+		{
+			"ja" => CevioCasts.Lang.Japanese,
+			"en" => CevioCasts.Lang.English,
+			_ => CevioCasts.Lang.English,
+		};
+
 		currentCastNames = await CastDataManager
 			.GetCastNamesAsync(
 				CastDataManager.ConvertProduct(TalkApps[value].ToString()),
-				CevioCasts.Category.TextVocal
+				CevioCasts.Category.TextVocal,
+				lang
 			);
 		var names = currentCastNames
 			.Select(v => v.Item2);

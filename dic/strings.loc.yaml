@@ -1,0 +1,232 @@
+LanguageName:
+    ja: Japanese
+    en: English
+
+HelloInCurrentLanguage:
+    ja: こんにちは
+    en: Hello in the current language
+
+Sidebar:
+    MenuHome:
+        ja: Home
+        en: Home
+    MenuCommon:
+        ja: 共通
+        en: Common
+    MenuTalk:
+        ja: トーク
+        en: for Talk
+    MenuSong:
+        ja: ソング
+        en: for Song
+    MenuHelp:
+        ja: Help
+        en: Help
+
+Sidebar.MenuCommon:
+    AudioConvert:
+        ja: オーディオトラック変換
+        en: Audio Track Convert
+
+Sidebar.MenuTalk:
+    CastSplitter:
+        ja: キャストを別トラック振分
+        en: Split Cast into Tracks
+    VocalPercussion:
+        ja: ボイパロイド
+        en: Vocal Percussion
+
+Sidebar.MenuSong:
+    BreathSuppressor:
+        ja: ブレス消去・抑制
+        en: Breath Suppression
+
+Home:
+    SelectFuntionYouWithToUse:
+        ja: ← 使いたい機能を選んでください。
+        en: <-- Please select the function you wish to use.
+
+Help:
+    InfoTitle:
+        ja: SasaraUtilは開発中のアプリです
+        en: SasaraUtil is an app under development.
+    InfoMessage:
+        ja: SasaraUtilは開発中のアプリです。無料で使用できますが、不具合がある可能性が高いです。このアプリを使用したことによる損害は責任を持てません。自己責任で使用してください。バックアップはチョー大事。
+        en: SasaraUtil is an app under development. It is free to use, but there is a high possibility of bugs. We are not responsible for any damage caused by the use of this app. Please use it at your own risk. Backup is very important.
+    LinkOfficial:
+        ja: SasaraUtil 公式README
+        en: SasaraUtil official README
+
+Links:
+    OfficialSite:
+        ja: SasaraUtil 公式サイト
+        en: SasaraUtil official site
+    CeVIOOfficialSite:
+        ja: CeVIO 公式サイト
+        en: CeVIO official site
+    CeVIOAIUserGuide:
+        ja: CeVIO AI ユーザーズガイド
+        en: CeVIO AI user guide
+    CeVIOCSUserGuide:
+        ja: CeVIO CS ユーザーズガイド
+        en: CeVIO CS user guide
+    VoiSonaOfficialSite:
+        ja: VoiSona 公式サイト
+        en: VoiSona official site
+    CeVIOUserWiki:
+        ja: CeVIO ユーザー互助会wiki
+        en: CeVIO user wiki
+    UtaFormatix:
+        ja: UtaFormatix
+        en: UtaFormatix
+    NodoAme:
+        ja: NodoAme
+        en: NodoAme
+    KotoKanade:
+        ja: KotoKanade
+        en: KotoKanade
+
+
+AudioConvert:
+    Tip.SendCeVIO:
+        ja: CeVIOエディタに変換して送る
+        en: Convert and send to CeVIO Editor.
+    Tip.SaveFile:
+        ja: wavファイル保存
+        en: Save wav file
+    DropHereMessage:
+        ja: ここに音声・動画ファイルをドラッグ＆ドロップしてください。
+        en: Please drag and drop audio and video files here.
+    Tip.ConvertAudio.Title:
+        ja: オーディオへ変換
+        en: Audio Convert
+    Tip.ConvertAudio.Message:
+        ja: CeVIOのオーディオ取込は16bit/48kHzのwav形式の制限があります。自動でその形式に変換します。音声ファイルの他、可能な場合は動画ファイルの音声も抜き出して変換されます。
+        en: CeVIO's audio import has a limitation to 16bit/48kHz wav format. This tool will automatically convert to that format. In addition to audio files, if possible, it will also extract and convert audio from video files.
+    ToggleMonoConvert:
+        ja: モノラル変換
+        en: Mono Conversion
+
+CastSplitter:
+    Title:
+        ja: トラック内の複数キャストを別々のトラックに振りわけ
+        en: Distribute multiple casts in a track to separate tracks
+    Tip.Title:
+        ja: キャストを別トラック振り分け
+        en: Split Cast into Tracks
+    Tip.Message:
+        ja: 通常、ひとつのトークトラックには複数のキャストが記録されます。\n\nこれをキャストごとに別々のトラックに振り分けようとすると手作業が大変ですが、この「キャストを別トラック振り分け」機能を使うと自動で振り分けられます。
+        en: Usually, multiple casts are recorded in one talk track.\n\nTrying to distribute these casts to separate tracks individually is a lot of manual work, but with this 'Split Cast into Tracks' feature, they will be automatically distributed.
+    DataGridColumns.Track:
+        ja: トラック
+        en: Track
+    DataGridColumns.Cast:
+        ja: キャスト
+        en: Cast
+    DataGridColumns.Script:
+        ja: セリフ
+        en: Script
+
+VocalPercussion:
+    Title:
+        ja: トークボイスでボイスパーカッション
+        en: Vocal Percussion with Talk Voice
+    Tip.Title:
+        ja: トークボイスでボイパ
+        en: Vocal Percussion with Talk Voice
+    Tip.Message:
+        ja: ソングのccsファイルを元にトークでボイスパーカッションを生成します。
+        en: Generate vocal percussion with talk voice based on the song's ccs file
+    Tip.Warn01:
+        ja: 曲中のテンポチェンジに未対応
+        en: Not supported for tempo changes within the song.
+    Tip.Warn02:
+        ja: CeVIO AIは非常に重い
+        en: In the case of CeVIO AI, it is very heavy.
+    Tip.DropHere:
+        ja: ソングのCeVIOのプロジェクトファイル (.ccs) をドラッグ＆ドロップしてください。
+        en: Please drag and drop the song's CeVIO project file (.ccs).
+    Tip.SelectCast:
+        ja: ボイパさせるトークのキャストを選んでください。
+        en: Please select the cast of the talk for vocal percussion.
+    DataGridHeader.Lyrics:
+        ja: 歌詞
+        en: Lyrics
+
+BreathSuppressor:
+    Title: &BreathSuppressor_Title
+        ja: ブレスの消去・抑制
+        en: Breath Suppression
+    Tip.BreathSuppressor.Title: *BreathSuppressor_Title
+    Tip.BreathSuppressor.Message:
+        ja: タイミング情報をもとに自動でVOLをけずります。※音量を抑える抑制機能は将来的に実装予定
+        en: 'Automatically adjusts volume based on timing information. *Note: A feature to suppress volume is planned for future implementation.'
+    Tip.DropHere:
+        ja: CeVIOトラックファイル (.ccst) とタイミング情報ファイル (.lab) をドラッグ＆ドロップしてください。
+        en: Please drag and drop CeVIO track files (.ccst) and timing information files (.lab).
+    BreathRemoveButton:
+        ja: ブレス消去 remove
+        en: Breath Remove
+    BreathSupressButton:
+        ja: ブレス抑制 suppress
+        en: Breath Supression
+    KeepTuneOn:
+        ja: ブレス範囲の調声データそのまま
+        en: Keep Breath Range Voice Data
+    KeepTuneOff:
+        ja: ブレス範囲の調声データ消す
+        en: Remove Breath Range Voice Data
+    NotesTips.Title:
+        ja: 小さい「っ」や短い休符はノートを詰めよう！
+        en: Pack small 'っ' and short rests into notes!
+    NotesTips.Message:
+        ja: CeVIOやVoiSonaでは小さい「っ」や”短い休符”は間を開けないのが推奨です。機能を使う前に見直して！
+        en: In CeVIO and VoiSona, it is recommended not to leave spaces for small 'っ' and short rests. Please review before using this function!
+
+Notify:
+    NowConverting.Header:
+        ja: Now converting...
+        en: Now converting...
+    NowConverting.Message:
+        ja: 変換しています。
+        en: Converting..
+    SaveSuccess.Header:
+        ja: 保存成功
+        en: Save Success!
+    SaveSuccess.Message:
+        ja: 保存しました
+        en: Saved.
+    Processing.Header:
+        ja: 解析中
+        en: Processing
+    Processing.Message:
+        ja: ファイルを解析しています...
+        en: Parsing the file...
+
+Dialog:
+    SelectConvertedFile.Title:
+        ja: 変換したファイルの保存先を選んでください
+        en: Please select the destination to save the converted file.
+    SelectOpenCeVIOFile.Title:
+        ja: ボイパさせるソングデータを含むccsファイルを選んでください
+        en: Please select a ccs file containing the song data for vocal percussion.
+
+Errors:
+    NotFoundFile.Header:
+        ja: ファイルエラー
+        en: File not found error
+    NotFoundFile.Message:
+        ja: 変換するファイルがみつかりません
+        en: The file to be converted could not be found.
+    CannotOpenSaveDialog.Header:
+        ja: ダイアログエラー
+        en: Dialog error
+    CannotOpenSaveDialog.Message:
+        ja: 保存ダイアログを開けません
+        en: Cannot open the save dialog.
+    CannotConvert.Header:
+        ja: 変換エラー
+        en: Convert error
+    CannotConvert.Message:
+        ja: 変換に失敗しました。
+        en: Conversion failed.

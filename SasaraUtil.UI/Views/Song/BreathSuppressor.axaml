@@ -28,7 +28,7 @@
 			HorizontalAlignment="Stretch"
 			DockPanel.Dock="Top">
 			<TextBlock
-				Text="ブレスの消去・抑制"
+				Text="{Tr BreathSuppressor.Title}"
 				TextWrapping="Wrap"
 				Margin="5"
 				HorizontalAlignment="Stretch"
@@ -43,12 +43,12 @@
 					<StackPanel
 						Width="300">
 						<ui:InfoBar
-							Title="ブレスの消去・抑制"
+							Title="{Tr BreathSuppressor.Tip.BreathSuppressor.Title}"
 							IsOpen="True"
 							IsClosable="False"
 							Severity="Informational"
 							FontFamily="Hiragino, Meiryo"
-							Message="タイミング情報をもとに自動でVOLをけずります。※音量を抑える抑制機能は将来的に実装予定" />
+							Message="{Tr BreathSuppressor.Tip.BreathSuppressor.Message}" />
 					</StackPanel>
 				</ToolTip.Tip>
 			</ui:SymbolIcon>
@@ -102,7 +102,7 @@
 			<StackPanel Orientation="Horizontal"
 				Background="{DynamicResource SolidBackgroundFillColorTertiaryBrush}"
 				Margin="5"
-				ToolTip.Tip="CeVIOトラックファイル (.ccst) とタイミング情報ファイル (.lab) をドラッグ＆ドロップしてください。"
+				ToolTip.Tip="{Tr BreathSuppressor.Tip.DropHere}"
 				>
 				<ui:SymbolIcon
 					Symbol="Restore"
@@ -160,30 +160,30 @@
 						<StackPanel
 							Orientation="Horizontal"
 							HorizontalAlignment="Right">
-							<RadioButton Content="ブレス消去 remove" IsChecked="True" IsEnabled="True" Margin="5" />
-							<RadioButton Content="ブレス抑制 suppress" IsChecked="False" IsEnabled="False" Margin="5" />
+							<RadioButton Content="{Tr BreathSuppressor.BreathRemoveButton}" IsChecked="True" IsEnabled="True" Margin="5" />
+							<RadioButton Content="{Tr BreathSuppressor.BreathSupressButton}" IsChecked="False" IsEnabled="False" Margin="5" />
 						</StackPanel>
 						<StackPanel>
 							<ToggleSwitch
 								IsChecked="{Binding IsKeepTuned}"
-								OnContent="ブレス範囲の調声データそのまま"
-								OffContent="ブレス範囲の調声データ消す"
+								OnContent="{Tr BreathSuppressor.KeepTuneOn}"
+								OffContent="{Tr BreathSuppressor.KeepTuneOff}"
 								HorizontalAlignment="Right"
 								/>
 						</StackPanel>
 					</StackPanel>
 				</Expander>
 				<ui:InfoBar
-					Title="小さい「っ」や短い休符はノートを詰めよう！"
+					Title="{Tr BreathSuppressor.NotesTips.Title}"
 					IsOpen="True"
 					IsIconVisible="True"
 					IsClosable="False"
 					Margin="5"
 					FontFamily="Hiragino, Meiryo"
-					Message="CeVIOやVoiSonaでは小さい「っ」や”短い休符”は間を開けないのが推奨です。機能を使う前に見直して！">
+					Message="{Tr BreathSuppressor.NotesTips.Message}">
 					<ui:InfoBar.ActionButton>
 						<ui:HyperlinkButton
-							Content="ユーザー互助会wiki"
+							Content="{Tr Links.CeVIOUserWiki}"
 							NavigateUri="https://w.atwiki.jp/ceviouser/pages/21.html#id_9952e844" />
 					</ui:InfoBar.ActionButton>
 				</ui:InfoBar>

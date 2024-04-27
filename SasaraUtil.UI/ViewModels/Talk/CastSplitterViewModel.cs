@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
+using CodingSeb.Localization;
 using Epoxy;
 using Epoxy.Synchronized;
 
@@ -54,21 +55,29 @@ public class CastSplitterViewModel
 	{
 		if(DroppedFiles is null || DroppedFiles.Count == 0){
 			_notify?
-				.Warn("ファイルエラー", "変換するファイルがみつかりません");
+				.Warn(
+					$"{Loc.Tr("Errors.NotFoundFile.Header")}",
+					$"{Loc.Tr("Errors.NotFoundFile.Message")}");
 			return;
 		}
 
 		var loading = _notify?
-			.Loading("Now converting...","変換しています。");
+			.Loading(
+				$"{Loc.Tr("Notify.NowConverting.Header")}",
+				$"{Loc.Tr("Notify.NowConverting.Message")}");
 
 		var path = DroppedFiles.FirstOrDefault();
 		if(path is null){
 			_notify?
-				.Warn("ファイルエラー", "変換するファイルがみつかりません");
+				.Warn(
+					$"{Loc.Tr("Errors.NotFoundFile.Header")}",
+					$"{Loc.Tr("Errors.NotFoundFile.Message")}");
 			return;
 		}
 		if(_storage is null){
-			_notify?.Error("ERROR", "保存ダイアログを開けません");
+			_notify?.Error(
+				$"{Loc.Tr("Errors.CannotOpenSaveDialog.Header")}",
+				$"{Loc.Tr("Errors.CannotOpenSaveDialog.Message")}");
 			return;
 		}
 
@@ -77,14 +86,14 @@ public class CastSplitterViewModel
 		var fileName = Path.GetFileName(path);
 		var f = await _storage.SaveFilePickerAsync(new()
 		{
-			Title = "変換したファイルの保存先を選んでください",
+			Title = $"{Loc.Tr("Dialog.SelectConvertedFile.Title")}",
 			SuggestedStartLocation = dir!,
 			SuggestedFileName = Path.ChangeExtension(
 				fileName,
 				"splitted.ccs"),
-			FileTypeChoices = new FilePickerFileType[]{
-				new("ccs"){Patterns = new []{"*.ccs"}}
-			},
+			FileTypeChoices = [
+				new("ccs"){Patterns = ["*.ccs"]}
+			],
 		});
 
 		var saveDir = string.Empty;
@@ -111,7 +120,10 @@ public class CastSplitterViewModel
 		await ccs.SaveAsync(saveDir);
 
 		_notify?.Dismiss(loading!);
-		_notify?.Info("保存成功", "保存しました", true);
+		_notify?.Info(
+			$"{Loc.Tr("Notify.SaveSuccess.Header")}",
+			$"{Loc.Tr("Notify.SaveSuccess.Message")}",
+			true);
 		IsConvertable = true;
 
 		if(IsOpenWithCeVIO){
@@ -129,7 +141,9 @@ public class CastSplitterViewModel
 		}
 
 		var loading = _notify!
-			.Loading("解析中", "ファイルを解析しています...");
+			.Loading(
+				$"{Loc.Tr("Notify.Processing.Header")}",
+				$"{Loc.Tr("Notify.Processing.Message")}");
 
 		var list = DropUtil.GetFileNames(e);
 		var list2 = await Task.Run(() =>
@@ -153,9 +167,16 @@ public class CastSplitterViewModel
 			.GetCastsByTrackAsync(ccs);
 		var tracks = casts.Select(v => (v.Name, v.GroupId));
 
-		var names = await CastDataManager
-			.GetCastNamesAsync(CevioCasts.Category.TextVocal);
+		var lang = Loc.Instance.CurrentLanguage switch
+		{
+			"ja" => CevioCasts.Lang.Japanese,
+			"en" => CevioCasts.Lang.English,
+			_ => CevioCasts.Lang.English,
+		};
 
+		var names = await CastDataManager
+			.GetCastNamesAsync(
+				CevioCasts.Category.TextVocal, lang);
 
 		var list3 = casts
 			.SelectMany(v => v.Units.Select(v => v))
@@ -181,7 +202,7 @@ public class CastSplitterViewModel
 	private Action ResetFile()
 	=> () =>
 	{
-		DroppedFiles = new();
+		DroppedFiles = [];
 		IsConvertable = false;
 	};
 }
