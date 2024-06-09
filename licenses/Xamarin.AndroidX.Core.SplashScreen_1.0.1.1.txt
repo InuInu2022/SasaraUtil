@@ -1,0 +1,5 @@
+ 
+
+Composite license expression: 
+
+MIT AND Apache-2.0 
