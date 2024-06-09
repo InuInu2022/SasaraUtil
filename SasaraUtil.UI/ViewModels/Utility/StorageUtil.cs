@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 using Avalonia.Platform.Storage;
 using SasaraUtil.ViewModels.Utility;
 
@@ -18,23 +14,23 @@ public static class StorageUtil
 	private static readonly FilePickerFileType cevioFiles =
 		new("CeVIO files")
 		{
-			Patterns = new[] { "*.ccs", "*.ccst" },
-			MimeTypes = new List<string>() { "text/xml" },
-			AppleUniformTypeIdentifiers = new[] { "content" }
+			Patterns = ["*.ccs", "*.ccst"],
+			MimeTypes = ["text/xml"],
+			AppleUniformTypeIdentifiers = ["content"],
 		};
 	private static readonly FilePickerFileType cevioProjFile =
 		new("CeVIO project file")
 		{
-			Patterns = new List<string>() { "*.ccs" },
-			MimeTypes = new List<string>() { "text/xml" },
-			AppleUniformTypeIdentifiers = new[] { "content" }
+			Patterns = ["*.ccs"],
+			MimeTypes = ["text/xml"],
+			AppleUniformTypeIdentifiers = ["content"],
 		};
 	private static readonly FilePickerFileType cevioTrackFile =
 		new("CeVIO track file")
 		{
-			Patterns = new List<string>() { "*.ccst" },
-			MimeTypes = new List<string>() { "text/xml" },
-			AppleUniformTypeIdentifiers = new[] { "content" }
+			Patterns = ["*.ccst"],
+			MimeTypes = ["text/xml"],
+			AppleUniformTypeIdentifiers = ["content"],
 		};
 	#endregion
 
@@ -55,22 +51,25 @@ public static class StorageUtil
 
 		FilePickerFileType[] types = openType switch
 		{
-			OpenCcsType.CcsOnly => new []{cevioProjFile},
-			OpenCcsType.CsstOnly => new []{cevioTrackFile},
-			_ => new[]{cevioFiles,cevioProjFile,cevioTrackFile}
+			OpenCcsType.CcsOnly => [cevioProjFile],
+			OpenCcsType.CsstOnly => [cevioTrackFile],
+			_ => [cevioFiles,cevioProjFile,cevioTrackFile]
 		};
 
 		var opt = new FilePickerOpenOptions()
 		{
 			Title = title,
 			AllowMultiple = allowMultiple,
-			FileTypeFilter = types
+			FileTypeFilter = types,
 		};
 		if(path is not null){
 			opt.SuggestedStartLocation = await _storage
-				.TryGetFolderFromPathAsync(path);
+				.TryGetFolderFromPathAsync(path)
+				.ConfigureAwait(false);
 		}
-		var f = await _storage.OpenFilePickerAsync(opt);
+		var f = await _storage
+			.OpenFilePickerAsync(opt)
+			.ConfigureAwait(false);
 		return f;
 	}
 
@@ -94,22 +93,24 @@ public static class StorageUtil
 		}
 
 		var dir = await _storage
-			.TryGetFolderFromPathAsync(path);
+			.TryGetFolderFromPathAsync(path)
+			.ConfigureAwait(false);
 		var fileName = Path.GetFileName(path);
-		var f = await _storage.SaveFilePickerAsync(new()
-		{
-			Title = title,
-			SuggestedStartLocation = dir!,
-			SuggestedFileName = Path.ChangeExtension(
-				fileName,
-				changeExt),
-			FileTypeChoices = new FilePickerFileType[]{
-				new("ccs"){
-					Patterns = patterns,
-					AppleUniformTypeIdentifiers = new []{"content"}
-				}
-			},
-		});
+		var f = await _storage
+			.SaveFilePickerAsync(new()
+			{
+				Title = title,
+				SuggestedStartLocation = dir!,
+				SuggestedFileName = Path.ChangeExtension(
+					fileName,
+					changeExt),
+				FileTypeChoices = [
+					new("ccs"){
+						Patterns = patterns,
+						AppleUniformTypeIdentifiers = ["content"],
+					},
+				],
+			}).ConfigureAwait(false);
 		return f;
 	}
 }
@@ -117,5 +118,5 @@ public static class StorageUtil
 public enum OpenCcsType{
 	CssAndCsst,
 	CcsOnly,
-	CsstOnly
+	CsstOnly,
 }
