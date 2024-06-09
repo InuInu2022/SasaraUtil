@@ -23,7 +23,7 @@ public partial class CastSplitter : UserControl
 		}
 
         await vm.DropFileEventAsync(e)
-			.ConfigureAwait(false);
+			.ConfigureAwait(true);
 	}
 
 	private void InitializeComponent()

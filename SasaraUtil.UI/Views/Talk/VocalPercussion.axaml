@@ -205,13 +205,15 @@
 								/>
 						</StackPanel>
 
-						<ComboBox x:Name="comboCast"
+						<ui:FAComboBox
+							x:Name="comboCast"
 							MinWidth="200"
+							Margin="5"
 							PlaceholderText="select a talk cast"
 							ItemsSource="{Binding TalkCasts}"
 							SelectedIndex="{Binding SelectedTalkCast}"
-							Margin="5"
-							/>
+							IsEditable="True"
+							IsTextSearchEnabled="True" />
 
 						<Button Content="Select"
 							IsVisible="False" Margin="5,5,0,5" />

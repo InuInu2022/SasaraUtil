@@ -12,6 +12,7 @@ using Epoxy.Synchronized;
 
 using LibSasara;
 using SasaraUtil.Core.Models;
+using SasaraUtil.UI.ViewModels.Utility;
 using SasaraUtil.ViewModels.Utility;
 
 namespace SasaraUtil.ViewModels.CastSplitter;
@@ -81,6 +82,7 @@ public class CastSplitterViewModel
 			return;
 		}
 
+		/*
 		var dir = await _storage
 			.TryGetFolderFromPathAsync(path);
 		var fileName = Path.GetFileName(path);
@@ -95,6 +97,15 @@ public class CastSplitterViewModel
 				new("ccs"){Patterns = ["*.ccs"]}
 			],
 		});
+		*/
+		var f = await StorageUtil
+			.SaveAsync(
+				path,
+				["*.ccs"],
+				$"{Loc.Tr("Dialog.SelectConvertedFile.Title")}",
+				"splitted.ccs"
+			)
+			.ConfigureAwait(true);
 
 		var saveDir = string.Empty;
 		if(f is null){
@@ -113,11 +124,15 @@ public class CastSplitterViewModel
 
 		IsConvertable = false;
 
-		var ccs = await SasaraCcs.LoadAsync(path);
+		var ccs = await SasaraCcs
+			.LoadAsync(path)
+			.ConfigureAwait(true);
 		await Models.CastSplitter.CastSplitter
-			.SplitTrackByCastAsync(ccs);
+			.SplitTrackByCastAsync(ccs)
+			.ConfigureAwait(true);
 
-		await ccs.SaveAsync(saveDir);
+		await ccs.SaveAsync(saveDir)
+			.ConfigureAwait(true);
 
 		_notify?.Dismiss(loading!);
 		_notify?.Info(
@@ -151,7 +166,7 @@ public class CastSplitterViewModel
 			return list
 				.Where(v =>
 					Path.GetExtension(v) is ".ccs");
-		});
+		}).ConfigureAwait(true);
 
 		if(!list2.Any())
 		{
@@ -162,9 +177,12 @@ public class CastSplitterViewModel
 
 		DroppedFiles = new(list2);
 		TargetFileName = Path.GetFileName(list2.First());
-		var ccs = await SasaraCcs.LoadAsync(list2.First());
+		var ccs = await SasaraCcs
+			.LoadAsync(list2.First())
+			.ConfigureAwait(true);
 		var casts = await Models.CastSplitter.CastSplitter
-			.GetCastsByTrackAsync(ccs);
+			.GetCastsByTrackAsync(ccs)
+			.ConfigureAwait(true);
 		var tracks = casts.Select(v => (v.Name, v.GroupId));
 
 		var lang = Loc.Instance.CurrentLanguage switch
@@ -176,13 +194,14 @@ public class CastSplitterViewModel
 
 		var names = await CastDataManager
 			.GetCastNamesAsync(
-				CevioCasts.Category.TextVocal, lang);
+				CevioCasts.Category.TextVocal, lang)
+			.ConfigureAwait(true);
 
 		var list3 = casts
 			.SelectMany(v => v.Units.Select(v => v))
 			.Select(v =>
 			{
-				var n = names.FirstOrDefault(a => a.Item1 == v.CastId).Item2;
+				var n = names.FirstOrDefault(a => string.Equals(a.Item1, v.CastId, StringComparison.Ordinal)).Item2;
 				return new CcsTrackViewModel(
 					tracks
 						.First(t => t.GroupId == v.Group)
