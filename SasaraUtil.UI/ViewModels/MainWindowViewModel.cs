@@ -42,7 +42,9 @@ public sealed class MainWindowViewModel
 			}
 			catch (System.Exception)
 			{
-				Manager.Warn("Update check failed.", "更新確認に失敗しました。");
+				Manager.Warn(
+					Loc.Tr("Errors.UpdateCheckFailed.Header"),
+					Loc.Tr("Errors.UpdateCheckFailed.Message"));
 			}
 			finally
 			{

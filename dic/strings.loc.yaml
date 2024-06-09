@@ -183,6 +183,20 @@ BreathSuppressor:
         ja: CeVIOやVoiSonaでは小さい「っ」や”短い休符”は間を開けないのが推奨です。機能を使う前に見直して！
         en: In CeVIO and VoiSona, it is recommended not to leave spaces for small 'っ' and short rests. Please review before using this function!
 
+Updater:
+    Settings.Header:
+        ja: Updates
+        en: Updates
+    Settings.Description:
+        ja: アプリやデータのアップデート情報
+        en: Information on updates to applications and data
+    HasUpdate:
+        ja: Update:更新があります
+        en: Update
+    NoUpdate:
+        ja: Latest:最新です
+        en: Latest
+
 Notify:
     NowConverting.Header:
         ja: Now converting...
@@ -230,3 +244,9 @@ Errors:
     CannotConvert.Message:
         ja: 変換に失敗しました。
         en: Conversion failed.
+    UpdateCheckFailed.Header:
+        ja: Update check failed.
+        en: Update check failed.
+    UpdateCheckFailed.Message:
+        ja: 更新確認に失敗しました。
+        en: Update confirmation process failed.

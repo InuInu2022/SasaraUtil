@@ -42,7 +42,7 @@
           Margin="5"
           />
         <ui:InfoBar
-          Title="Update:更新があります"
+          Title="{Tr 'Updater.HasUpdate'}"
           IsOpen="{Binding MainVM.HasUpdate}"
           IsClosable="False"
           HorizontalAlignment="Right">
@@ -81,8 +81,8 @@
       </ui:SettingsExpander>
         <!-- update -->
         <ui:SettingsExpander
-          Header="Updates"
-          Description="アプリやデータのアップデート情報"
+          Header="{Tr 'Updater.Settings.Header'}"
+          Description="{Tr 'Updater.Settings.Description'}"
           IconSource="Important"
           Name="SettingsExpanderDataUpdates">
           <ui:SettingsExpander.Footer>
@@ -97,7 +97,7 @@
             <ui:SettingsExpanderItem.Footer>
               <WrapPanel>
                 <ui:InfoBar
-                  Title="Update:更新があります"
+                  Title="{Tr 'Updater.HasUpdate'}"
                   IsOpen="{Binding MainVM.HasAppUpdate}"
                   IsClosable="False"
                   Message="{Binding LatestAppVer}">
@@ -110,7 +110,7 @@
                   </ui:InfoBar.ActionButton>
                 </ui:InfoBar>
                 <ui:InfoBar
-                  Title="Latest:最新です"
+                  Title="{Tr 'Updater.NoUpdate'}"
                   IsOpen="{Binding !MainVM.HasAppUpdate}"
                   IsClosable="False"
                   Severity="Success"
@@ -126,7 +126,7 @@
             <ui:SettingsExpanderItem.Footer>
               <WrapPanel>
                 <ui:InfoBar
-                  Title="Update:更新があります"
+                  Title="{Tr 'Updater.HasUpdate'}"
                   IsOpen="{Binding MainVM.HasCastDataUpdate}"
                   IsClosable="False"
                   Message="{Binding LatestCastDataVersion}">
@@ -140,7 +140,7 @@
                   </ui:InfoBar.ActionButton>
                 </ui:InfoBar>
                 <ui:InfoBar
-                  Title="Latest:最新です"
+                  Title="{Tr 'Updater.NoUpdate'}"
                   IsOpen="{Binding !MainVM.HasCastDataUpdate}"
                   IsClosable="False"
                   Severity="Success"
