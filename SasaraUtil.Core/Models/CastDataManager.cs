@@ -1,18 +1,16 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using CevioCasts;
+using CevioCasts.UpdateChecker;
 
 namespace SasaraUtil.Core.Models;
 
 public static class CastDataManager
 {
+	[ThreadStatic]
 	private static Definitions? _defs;
 
-	public static async ValueTask<Definitions?> LoadAsync()
+	public static async ValueTask<Definitions> LoadAsync()
 	{
 		return _defs
 			?? await Task.Run(() =>
@@ -25,7 +23,7 @@ public static class CastDataManager
 				);
 				_defs = Definitions.FromJson(jsonString);
 				return _defs;
-			});
+			}).ConfigureAwait(false);
 	}
 
 	/// <summary>
@@ -40,7 +38,8 @@ public static class CastDataManager
 		Category category,
 		Lang lang = Lang.Japanese
 	){
-		var defs = _defs ?? await LoadAsync();
+		var defs = _defs ?? await LoadAsync()
+			.ConfigureAwait(false);
 		if(defs is null)
 		{
 			return new(new List<(string, string)>());
@@ -55,7 +54,7 @@ public static class CastDataManager
 			.Select(v =>
 				(
 					id: v.Id,
-					name: Array.Find(v.Names, n => n.Lang == lang).Display
+					name: Array.Find(v.Names, n => n.Lang == lang)?.Display ?? "NO NAME"
 				)
 			)
 			.ToList()
@@ -74,7 +73,8 @@ public static class CastDataManager
 		Lang lang = Lang.Japanese
 	)
 	{
-		var defs = _defs ?? await LoadAsync();
+		var defs = _defs ?? await LoadAsync()
+			.ConfigureAwait(false);
 		if(defs is null)
 		{
 			return new(new List<(string, string)>());
@@ -86,7 +86,7 @@ public static class CastDataManager
 			.Select(v =>
 				(
 					id: v.Id,
-					name: Array.Find(v.Names, n => n.Lang == lang).Display
+					name: Array.Find(v.Names, n => n.Lang == lang)?.Display ?? "NO NAME"
 				)
 			)
 			.ToList()
@@ -111,5 +111,117 @@ public static class CastDataManager
 				=> Product.VoiSona,
 			_ => Product.CeVIO_AI
 		};
+	}
+
+	public static async ValueTask<Definitions>
+	GetAllCastDefsAsync(
+		CancellationToken token = default
+	)
+	{
+		return _defs ?? await LoadAsync()
+			.ConfigureAwait(false);
+	}
+
+	public static ValueTask<Definitions>
+	ReloadCastDefsAsync(CancellationToken token = default)
+	{
+		return LoadAsync();
+	}
+
+	public static async ValueTask<bool> HasUpdateAsync(
+		CancellationToken token = default
+	)
+	{
+		var defs = await GetAllCastDefsAsync(token)
+			.ConfigureAwait(false);
+		var update = CevioCasts.UpdateChecker.GithubRelease
+			.Build(defs);
+		return await update
+			.IsAvailableAsync()
+			.ConfigureAwait(false);
+	}
+
+	public static async ValueTask<string> GetVersionAsync(
+		CancellationToken token = default
+	)
+	{
+		var def = await GetAllCastDefsAsync(token)
+			.ConfigureAwait(false);
+
+		return def.Version;
+	}
+
+	public static async ValueTask<string> GetRepositoryVersionAsync(
+		CancellationToken token = default
+	)
+	{
+		var defs = await GetAllCastDefsAsync(token)
+			.ConfigureAwait(false);
+		var update = CevioCasts.UpdateChecker.GithubRelease
+			.Build(defs);
+		try
+		{
+			var version = await update
+				.GetRepositoryVersionAsync()
+				.ConfigureAwait(false);
+			return version.ToString();
+		}
+		catch (System.Exception e)
+		{
+			Debug.WriteLine(e.Message);
+			throw;
+		}
+	}
+
+	public static async ValueTask UpdateDefinitionAsync(
+		IProgress<double>? progress = default,
+		CancellationToken token = default
+	)
+	{
+		var defs = await GetAllCastDefsAsync(token)
+			.ConfigureAwait(false);
+		var update = GithubRelease
+			.Build(defs);
+		var tempPath = Path.GetTempPath();
+		Debug.WriteLine($"temp download: {tempPath}");
+		await update
+			.DownloadAsync(
+				tempPath,
+				percent: progress,
+				cancellationToken: token
+			)
+			.ConfigureAwait(false);
+
+		var destPath = Path.Combine(
+			AppDomain.CurrentDomain.BaseDirectory,
+			"Assets/data.json"
+		);
+
+		try
+		{
+			var tempStream = new FileStream(
+				Path.Combine(tempPath,"data.json"),
+				FileMode.Open,
+				FileAccess.Read,
+				FileShare.Read,
+				4096,
+				FileOptions.Asynchronous);
+			var destStream = new FileStream(
+				destPath, FileMode.Create, FileAccess.Write, FileShare.None, 4096, FileOptions.Asynchronous);
+			await using (tempStream.ConfigureAwait(false))
+			{
+				await using (destStream.ConfigureAwait(false))
+				{
+					await tempStream
+						.CopyToAsync(destStream, token)
+						.ConfigureAwait(false);
+				}
+			}
+		}
+		catch (System.Exception e)
+		{
+			Debug.WriteLine($"{e.Message}");
+			throw;
+		}
 	}
 }

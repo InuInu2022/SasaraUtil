@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingSeb.Localization.Aval
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingSeb.Localization", "libs\Localization\CodingSeb.Localization\CodingSeb.Localization.csproj", "{7E3B5CEB-B50D-4B90-A16D-A0C421609446}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CevioCasts.UpdateChecker", "libs\cevio-casts\languages\csharp\CevioCasts.UpdateChecker\CevioCasts.UpdateChecker.csproj", "{451EE88B-B411-47DC-8FCB-CA7C3CCFDBCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E3B5CEB-B50D-4B90-A16D-A0C421609446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451EE88B-B411-47DC-8FCB-CA7C3CCFDBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451EE88B-B411-47DC-8FCB-CA7C3CCFDBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451EE88B-B411-47DC-8FCB-CA7C3CCFDBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451EE88B-B411-47DC-8FCB-CA7C3CCFDBCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +139,6 @@ Global
 		{723552A1-E6D7-4C90-8751-E6697015A562} = {499B0954-8579-42B1-93C1-DEF522B9898C}
 		{D31DEFBD-24FE-47CA-B95A-50A86089CD9A} = {723552A1-E6D7-4C90-8751-E6697015A562}
 		{7E3B5CEB-B50D-4B90-A16D-A0C421609446} = {723552A1-E6D7-4C90-8751-E6697015A562}
+		{451EE88B-B411-47DC-8FCB-CA7C3CCFDBCB} = {79A7F8B5-5DDB-4FF5-9277-9E03414E02B4}
 	EndGlobalSection
 EndGlobal

@@ -1,63 +1,156 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
-			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
-			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
-			xmlns:ui="using:FluentAvalonia.UI.Controls"
-			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
-			xmlns:sty="using:FluentAvalonia.Styling"
-			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
-			xmlns:loc="clr-namespace:CodingSeb.Localization;assembly=CodingSeb.Localization"
-			xmlns:common="clr-namespace:SasaraUtil.Views.Common"
-			 mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
-			 x:Class="SasaraUtil.UI.Views.General.Home"
-			 >
-	<ScrollViewer>
-		<DockPanel
-			Margin="5"
-			Opacity="1"
-			Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
-			<TextBlock
-				Text="SasaraUtil"
-				FontWeight="Bold"
-				FontSize="20"
-				Margin="5"
-				HorizontalAlignment="Stretch"
-				DockPanel.Dock="Top"
-				/>
-			<TextBlock
-				Text="{Tr 'Home.SelectFuntionYouWithToUse'}"
-				HorizontalAlignment="Stretch"
-				DockPanel.Dock="Top"
-				/>
-			<Image Source="avares://SasaraUtil.UI/Assets/icon.ico"
-				Height="150"
-				Width="150"
-				Margin="50"
-				DockPanel.Dock="Top"
-				VerticalAlignment="Center"
-				/>
-			<WrapPanel
-				DockPanel.Dock="Bottom"
-				VerticalAlignment="Bottom"
-				>
-				<common:Links x:Name="commonLinks" />
-			</WrapPanel>
-			<ui:SettingsExpander
-				Header="UI Language"
-				Name="LanguageSelector"
-				IconSource="World"
-				DockPanel.Dock="Bottom"
-				>
-				<ui:SettingsExpander.Footer>
-					<ComboBox
-						ItemsSource="{Binding Source={x:Static loc:Loc.AvailableLanguages}}"
-						SelectedItem="{Binding CurrentLanguage, Source={x:Static loc:Loc.Instance}}"
-						/>
-				</ui:SettingsExpander.Footer>
-			</ui:SettingsExpander>
-		</DockPanel>
-	</ScrollViewer>
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+      xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+      xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+      xmlns:ui="using:FluentAvalonia.UI.Controls"
+      xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+      xmlns:sty="using:FluentAvalonia.Styling"
+      xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+      xmlns:loc="clr-namespace:CodingSeb.Localization;assembly=CodingSeb.Localization"
+      xmlns:common="clr-namespace:SasaraUtil.Views.Common"
+       mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+       x:Class="SasaraUtil.UI.Views.General.Home"
+       x:DataType="viewmodels:HomeViewModel"
+       >
+  <UserControl.DataContext>
+        <viewmodels:HomeViewModel />
+    </UserControl.DataContext>
+
+  <epoxy:EventBinder.Events>
+    <epoxy:Event
+       EventName="Loaded"
+       Command="{Binding Ready}"/>
+  </epoxy:EventBinder.Events>
+
+  <ScrollViewer>
+    <DockPanel
+      Margin="5"
+      Opacity="1"
+      Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+      <DockPanel
+        DockPanel.Dock="Top"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Center"
+        >
+        <TextBlock
+          Text="SasaraUtil"
+          FontWeight="Bold"
+          FontSize="20"
+          Margin="5"
+          />
+        <ui:InfoBar
+          Title="Update:更新があります"
+          IsOpen="{Binding MainVM.HasUpdate}"
+          IsClosable="False"
+          HorizontalAlignment="Right">
+        </ui:InfoBar>
+      </DockPanel>
+      <TextBlock
+        Text="{Tr 'Home.SelectFuntionYouWithToUse'}"
+        HorizontalAlignment="Stretch"
+        DockPanel.Dock="Top"
+        />
+      <Image Source="avares://SasaraUtil.UI/Assets/icon.ico"
+        Height="150"
+        Width="150"
+        Margin="50"
+        DockPanel.Dock="Top"
+        VerticalAlignment="Center"
+        />
+      <WrapPanel
+        DockPanel.Dock="Bottom"
+        VerticalAlignment="Bottom"
+        >
+        <common:Links x:Name="commonLinks" />
+      </WrapPanel>
+      <ui:SettingsExpander
+        Header="UI Language"
+        Name="LanguageSelector"
+        IconSource="World"
+        DockPanel.Dock="Bottom"
+        >
+        <ui:SettingsExpander.Footer>
+          <ComboBox
+            ItemsSource="{Binding Source={x:Static loc:Loc.AvailableLanguages}}"
+            SelectedItem="{Binding CurrentLanguage, Source={x:Static loc:Loc.Instance}}"
+            />
+        </ui:SettingsExpander.Footer>
+      </ui:SettingsExpander>
+        <!-- update -->
+        <ui:SettingsExpander
+          Header="Updates"
+          Description="アプリやデータのアップデート情報"
+          IconSource="Important"
+          Name="SettingsExpanderDataUpdates">
+          <ui:SettingsExpander.Footer>
+            <ui:InfoBadge
+             Classes="Attention Icon"
+             IsVisible="{Binding MainVM.HasUpdate}"
+             HorizontalAlignment="Right" />
+          </ui:SettingsExpander.Footer>
+          <ui:SettingsExpanderItem
+            Content="SasaraUtil ver."
+            Description="{Binding AppVer}">
+            <ui:SettingsExpanderItem.Footer>
+              <WrapPanel>
+                <ui:InfoBar
+                  Title="Update:更新があります"
+                  IsOpen="{Binding MainVM.HasAppUpdate}"
+                  IsClosable="False"
+                  Message="{Binding LatestAppVer}">
+                  <ui:InfoBar.ActionButton>
+                    <ui:HyperlinkButton
+                      Content="Download"
+                      NavigateUri="{Binding AppDownloadPath}"
+                      HorizontalAlignment="Right"
+                       />
+                  </ui:InfoBar.ActionButton>
+                </ui:InfoBar>
+                <ui:InfoBar
+                  Title="Latest:最新です"
+                  IsOpen="{Binding !MainVM.HasAppUpdate}"
+                  IsClosable="False"
+                  Severity="Success"
+                  Message="{Binding LatestAppVer}"
+                  >
+                </ui:InfoBar>
+              </WrapPanel>
+            </ui:SettingsExpanderItem.Footer>
+          </ui:SettingsExpanderItem>
+          <ui:SettingsExpanderItem
+            Content="Cast data ver."
+            Description="{Binding CastDataVersion}">
+            <ui:SettingsExpanderItem.Footer>
+              <WrapPanel>
+                <ui:InfoBar
+                  Title="Update:更新があります"
+                  IsOpen="{Binding MainVM.HasCastDataUpdate}"
+                  IsClosable="False"
+                  Message="{Binding LatestCastDataVersion}">
+                  <ui:InfoBar.ActionButton>
+                    <Button
+                      Content="Update"
+                      HorizontalAlignment="Right"
+                      Command="{Binding DownloadCastData}"
+                      >
+                    </Button>
+                  </ui:InfoBar.ActionButton>
+                </ui:InfoBar>
+                <ui:InfoBar
+                  Title="Latest:最新です"
+                  IsOpen="{Binding !MainVM.HasCastDataUpdate}"
+                  IsClosable="False"
+                  Severity="Success"
+                  Message="{Binding LatestCastDataVersion}"
+                  >
+                </ui:InfoBar>
+              </WrapPanel>
+            </ui:SettingsExpanderItem.Footer>
+          </ui:SettingsExpanderItem>
+        </ui:SettingsExpander>
+    </DockPanel>
+  </ScrollViewer>
 </UserControl>

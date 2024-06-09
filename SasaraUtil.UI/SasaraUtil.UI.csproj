@@ -1,27 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+	<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
-      <Deterministic>true</Deterministic>
-      <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
-      <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
-      <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
-      <DebugSymbols>false</DebugSymbols>
+    <Deterministic>true</Deterministic>
+    <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+    <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-
   <ItemGroup>
     <AvaloniaResource Include="../README.md" />
     <AvaloniaResource Include="Assets/**" />
-
     <PackageReference Include="Avalonia" Version="11.0.10" />
-
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.10" />
     <PackageReference Condition="'$(Configuration)'=='Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
     <PackageReference Include="CodingSeb.Localization.YamlFileLoader" Version="1.3.0" />
@@ -32,7 +30,6 @@
     <PackageReference Include="System.ComponentModel.EventBasedAsync" Version="4.3.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\SasaraUtil.Core\SasaraUtil.Core.csproj" NoWarn="NU1701" />
     <ProjectReference Include="..\SasaraUtil.Core.Windows\SasaraUtil.Core.Windows.csproj">
@@ -41,5 +38,4 @@
     <ProjectReference Include="..\libs\Localization\CodingSeb.Localization.Avalonia\CodingSeb.Localization.Avalonia.csproj" />
     <ProjectReference Include="..\libs\Localization\CodingSeb.Localization\CodingSeb.Localization.csproj" />
   </ItemGroup>
-
 </Project>

@@ -67,9 +67,17 @@
 				 PaneDisplayMode="Auto">
 				<ui:NavigationView.MenuItems>
 					<ui:NavigationViewItem
-						 Content="Home"
-						 Tag="General.Home"
-						 IconSource="Home"/>
+						Content="Home"
+						Tag="General.Home"
+						IconSource="Home">
+						<ui:NavigationViewItem.InfoBadge>
+							<ui:InfoBadge
+								Name="updateBadge"
+								Classes="Attention Icon"
+								IsVisible="{Binding HasUpdate}"
+								Opacity="1" />
+						</ui:NavigationViewItem.InfoBadge>
+					</ui:NavigationViewItem>
 					<ui:NavigationViewItem
 						 Content="{Tr Sidebar.MenuCommon}"
 						 Tag="SamplePage2"

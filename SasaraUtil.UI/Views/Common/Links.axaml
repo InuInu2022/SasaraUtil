@@ -1,23 +1,18 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:local="clr-namespace:SasaraUtil.Views.Common"
-			 xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
-			xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
-			xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
-			xmlns:ui="using:FluentAvalonia.UI.Controls"
-			xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
-			xmlns:sty="using:FluentAvalonia.Styling"
-			xmlns:wnd="using:FluentAvalonia.UI.Windowing"
-
-             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
-			x:Class="SasaraUtil.Views.Common.Links"
-			 >
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:SasaraUtil.Views.Common"
+	xmlns:epoxy="clr-namespace:Epoxy;assembly=Epoxy.Core"
+	xmlns:viewmodels="clr-namespace:SasaraUtil.ViewModels"
+	xmlns:converters="clr-namespace:SasaraUtil.Views.Converters"
+	xmlns:ui="using:FluentAvalonia.UI.Controls"
+	xmlns:uip="using:FluentAvalonia.UI.Controls.Primitives"
+	xmlns:sty="using:FluentAvalonia.Styling"
+	xmlns:wnd="using:FluentAvalonia.UI.Windowing" mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450" x:Class="SasaraUtil.Views.Common.Links">
 
 	<WrapPanel>
-		<ui:HyperlinkButton
-		Content="{Tr Links.OfficialSite}" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
+		<ui:HyperlinkButton Content="{Tr Links.OfficialSite}" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
 		<ui:HyperlinkButton Content="{Tr Links.CeVIOOfficialSite}" NavigateUri="https://cevio.jp/" />
 		<ui:HyperlinkButton Content="{Tr Links.CeVIOAIUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
 		<ui:HyperlinkButton Content="{Tr Links.CeVIOCSUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
