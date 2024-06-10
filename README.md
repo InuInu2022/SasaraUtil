@@ -6,11 +6,13 @@
 
 **[SasaraUtil](https://github.com/InuInu2022/SasaraUtil)**（ささらユーティル）はCeVIOエディタのあれこれを使いやすくする補助ツールです。
 
+解説記事「[CeVIOのあれこれを使いやすくするツール「SasaraUtil」](https://note.com/inuinu_/n/nf55807cc0949)」
+
 ---
 
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET 8.0](https://img.shields.io/badge/%20.NET-8.0-blue.svg?logo=dotnet&style=flat)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET 8.0](https://img.shields.io/badge/%20.NET-8.0-blue.svg?logo=dotnet&style=flat) [![Made with Avalonia UI](https://img.shields.io/badge/Made_with-Avalonia_UI-blue.svg?logo=&style=flat)](https://avaloniaui.net/)  [![Made with Epoxy](https://img.shields.io/badge/Made_with-Epoxy-blue.svg?style=flat)](https://github.com/kekyo/Epoxy)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/inuinu2022/sasarautil?include_prereleases&label=%F0%9F%9A%80release) ![GitHub all releases](https://img.shields.io/github/downloads/InuInu2022/SasaraUtil/total?color=green&label=%E2%AC%87%20downloads) ![GitHub Repo stars](https://img.shields.io/github/stars/InuInu2022/SasaraUtil?label=%E2%98%85&logo=github)
-[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-9.0-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.7-53abdb.svg?logo=&style=flat)](https://voisona.com/)
+[![CeVIO CS](https://img.shields.io/badge/CeVIO_Creative_Studio-7.0-d08cbb.svg?logo=&style=flat)](https://cevio.jp/) [![CeVIO AI](https://img.shields.io/badge/CeVIO_AI-9.1-lightgray.svg?logo=&style=flat)](https://cevio.jp/) [![VoiSona](https://img.shields.io/badge/VoiSona-1.10-53abdb.svg?logo=&style=flat)](https://voisona.com/)
 
 ## 最新版ダウンロード / Download latest
 
@@ -138,6 +140,9 @@ CeVIOのソングエディタをお持ちでない場合や元の楽譜データ
 2. 無料の[VoiSona](https://voisona.com/)で打ち込んでccs/ccst形式でエクスポートする
    - VoiSonaはCeVIOソングの姉妹ソフトで、エディタと標準音源が無料です
 
+- 関連ソフト: **[KotoKanade](https://github.com/InuInu2022/KotoKanade)**
+  - VoiSona Talkを"歌わせる"ツールです
+
 </details>
 
 ---
@@ -192,6 +197,18 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
   - ※Windows以外で利用したい場合ソースコードからビルドすることで使える可能性があります！
 - CeVIO連携機能を利用するには、CeVIO （CS/AI）がインストールされている必要があります
 
+## アップデート通知・更新 / Update apps and cast data
+
+アプリかボイスライブラリの情報([cast-data](https://github.com/InuInu2022/cevio-casts))に更新があるとアプリ上に通知が入ります。
+
+- アプリのダウンロード
+  - アプリの更新があると通知され、アプリの上からダウンロードできます
+  - `download` をクリックするとgithubからアプリのzipファイルをダウンロードします
+    - 展開して上書きして使ってください
+
+- ボイスライブラリの情報([cast-data](https://github.com/InuInu2022/cevio-casts))更新
+  - ボイスライブラリの情報に更新があると通知され、アプリの上から更新できます
+
 ## Libraries
 
 - [Avalonia UI](https://avaloniaui.net/)
@@ -199,7 +216,7 @@ CeVIOトラックファイル (`.ccst`) とタイミング情報ファイル (`.
 - [LibSasara](https://github.com/InuInu2022/LibSasara)
 - [Fluent CeVIO Wrapper](https://github.com/InuInu2022/FluentCeVIOWrapper)
 - [cevio-casts](https://github.com/InuInu2022/cevio-casts)
-  - ※上記リポジトリから`data.json`をDLして上書きすることで最新のキャストデータに更新できます
+  - アプリの上からの更新に対応しています
 
 ## Projects
 
