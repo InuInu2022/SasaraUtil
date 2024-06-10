@@ -38,6 +38,9 @@ public sealed class AudioConvertViewModel
 
 	public INotificationMessageManager? Notify { get; set; }
 	public double StartTime { get; set; }
+
+	public Well DockPanelWell { get; }
+		= Well.Factory.Create<DockPanel>();
 	public Pile<DockPanel>? DockPanelPile {get;set;}
 	public ObservableCollection<AudioConvertFileListViewModel>? DroppedFiles { get; set; }
 	public bool IsDropAreaVisibile { get; set; } = true;
@@ -52,6 +55,8 @@ public sealed class AudioConvertViewModel
 		DroppedFiles = new();
 
 		StartTime = 0.0f;
+
+		DockPanelWell.Add(DragDrop.DropEvent, DropFileEventAsync);
 
 		ConvertAndSend = Command.Factory
 			.Create(SendToCeVIO());

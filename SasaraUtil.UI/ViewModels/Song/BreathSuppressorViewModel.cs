@@ -1,8 +1,5 @@
-using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
@@ -22,6 +19,9 @@ public class BreathSuppressorViewModel
 	private readonly INotificationMessageManager? _notify;
 	private readonly IStorageProvider? _storage;
 
+	public Well DockPanelWell { get; }
+		= Well.Factory.Create<DockPanel>();
+
 	public bool IsConvertable { get; set; }
 	public ObservableCollection<string> DroppedFiles { get; set; }
 	public string? TargetFileName { get; set; }
@@ -39,8 +39,10 @@ public class BreathSuppressorViewModel
 
 	public BreathSuppressorViewModel()
 	{
-		DroppedFiles = new();
-		CcsTrackData = new();
+		DroppedFiles = [];
+		CcsTrackData = [];
+
+		DockPanelWell.Add(DragDrop.DropEvent, DropFileEventAsync);
 
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());
@@ -200,7 +202,7 @@ public class BreathSuppressorViewModel
 	private Action ResetFile()
 	=> () =>
 	{
-		DroppedFiles = new();
+		DroppedFiles = [];
 		IsConvertable = false;
 	};
 }

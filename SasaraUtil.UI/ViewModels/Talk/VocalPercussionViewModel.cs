@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using Avalonia.Platform.Storage;
 using SasaraUtil.UI.ViewModels.Utility;
 using CodingSeb.Localization;
+using Avalonia.Controls;
 
 namespace SasaraUtil.ViewModels.VocalPercussion;
 
@@ -38,6 +39,9 @@ public class VocalPercussionViewModel
 	public Command? SaveFile { get; set; }
 	public Command? SelectFile { get; set; }
 	public Command? Ready { get; set; }
+
+	public Well DockPanelWell { get; }
+		= Well.Factory.Create<DockPanel>();
 	public bool IsOpenWithCeVIO { get; set; }
 	public int SelectedTalkApp { get; set; } = -1;
 
@@ -46,16 +50,18 @@ public class VocalPercussionViewModel
 	public int SelectedTalkCast { get; set; }
 
 	public ObservableCollection<string> TalkCasts { get; set; }
-		= new();
+		= [];
 
 	private static readonly string[] patterns = ["*.ccs"];
 
 	public VocalPercussionViewModel()
 	{
-		DroppedFiles = new();
-		CcsTrackData = new();
+		DroppedFiles = [];
+		CcsTrackData = [];
 		TalkApps = new(Enum.GetValues(typeof(TalkApps)).Cast<TalkApps>());
 		SelectedTalkApp = 0;
+
+		DockPanelWell.Add(DragDrop.DropEvent, DropFileEventAsync);
 
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());
@@ -274,8 +280,8 @@ public class VocalPercussionViewModel
 	private Action ResetFile()
 	=> () =>
 	{
-		DroppedFiles = new();
-		CcsTrackData = new();
+		DroppedFiles = [];
+		CcsTrackData = [];
 		IsConvertable = false;
 	};
 

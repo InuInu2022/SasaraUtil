@@ -11,7 +11,7 @@ public partial class BreathSuppressor : UserControl
     {
         this.InitializeComponent();
 
-        AddHandler(DragDrop.DropEvent, DropAsync);
+        //AddHandler(DragDrop.DropEvent, DropAsync);
     }
 
     async void DropAsync(object? sender, DragEventArgs e)

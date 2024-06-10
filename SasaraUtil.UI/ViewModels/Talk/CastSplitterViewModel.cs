@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Notification;
 using Avalonia.Platform.Storage;
@@ -24,6 +25,9 @@ public class CastSplitterViewModel
     private readonly IStorageProvider? _storage;
 
     public bool IsConvertable { get; set; }
+
+	public Well DockPanelWell { get; }
+		= Well.Factory.Create<DockPanel>();
 	public ObservableCollection<string> DroppedFiles { get; set; }
 	public string? TargetFileName { get; set; }
 	public ObservableCollection<CcsTrackViewModel> CcsTrackData { get; set; }
@@ -36,6 +40,8 @@ public class CastSplitterViewModel
 	{
 		DroppedFiles = new();
 		CcsTrackData = new();
+
+		DockPanelWell.Add(DragDrop.DropEvent, DropFileEventAsync);
 
 		ResetFiles = Command.Factory
 			.CreateSync(ResetFile());

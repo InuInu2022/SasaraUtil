@@ -22,6 +22,7 @@
 		Margin="5"
 		Opacity="1"
 		DragDrop.AllowDrop="True"
+		epoxy:Fountain.Well="{Binding DockPanelWell}"
 		Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
 
 		<WrapPanel
