@@ -5,7 +5,7 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-	<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
     <ApplicationIcon>./Assets/icon.ico</ApplicationIcon>
     <!-- debug -->
@@ -36,36 +36,34 @@
     <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
-      <Deterministic>true</Deterministic>
-      <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
-      <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
-      <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
-      <DebugSymbols>false</DebugSymbols>
-	  <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
-      <TrimMode>copyused</TrimMode>
-      <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-      <PublishReadyToRun>true</PublishReadyToRun>
-      <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
-      <DebuggerSupport>false</DebuggerSupport>
-	  <SatelliteResourceLanguages>en-US;ja-JP</SatelliteResourceLanguages>
+    <Deterministic>true</Deterministic>
+    <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+    <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+    <DebugSymbols>false</DebugSymbols>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <TrimMode>copyused</TrimMode>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+    <DebuggerSupport>false</DebuggerSupport>
+    <SatelliteResourceLanguages>en-US;ja-JP</SatelliteResourceLanguages>
   </PropertyGroup>
-
   <Target Name="MakeZipPackage" AfterTargets="Publish">
-      <MakeDir Directories="$(OutputPath)/../../../../../publish/" />
-      <Delete Files="$(OutputPath)/LibSasara.xml" />
-      <Delete Files="$(OutputPath)/FluentCeVIOWrapper.Common.xml" />
-      <Delete Files="$(OutputPath)/$(AssemblyName).pdb" />
-      <Delete Files="$(OutputPath)/publish/$(AssemblyName).pdb" />
-      <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
-      <Delete Files="$(OutputPath)/publish/FluentCeVIOWrapper.Common.xml" />
-      <Delete Files="$(OutputPath)/publish/CevioCasts.pdb" />
-	  <Delete Files="$(OutputPath)/publish/CevioCasts.UpdateChecker.pdb" />
-	  <Delete Files="$(OutputPath)/publish/CodingSeb.Localization.pdb" />
-	  <Delete Files="$(OutputPath)/publish/CodingSeb.Localization.Avalonia.pdb" />
-      <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/../../../../../publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
-      <Message Text="Actions After Publish" Importance="high" />
+    <MakeDir Directories="$(OutputPath)/../../../../../publish/" />
+    <Delete Files="$(OutputPath)/LibSasara.xml" />
+    <Delete Files="$(OutputPath)/FluentCeVIOWrapper.Common.xml" />
+    <Delete Files="$(OutputPath)/$(AssemblyName).pdb" />
+    <Delete Files="$(OutputPath)/publish/$(AssemblyName).pdb" />
+    <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
+    <Delete Files="$(OutputPath)/publish/FluentCeVIOWrapper.Common.xml" />
+    <Delete Files="$(OutputPath)/publish/CevioCasts.pdb" />
+    <Delete Files="$(OutputPath)/publish/CevioCasts.UpdateChecker.pdb" />
+    <Delete Files="$(OutputPath)/publish/CodingSeb.Localization.pdb" />
+    <Delete Files="$(OutputPath)/publish/CodingSeb.Localization.Avalonia.pdb" />
+    <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/../../../../../publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
+    <Message Text="Actions After Publish" Importance="high" />
   </Target>
-
   <ItemGroup>
     <Content Include="../README.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -82,8 +80,8 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
-	<!-- localization yaml -->
-	<Content Include="../dic/strings.loc.yaml" LinkBase="Assets/">
+    <!-- localization yaml -->
+    <Content Include="../dic/strings.loc.yaml" LinkBase="Assets/">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -100,16 +98,15 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
-
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
-    <PackageReference Include="Avalonia" Version="11.0.11" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.11" />
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.11" />
+    <PackageReference Include="Avalonia" Version="11.0.13" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.13" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.13" />
     <PackageReference Include="MinVer" Version="4.3.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NLog" Version="5.3.2" />
+    <PackageReference Include="NLog" Version="5.3.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SasaraUtil.UI\SasaraUtil.UI.csproj" />

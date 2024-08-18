@@ -1,5 +1,5 @@
 <Project>
-  <PropertyGroup>
+  <PropertyGroup Condition="!$(MSBuildThisFileDirectory.Contains('\lib\'))">
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -19,7 +19,7 @@
 
   </PropertyGroup>
   <!-- analyzers -->
-  <ItemGroup>
+  <ItemGroup Condition="!$(MSBuildThisFileDirectory.Contains('\lib\'))">
     <PackageReference Include="Roslynator.Analyzers" Version="4.12.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
