@@ -8,6 +8,8 @@ namespace SasaraUtil.Core.Models;
 
 public static class LangUtil
 {
+	private static readonly NLog.Logger Logger
+		= NLog.LogManager.GetCurrentClassLogger();
 	public static void Init()
 	{
 		Loc.LogOutMissingTranslations = true;
@@ -16,17 +18,22 @@ public static class LangUtil
 			.Instance
 			.FileLanguageLoaders
 			.Add(new YamlFileLoader());
+		var fileName = Path.Combine(
+			AppDomain.CurrentDomain.BaseDirectory,
+			"Assets/strings.loc.yaml"
+		);
+		if(!File.Exists(fileName)){
+			var msg = $"file {fileName} is not found.";
+			Logger.Error(msg);
+			throw new FileNotFoundException(msg);
+		}
 		LocalizationLoader
 			.Instance
-			.AddFile(
-				Path.Combine(
-					AppDomain.CurrentDomain.BaseDirectory,
-					"Assets/strings.loc.yaml"
-				)
-			);
+			.AddFile(fileName);
 
 		var tl = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName ?? "en";
-		var hasLoc = Loc.AvailableLanguages.Contains(tl);
+		var hasLoc = Loc.AvailableLanguages
+			.Contains(tl, StringComparer.Ordinal);
 		Loc.Instance.CurrentLanguage = hasLoc ? tl : "en";
 
 		//ReloadFiles();

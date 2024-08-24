@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 using FluentCeVIOWrapper.Common;
 
@@ -21,13 +16,17 @@ base source code from
 https://github.com/InuInu2022/LibSasara/blob/master/sample/csharp/SongToTalk/Program.cs
 **/
 
-public class VocalPercussionCore{
+public sealed class VocalPercussionCore{
 	private static Process? process;
 	private FluentCeVIO? fcw;
 	private CeVIOFileBase? srcCcs;
 	private CeVIOFileBase? exportCcs;
-    private string? src;
+    //private string? src;
 	private string? dist;
+	private static readonly NLog.Logger Logger
+		= NLog.LogManager.GetCurrentClassLogger();
+
+	public static bool IsShowConsole { get; set; }
 
 	public async Task ExecuteAsync(
 		string src,
@@ -44,43 +43,42 @@ public class VocalPercussionCore{
 			throw new FileNotFoundException($"src:{src} is not found");
 		}
 
-		this.src = src;
-
-		/*
-		if(!File.Exists(dist)){
-			throw new FileNotFoundException($"{dist} is not found");
-		}*/
+		//this.src = src;
 
 		this.dist = dist;
 
-		/*
-		if(!string.IsNullOrEmpty(template) && !File.Exists(template)){
-			throw new FileNotFoundException($"template:{template} is not found");
-		}*/
+		await AwakeAsync(TTS)
+			.ConfigureAwait(false);
 
-		await AwakeAsync(TTS);
+		fcw = await StartTalkAsync(TTS)
+			.ConfigureAwait(false);
 
-		fcw = await StartTalkAsync(TTS);
-
-		var casts = await fcw.GetAvailableCastsAsync();
+		var casts = await fcw.GetAvailableCastsAsync().ConfigureAwait(false);
 		await fcw.CreateParam()
 			.Cast(casts[0])
-			.SendAsync();
+			.SendAsync().ConfigureAwait(false);
 
 		await fcw.SpeakAsync(
 			"CeVIOトークでボイパロイドします。"
-		);
+		).ConfigureAwait(false);
 
-		if (!casts.Contains(castName))
+		if (!casts.Contains(castName, StringComparer.Ordinal))
 		{
+			Logger.Error("cast not found.");
 			process!.Kill();
-			throw new ArgumentException($"{castName}は存在しないキャスト名です。");
+			throw new ArgumentException(
+				$"{castName}は存在しないキャスト名です。"
+				, nameof(castName));
 		}
+		Logger.Info($"cast: {castName}");
 
-		await fcw.SetCastAsync(castName);
-		await fcw.SpeakAsync($"キャストを{castName}に切り替えました。");
+		await fcw.SetCastAsync(castName).ConfigureAwait(false);
+		await fcw.SpeakAsync($"キャストを{castName}に切り替えました。")
+			.ConfigureAwait(false);
 
-		srcCcs = await SasaraCcs.LoadAsync(src);
+		srcCcs = await SasaraCcs.LoadAsync(src)
+			.ConfigureAwait(false);
+		Logger.Info($"source file: {src}");
 		await srcCcs
 			.GetUnits(Category.SingerSong)
 			.OfType<SongUnit>()
@@ -88,9 +86,12 @@ public class VocalPercussionCore{
 			.ToAsyncEnumerable()
 			.ForEachAwaitAsync(async s =>
 				await ToPercussionAsync(s, castName, template, stretch)
-			);
+					.ConfigureAwait(false)
+			)
+			.ConfigureAwait(false);
 
 		if(exportCcs is null){
+			Logger.Warn("export ccs file is null");
 			return;
 		}
 
@@ -100,7 +101,7 @@ public class VocalPercussionCore{
 			.Remove();
 
 		await exportCcs
-			.SaveAsync($"{this.dist}");
+			.SaveAsync($"{this.dist}").ConfigureAwait(false);
 	}
 
 	private async Task ToPercussionAsync(
@@ -114,28 +115,17 @@ public class VocalPercussionCore{
 		var notes = song.Notes;
 		var groupId = Guid.NewGuid();
 
-		var c = await fcw!
-			.GetComponentsAsync();
+		var castId = await fcw.GetCastIdAsync(castName).ConfigureAwait(false);
 
-		var castId = await fcw.GetCastIdAsync(castName);
-		//var castId = string.Join("-",c[0].Id.Split("-")[0..3]);
-
-		//var path = string.IsNullOrEmpty(template) ?
-		//	dist : template;
-		exportCcs = template;//await SasaraCcs.LoadAsync(path);
-
-		//if(Path.GetExtension(path) == "ccst"){
-		//	exportCcs.RemoveAllGroups();
-		//}
-
+		exportCcs = template;
 		exportCcs.AddGroup(
 			groupId,
 			Category.TextVocal,
 			$"ボイパ_{castName}_{srcCcs!.GetTrackSet(song.Group).group.Attribute("Name")?.Value}"
 		);
 
-		var cacheTones = new Dictionary<string, double>();
-		var cachePhonemes = new Dictionary<string, ReadOnlyCollection<FluentCeVIOWrapper.Common.Models.PhonemeData>>();
+		var cacheTones = new Dictionary<string, double>(StringComparer.Ordinal);
+		var cachePhonemes = new Dictionary<string, ReadOnlyCollection<FluentCeVIOWrapper.Common.Models.PhonemeData>>(StringComparer.Ordinal);
 
 		var units = await notes
 			.ToAsyncEnumerable()
@@ -143,12 +133,12 @@ public class VocalPercussionCore{
 			.SelectAwait(async (v, i) =>
 			{
 				//"ー"
-				return await ReplaceProlongedMarkAsync(v, i, notes);
+				return await ReplaceProlongedMarkAsync(v, i, notes).ConfigureAwait(false);
 			})
 			.SelectAwait(async (v, i) =>
 			{
 				//"っ"
-				return await ReplaceCloseConsonantAsync(v, i, notes);
+				return await ReplaceCloseConsonantAsync(v, i, notes).ConfigureAwait(false);
 			})
 			/*.SelectAwait(async v =>
 			{
@@ -164,16 +154,16 @@ public class VocalPercussionCore{
 				if (stretch)
 				{
 					//TODO: stretch
-					await fcw.SetSpeedAsync((uint)50);
+					await fcw.SetSpeedAsync((uint)50).ConfigureAwait(false);
 				}
 				else
 				{
-					await fcw.SetSpeedAsync(50);
+					await fcw.SetSpeedAsync(50).ConfigureAwait(false);
 				}
 
 				//await fcw.SpeakAsync(v.Lyric!);
 				var culc = await fcw
-					.GetTextDurationAsync(v.Lyric!);
+					.GetTextDurationAsync(v.Lyric!).ConfigureAwait(false);
 				//Console.WriteLine($"{v.cast}[{v.Lyric}] note:{v.noteLen}, talklen:{v.len}, rate:{v.rate}, culc:{culc}");
 
 				//pitch
@@ -181,7 +171,7 @@ public class VocalPercussionCore{
 				//target freq.
 				var tFreq = LibSasara.SasaraUtil.OctaveStepToFreq(v.PitchOctave, v.PitchStep);
 				//Console.WriteLine($"Target Freq. {tFreq}");
-				await fcw.SetToneAsync(50);
+				await fcw.SetToneAsync(50).ConfigureAwait(false);
 				var isCachedLyric = cacheTones.ContainsKey(v.Lyric!);
 
 				double avgFreq;
@@ -191,7 +181,7 @@ public class VocalPercussionCore{
 				}
 				else
 				{
-					var wp = await EstimateAsync(v.Lyric!);
+					var wp = await EstimateAsync(v.Lyric!).ConfigureAwait(false);
 					avgFreq = wp.F0?.Where(f => f > 0).Mean() ?? 0;
 					cacheTones
 						.Add(v.Lyric!, avgFreq);
@@ -203,7 +193,7 @@ public class VocalPercussionCore{
 					.ContainsKey(v.Lyric!);
 				var ph = isCachedPhoneme ?
 					cachePhonemes[v.Lyric!] :
-					await fcw.GetPhonemesAsync(v.Lyric!);
+					await fcw.GetPhonemesAsync(v.Lyric!).ConfigureAwait(false);
 				if (!isCachedPhoneme)
 				{
 					cachePhonemes[v.Lyric!] = ph;
@@ -243,7 +233,7 @@ public class VocalPercussionCore{
 				//return (targetRate:r, setFreq);
 			})
 			.ToListAsync()
-			;
+			.ConfigureAwait(false);
 	}
 
 	/// <summary>
@@ -269,7 +259,7 @@ public class VocalPercussionCore{
 			.GetRange(0, i)
 			.Last(n =>
 				n.Lyric is not "っ");
-		var ph = await fcw!.GetPhonemesAsync(lNote.Lyric!);
+		var ph = await fcw!.GetPhonemesAsync(lNote.Lyric!).ConfigureAwait(false);
 		var last = ph
 			.Last(v =>
 				v.Phoneme is not "sil"
@@ -313,7 +303,7 @@ public class VocalPercussionCore{
 					and not null
 					and not "");
 
-		var ph = await fcw!.GetPhonemesAsync(lNote.Lyric!);
+		var ph = await fcw!.GetPhonemesAsync(lNote.Lyric!).ConfigureAwait(false);
 
 		var last = ph
 			.Last(v =>
@@ -338,6 +328,31 @@ public class VocalPercussionCore{
 		process?.Kill();
 	}
 
+	public static async ValueTask FinishOldProcessAsync()
+	{
+		const string processName = "FluentCeVIOWrapper.Server.exe";
+		foreach (var p in Process.GetProcessesByName(processName))
+        {
+            try
+            {
+                p.Kill();
+				await p.WaitForExitAsync()
+					.ConfigureAwait(false);
+				var msg = $"{processName} プロセスを正常に終了しました。";
+				Logger.Info(msg);
+				Console.WriteLine(msg);
+            }
+            catch (Exception ex)
+            {
+				var msg = $"エラーが発生しました：{ex.Message}";
+				Logger.Error(msg);
+                await Console.Error
+					.WriteLineAsync(msg)
+					.ConfigureAwait(false);
+            }
+        }
+	}
+
 	static async ValueTask AwakeAsync(string TTS)
 	{
 		var ps = new ProcessStartInfo()
@@ -347,7 +362,7 @@ public class VocalPercussionCore{
 				@".\server\FluentCeVIOWrapper.Server.exe"
 			),
 			Arguments = $"-cevio {TTS}",
-			CreateNoWindow = !Core.Models.AppUtil.IsDebug,	//show console if debug,
+			CreateNoWindow = !IsShowConsole, //show console,
 			//ErrorDialog = true,
 			UseShellExecute = false,
 			//RedirectStandardOutput = true,
@@ -363,12 +378,13 @@ public class VocalPercussionCore{
 		}
 		catch (Exception e)
 		{
-			Console.WriteLine($"Error {e}");
+			await Console.Error.WriteLineAsync($"Error {e}")
+				.ConfigureAwait(false);
 			throw;
 		}
 
 		System.Console.WriteLine("awaked.");
-		await Task.Delay(2000);
+		await Task.Delay(2000).ConfigureAwait(false);
 	}
 
 	public async Task<FluentCeVIO> StartTalkAsync(string TTS){
@@ -378,21 +394,21 @@ public class VocalPercussionCore{
 			_ => Product.CeVIO_CS
 		};
 		return await FluentCeVIO
-			.FactoryAsync(product: product);
+			.FactoryAsync(product: product).ConfigureAwait(false);
 	}
 
 	public async ValueTask<WorldParam> EstimateAsync(string serifText)
 	{
-		var tempName = Path.GetTempFileName();
+		var tempName = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 
-		var resultOutput = await fcw!.OutputWaveToFileAsync(serifText, tempName);
+		var resultOutput = await fcw!.OutputWaveToFileAsync(serifText, tempName).ConfigureAwait(false);
 		if (!resultOutput)
 		{
 			var msg = $"Faild to save temp file!:{tempName}";
-			throw new Exception(msg);
+			throw new InvalidOperationException(msg);
 		}
 
-		var (fs, nbit, len, x) = await WorldUtil.ReadWavAsync(tempName);
+		var (fs, nbit, len, x) = await WorldUtil.ReadWavAsync(tempName).ConfigureAwait(false);
 
 		//Console.WriteLine((fs, nbit, len, x));
 		var parameters = new WorldParam(fs);
@@ -401,10 +417,10 @@ public class VocalPercussionCore{
 			x,
 			len,
 			parameters
-		);
+		).ConfigureAwait(false);
 		if (tempName != null && File.Exists(tempName))
 		{
-			await Task.Run(()=> File.Delete(tempName));  //remove temp file
+			await Task.Run(()=> File.Delete(tempName)).ConfigureAwait(false);  //remove temp file
 		}
 
 		return parameters;

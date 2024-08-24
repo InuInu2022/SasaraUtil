@@ -2,6 +2,7 @@ using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
+using Avalonia.Logging;
 using Avalonia.Media;
 using Avalonia.Notification;
 
@@ -9,6 +10,8 @@ namespace SasaraUtil.ViewModels;
 
 public static class NotifyUtil
 {
+	private static readonly NLog.Logger Logger
+		= NLog.LogManager.GetCurrentClassLogger();
     /// <summary>
 	/// エラーメッセージ通知（2行）
 	/// </summary>
@@ -22,6 +25,8 @@ public static class NotifyUtil
 		string message
 	)
 	{
+		Logger.Error(header);
+		Logger.Error(message);
 		return manager
 			.CreateMessage()
 			.Accent("#F15B19")
@@ -49,6 +54,8 @@ public static class NotifyUtil
 		string message
 	)
 	{
+		Logger.Warn(header);
+		Logger.Warn(message);
 		return manager
 			.CreateMessage()
 			.Accent("#E0A030")
