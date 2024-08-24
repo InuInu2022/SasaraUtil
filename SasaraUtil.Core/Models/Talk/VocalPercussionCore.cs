@@ -364,10 +364,14 @@ public sealed class VocalPercussionCore{
 			Arguments = $"-cevio {TTS}",
 			CreateNoWindow = !IsShowConsole, //show console,
 			//ErrorDialog = true,
-			UseShellExecute = false,
+			UseShellExecute = IsShowConsole,
 			//RedirectStandardOutput = true,
 		};
-		if(!Core.Models.AppUtil.IsDebug){
+		Logger.Info($"IsShowConsole: {IsShowConsole}");
+		Logger.Info($"psi.CreateNoWindow: {ps.CreateNoWindow}");
+		Logger.Info($"psi.UseShellExecute: {ps.UseShellExecute}");
+		if(!IsShowConsole)
+		{
 			ps!.WindowStyle = ProcessWindowStyle.Hidden;
 		}
 
