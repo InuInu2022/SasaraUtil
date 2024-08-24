@@ -250,3 +250,6 @@ Errors:
     UpdateCheckFailed.Message:
         ja: 更新確認に失敗しました。
         en: Update confirmation process failed.
+    CastNotFound.Message:
+        ja: キャストが存在しません。
+        en: A cast is not found.
