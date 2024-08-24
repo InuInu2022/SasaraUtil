@@ -1,8 +1,4 @@
-using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Avalonia.Input;
 using Avalonia.Notification;
 
@@ -15,11 +11,11 @@ using SasaraUtil.ViewModels.Utility;
 using LibSasara.Model;
 using System.Diagnostics.CodeAnalysis;
 using SasaraUtil.Core.Models;
-using System.Collections.Generic;
 using Avalonia.Platform.Storage;
 using SasaraUtil.UI.ViewModels.Utility;
 using CodingSeb.Localization;
 using Avalonia.Controls;
+using NLog;
 
 namespace SasaraUtil.ViewModels.VocalPercussion;
 
@@ -28,6 +24,9 @@ public class VocalPercussionViewModel
 {
 	private readonly INotificationMessageManager? _notify;
     private readonly IStorageProvider? _storage;
+
+	private static readonly NLog.Logger Logger
+		= NLog.LogManager.GetCurrentClassLogger();
     private ReadOnlyCollection<(string, string)> currentCastNames
 		= new(new List<(string, string)>());
 
@@ -39,6 +38,7 @@ public class VocalPercussionViewModel
 	public Command? SaveFile { get; set; }
 	public Command? SelectFile { get; set; }
 	public Command? Ready { get; set; }
+	public Command? ResetServer { get; set; }
 
 	public Well DockPanelWell { get; }
 		= Well.Factory.Create<DockPanel>();
@@ -51,6 +51,12 @@ public class VocalPercussionViewModel
 
 	public ObservableCollection<string> TalkCasts { get; set; }
 		= [];
+
+	public bool IsShowConsole
+	{
+		get => VocalPercussionCore.IsShowConsole;
+		set => VocalPercussionCore.IsShowConsole = value;
+	}
 
 	private static readonly string[] patterns = ["*.ccs"];
 
@@ -72,6 +78,9 @@ public class VocalPercussionViewModel
 		SelectFile = Command.Factory
 			.Create(LoadFileAsync);
 
+		ResetServer = Command.Factory
+			.Create(ResetServerAsync);
+
 		_notify = Utility
 			.MainWindowUtil
 			.GetNotifyManager();
@@ -79,6 +88,16 @@ public class VocalPercussionViewModel
 		_storage = MainWindowUtil
 			.GetWindow()?
 			.StorageProvider;
+	}
+
+	private async ValueTask ResetServerAsync()
+	{
+		VocalPercussionCore.Finish();
+		await VocalPercussionCore
+			.FinishOldProcessAsync()
+			.ConfigureAwait(false);
+		await Task.CompletedTask
+			.ConfigureAwait(false);
 	}
 
 	private async ValueTask SaveFileAsync()

@@ -35,6 +35,23 @@
 				</ui:SymbolIcon>
 			</WrapPanel>
 			<StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+				<DropDownButton Content="Debug"
+					Margin="5" >
+					<DropDownButton.Flyout>
+						<Flyout>
+							<StackPanel>
+								<!-- IsShowConsole -->
+								<CheckBox
+									Content="Show server console"
+									IsChecked="{Binding IsShowConsole}" />
+								<Button
+									Content="Reset server"
+									Command="{CompiledBinding ResetServer}" />
+							</StackPanel>
+						</Flyout>
+					</DropDownButton.Flyout>
+				</DropDownButton>
+
 				<ToggleSwitch OnContent="send CeVIO" OffContent="send CeVIO" HorizontalAlignment="Left" IsChecked="{Binding IsOpenWithCeVIO}">
 					<ToggleSwitch.OnContent>
 						<StackPanel Orientation="Horizontal">
@@ -49,6 +66,7 @@
 						</StackPanel>
 					</ToggleSwitch.OffContent>
 				</ToggleSwitch>
+
 				<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Classes="accent" IsEnabled="{Binding IsConvertable}" Command="{CompiledBinding SaveFile}">
 					<WrapPanel>
 						<ui:SymbolIcon Symbol="Download" />
