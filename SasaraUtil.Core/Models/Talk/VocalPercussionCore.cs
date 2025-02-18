@@ -111,11 +111,14 @@ public sealed class VocalPercussionCore{
 		bool stretch
 	)
 	{
-		var tempo = song.Tempo;
+		var tempo = song.Tempos;
 		var notes = song.Notes;
 		var groupId = Guid.NewGuid();
 
-		var castId = await fcw.GetCastIdAsync(castName).ConfigureAwait(false);
+		if (fcw is null) return;
+
+		var castId = await fcw.GetCastIdAsync(castName)
+			.ConfigureAwait(false);
 
 		exportCcs = template;
 		exportCcs.AddGroup(
@@ -161,16 +164,14 @@ public sealed class VocalPercussionCore{
 					await fcw.SetSpeedAsync(50).ConfigureAwait(false);
 				}
 
-				//await fcw.SpeakAsync(v.Lyric!);
 				var culc = await fcw
-					.GetTextDurationAsync(v.Lyric!).ConfigureAwait(false);
-				//Console.WriteLine($"{v.cast}[{v.Lyric}] note:{v.noteLen}, talklen:{v.len}, rate:{v.rate}, culc:{culc}");
+					.GetTextDurationAsync(v.Lyric!)
+					.ConfigureAwait(false);
 
 				//pitch
 
 				//target freq.
-				var tFreq = LibSasara.SasaraUtil.OctaveStepToFreq(v.PitchOctave, v.PitchStep);
-				//Console.WriteLine($"Target Freq. {tFreq}");
+				var tFreq = LibSasaraUtil.OctaveStepToFreq(v.PitchOctave, v.PitchStep);
 				await fcw.SetToneAsync(50).ConfigureAwait(false);
 				var isCachedLyric = cacheTones.ContainsKey(v.Lyric!);
 
@@ -219,7 +220,7 @@ public sealed class VocalPercussionCore{
 				return TalkUnitBuilder
 					.Create(
 						exportCcs,
-						LibSasara.SasaraUtil
+						LibSasaraUtil
 							.ClockToTimeSpan(tempo, v.Clock),
 						TimeSpan.FromSeconds(culc),
 						castId,
@@ -250,7 +251,7 @@ public sealed class VocalPercussionCore{
 	private async ValueTask<Note> ReplaceCloseConsonantAsync(Note v, int i, List<Note> notes)
 	{
 		//TODO:「っ」で始まる複数文字の歌詞の場合の対応
-		if (v.Lyric != "っ")
+		if (!string.Equals(v.Lyric, "っ", StringComparison.Ordinal))
 		{
 			return v;
 		}
@@ -290,7 +291,7 @@ public sealed class VocalPercussionCore{
 	/// <returns></returns>
 	private async ValueTask<Note> ReplaceProlongedMarkAsync(Note v, int i, List<Note> notes)
 	{
-		if (v.Lyric != "ー")
+		if (!string.Equals(v.Lyric, "ー", StringComparison.Ordinal))
 		{
 			return v;
 		}
@@ -412,9 +413,8 @@ public sealed class VocalPercussionCore{
 			throw new InvalidOperationException(msg);
 		}
 
-		var (fs, nbit, len, x) = await WorldUtil.ReadWavAsync(tempName).ConfigureAwait(false);
+		var (fs, _, len, x) = await WorldUtil.ReadWavAsync(tempName).ConfigureAwait(false);
 
-		//Console.WriteLine((fs, nbit, len, x));
 		var parameters = new WorldParam(fs);
 		//ピッチ推定
 		parameters = await WorldUtil.EstimateF0Async(

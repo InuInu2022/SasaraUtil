@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Linq;
 using LibSasara.Model.Serialize;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace SasaraUtil.Models.Song;
 
@@ -52,12 +53,12 @@ public static class BreathSuppressorCore
 	{
 		//labからブレス部分のみを抜き出し
 		var noSounds = await Task.Run(() =>
-			lab.Lines
+			lab.Lines?
 				.AsParallel()
 				.Where(v => v is not null
 					&& reg.IsMatch(v.Phoneme))
 				.ToList()
-		);
+		).ConfigureAwait(false);
 
 		//ccsのC0の該当部分のVOLを削る
 		var su = project
@@ -75,6 +76,12 @@ public static class BreathSuppressorCore
 			Convert.ToInt32(total / INDEX_SPAN_TIME),
 			su.Volume.Length
 		);
+		totalLen = Math.Max(
+			Convert.ToInt32(
+				su.RawVolume.Attribute("Length")?.Value,
+				CultureInfo.InvariantCulture),
+			totalLen
+		);
 
 		var fullVol = (su.Volume.Length == 0) ?
 			su.Volume.GetFullData(totalLen) :
@@ -83,7 +90,7 @@ public static class BreathSuppressorCore
 
 		su.Volume.Length = totalLen;
 
-		var nsList = noSounds
+		var nsList = noSounds?
 			.AsParallel()
 			.Select(v =>
 			{
@@ -98,7 +105,8 @@ public static class BreathSuppressorCore
 			.ToAsyncEnumerable()
 			.SelectAwait(async v =>
 			{
-				var isInner = await IsInNoVoiceAsync(nsList, v);
+				var isInner = await IsInNoVoiceAsync(nsList ?? [], v)
+					.ConfigureAwait(false);
 				var isKeep = option?.IsKeepTuned ?? false;
 
 				if(isInner){
@@ -116,7 +124,7 @@ public static class BreathSuppressorCore
 				return v;
 			})
 			.ToListAsync()
-			;
+			.ConfigureAwait(false);
 
 		//上書き！
 		var newVol = su.Volume;
@@ -136,8 +144,8 @@ public static class BreathSuppressorCore
 		var time = data.Index * INDEX_SPAN_TIME;
 		return await Task.Run(() =>
 			nsList
-				.Any(v => v.From <= time && time <= v.To)
-		);
+				.Exists(v => v.From <= time && time <= v.To)
+		).ConfigureAwait(false);
 	}
 
 	static async ValueTask SuppressVolumeAsync(
@@ -159,7 +167,7 @@ public enum SuppressMode
 
 public record SuppressOption
 {
-	public bool IsKeepTuned;
+	public bool IsKeepTuned { get; set; }
 
 	public SuppressOption(bool isKeepTuned)
 	{

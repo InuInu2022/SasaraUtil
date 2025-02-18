@@ -245,3 +245,5 @@ SasaraUtil.UI/Views/General/NVSamplePage1.axaml
 /server/*
 !/server/.gitkeep
 .cosine/data.db
+tests/Test.Core/assets/ccs/*.voiceperc.ccs
+tests/Test.Core/assets/ccs/*.splitted.ccs
