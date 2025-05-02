@@ -102,7 +102,7 @@
                   IsClosable="False"
                   Message="{Binding LatestAppVer}">
                   <ui:InfoBar.ActionButton>
-                    <ui:HyperlinkButton
+                    <HyperlinkButton
                       Content="Download"
                       NavigateUri="{Binding AppDownloadPath}"
                       HorizontalAlignment="Right"

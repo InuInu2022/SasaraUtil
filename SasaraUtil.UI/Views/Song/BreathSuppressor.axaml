@@ -183,7 +183,7 @@
 					FontFamily="Hiragino, Meiryo"
 					Message="{Tr BreathSuppressor.NotesTips.Message}">
 					<ui:InfoBar.ActionButton>
-						<ui:HyperlinkButton
+						<HyperlinkButton
 							Content="{Tr Links.CeVIOUserWiki}"
 							NavigateUri="https://w.atwiki.jp/ceviouser/pages/21.html#id_9952e844" />
 					</ui:InfoBar.ActionButton>

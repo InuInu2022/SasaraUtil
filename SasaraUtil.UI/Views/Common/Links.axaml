@@ -12,15 +12,15 @@
 	xmlns:wnd="using:FluentAvalonia.UI.Windowing" mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450" x:Class="SasaraUtil.Views.Common.Links">
 
 	<WrapPanel>
-		<ui:HyperlinkButton Content="{Tr Links.OfficialSite}" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
-		<ui:HyperlinkButton Content="{Tr Links.CeVIOOfficialSite}" NavigateUri="https://cevio.jp/" />
-		<ui:HyperlinkButton Content="{Tr Links.CeVIOAIUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
-		<ui:HyperlinkButton Content="{Tr Links.CeVIOCSUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
-		<ui:HyperlinkButton Content="{Tr Links.VoiSonaOfficialSite}" NavigateUri="https://voisona.com/" />
-		<ui:HyperlinkButton Content="{Tr Links.CeVIOUserWiki}" NavigateUri="https://w.atwiki.jp/ceviouser/" />
-		<ui:HyperlinkButton Content="{Tr Links.UtaFormatix}" NavigateUri="https://sdercolin.github.io/utaformatix3/" />
-		<ui:HyperlinkButton Content="{Tr Links.NodoAme}" NavigateUri="https://inuinu2022.github.io/NodoAme.Home/" />
-		<ui:HyperlinkButton Content="{Tr Links.KotoKanade}" NavigateUri="https://inuinu2022.github.io/KotoKanade/" />
+		<HyperlinkButton Content="{Tr Links.OfficialSite}" NavigateUri="https://github.com/InuInu2022/SasaraUtil/" />
+		<HyperlinkButton Content="{Tr Links.CeVIOOfficialSite}" NavigateUri="https://cevio.jp/" />
+		<HyperlinkButton Content="{Tr Links.CeVIOAIUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_ai/" />
+		<HyperlinkButton Content="{Tr Links.CeVIOCSUserGuide}" NavigateUri="https://cevio.jp/guide/cevio_cs7/" />
+		<HyperlinkButton Content="{Tr Links.VoiSonaOfficialSite}" NavigateUri="https://voisona.com/" />
+		<HyperlinkButton Content="{Tr Links.CeVIOUserWiki}" NavigateUri="https://w.atwiki.jp/ceviouser/" />
+		<HyperlinkButton Content="{Tr Links.UtaFormatix}" NavigateUri="https://sdercolin.github.io/utaformatix3/" />
+		<HyperlinkButton Content="{Tr Links.NodoAme}" NavigateUri="https://inuinu2022.github.io/NodoAme.Home/" />
+		<HyperlinkButton Content="{Tr Links.KotoKanade}" NavigateUri="https://inuinu2022.github.io/KotoKanade/" />
 	</WrapPanel>
 
 </UserControl>
